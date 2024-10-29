@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonObject;
+import moe.nova.bean.TimeHolder;
 import moe.nova.util.JacksonObjectMapperFactory;
 
 import java.time.LocalDate;

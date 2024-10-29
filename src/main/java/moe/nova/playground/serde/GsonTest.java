@@ -2,6 +2,7 @@ package moe.nova.playground.serde;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import moe.nova.bean.TimeHolder;
 import moe.nova.util.GsonUtil;
 
 import java.time.LocalDate;

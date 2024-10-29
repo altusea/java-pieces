@@ -14,7 +14,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.YearMonthSerializer;
-import moe.nova.playground.serde.TimeHolder;
+import moe.nova.bean.TimeHolder;
 import moe.nova.util.internal.jackson.CustomLocalDateTimeDeserializer;
 import org.dromara.hutool.core.date.DatePattern;
 

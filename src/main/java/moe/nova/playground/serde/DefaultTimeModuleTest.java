@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.JsonObject;
+import moe.nova.bean.TimeHolder;
 import moe.nova.util.JacksonObjectMapperFactory;
 
 import java.time.LocalDateTime;

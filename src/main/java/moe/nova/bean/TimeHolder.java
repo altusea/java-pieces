@@ -1,4 +1,4 @@
-package moe.nova.playground.serde;
+package moe.nova.bean;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
