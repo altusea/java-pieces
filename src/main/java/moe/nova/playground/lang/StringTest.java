@@ -1,4 +1,4 @@
-package moe.nova.playground;
+package moe.nova.playground.lang;
 
 import kala.text.StringSlice;
 import moe.nova.util.StringUtil;

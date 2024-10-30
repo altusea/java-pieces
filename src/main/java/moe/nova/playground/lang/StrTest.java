@@ -1,4 +1,4 @@
-package moe.nova.playground;
+package moe.nova.playground.lang;
 
 import org.dromara.hutool.core.text.StrUtil;
 
