@@ -6,13 +6,13 @@
 
     <groupId>moe.cafe</groupId>
     <artifactId>java-pieces</artifactId>
-    <version>2024.10.0</version>
+    <version>2024.11.0</version>
 
     <properties>
-        <maven.compiler.release>23</maven.compiler.release>
+        <maven.compiler.release>24</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- libs -->
-        <bouncycastle.version>1.78.1</bouncycastle.version>
+        <bouncycastle.version>1.79</bouncycastle.version>
         <commons-codec.version>1.17.1</commons-codec.version>
         <commons-collections4.version>4.5.0-M2</commons-collections4.version>
         <commons-compress.version>1.27.1</commons-compress.version>

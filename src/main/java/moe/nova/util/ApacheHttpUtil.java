@@ -31,22 +31,20 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class ApacheHttpUtil {
 
-    private static final PoolingHttpClientConnectionManager CONN_MANAGER;
-
     private static final HttpClient HTTP_CLIENT;
 
-    private static final HttpClientResponseHandler<String> DEFAULT_RESPONSE_HANDLER = new BasicHttpClientResponseHandler();
+    public static final HttpClientResponseHandler<String> DEFAULT_RESPONSE_HANDLER = new BasicHttpClientResponseHandler();
 
     static {
-        CONN_MANAGER = PoolingHttpClientConnectionManagerBuilder.create()
+        final PoolingHttpClientConnectionManager connManager = PoolingHttpClientConnectionManagerBuilder.create()
                 .setTlsSocketStrategy(new DefaultClientTlsStrategy(
-                        SSLContexts.createSystemDefault(),
+                        SSLContexts.createDefault(),
                         NoopHostnameVerifier.INSTANCE))
                 .setDefaultSocketConfig(SocketConfig.custom()
                         .setSoTimeout(Timeout.ofMinutes(1))
                         .build())
-                .setPoolConcurrencyPolicy(PoolConcurrencyPolicy.STRICT)
-                .setConnPoolPolicy(PoolReusePolicy.LIFO)
+                .setPoolConcurrencyPolicy(PoolConcurrencyPolicy.LAX)
+                .setConnPoolPolicy(PoolReusePolicy.FIFO)
                 .setDefaultConnectionConfig(ConnectionConfig.custom()
                         .setSocketTimeout(Timeout.ofMinutes(1))
                         .setConnectTimeout(Timeout.ofMinutes(1))
@@ -54,11 +52,14 @@ public class ApacheHttpUtil {
                         .build())
                 .build();
         HTTP_CLIENT = HttpClients.custom()
-                .setConnectionManager(CONN_MANAGER)
+                .setConnectionManager(connManager)
                 .setDefaultRequestConfig(RequestConfig.custom()
                         .setCookieSpec(StandardCookieSpec.IGNORE)
                         .build())
                 .build();
+    }
+
+    private ApacheHttpUtil() {
     }
 
     private static String executeRequest(ClassicHttpRequest request) {
