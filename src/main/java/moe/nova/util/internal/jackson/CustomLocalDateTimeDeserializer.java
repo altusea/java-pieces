@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import org.apache.commons.lang3.StringUtils;
-import org.dromara.hutool.core.date.DatePattern;
+import org.dromara.hutool.core.date.DateFormatPool;
 
 import java.io.IOException;
 import java.time.Instant;
@@ -39,13 +39,13 @@ public class CustomLocalDateTimeDeserializer extends LocalDateTimeDeserializer {
             if (text.length() == 13) {
                 // 时间戳
                 return LocalDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(text)), ZoneId.systemDefault());
-            } else if (text.length() == DatePattern.NORM_DATE_PATTERN.length()) {
+            } else if (text.length() == DateFormatPool.NORM_DATE_PATTERN.length()) {
                 // "yyyy-MM-dd"
-                return LocalDate.parse(text, DatePattern.NORM_DATE_FORMATTER).atStartOfDay();
+                return LocalDate.parse(text, DateFormatPool.NORM_DATE_FORMATTER).atStartOfDay();
             } else if (text.indexOf('T') >= 0) {
                 return super.deserialize(parser, context);
-            } else if (text.length() == DatePattern.NORM_DATETIME_PATTERN.length()) {
-                return LocalDateTime.parse(text, DatePattern.NORM_DATETIME_FORMATTER);
+            } else if (text.length() == DateFormatPool.NORM_DATETIME_PATTERN.length()) {
+                return LocalDateTime.parse(text, DateFormatPool.NORM_DATETIME_FORMATTER);
             }
         }
         return super.deserialize(parser, context);

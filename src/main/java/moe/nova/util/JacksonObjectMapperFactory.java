@@ -16,7 +16,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.YearMonthSerializer;
 import moe.nova.bean.TimeHolder;
 import moe.nova.util.internal.jackson.CustomLocalDateTimeDeserializer;
-import org.dromara.hutool.core.date.DatePattern;
+import org.dromara.hutool.core.date.DateFormatPool;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -31,17 +31,17 @@ public final class JacksonObjectMapperFactory {
     public static JsonMapper createJsonMapper() {
         var javaTimeModule = new SimpleModule();
         // LocalDate
-        javaTimeModule.addSerializer(LocalDate.class, new LocalDateSerializer(DatePattern.NORM_DATE_FORMATTER));
-        javaTimeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(DatePattern.NORM_DATE_FORMATTER));
+        javaTimeModule.addSerializer(LocalDate.class, new LocalDateSerializer(DateFormatPool.NORM_DATE_FORMATTER));
+        javaTimeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(DateFormatPool.NORM_DATE_FORMATTER));
         // LocalDateTime
-        javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DatePattern.NORM_DATETIME_FORMATTER));
+        javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateFormatPool.NORM_DATETIME_FORMATTER));
         javaTimeModule.addDeserializer(LocalDateTime.class, new CustomLocalDateTimeDeserializer());
         // LocalTime
-        javaTimeModule.addSerializer(LocalTime.class, new LocalTimeSerializer(DatePattern.NORM_TIME_FORMATTER));
-        javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(DatePattern.NORM_TIME_FORMATTER));
+        javaTimeModule.addSerializer(LocalTime.class, new LocalTimeSerializer(DateFormatPool.NORM_TIME_FORMATTER));
+        javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(DateFormatPool.NORM_TIME_FORMATTER));
         // YearMonth
-        javaTimeModule.addSerializer(YearMonth.class, new YearMonthSerializer(DatePattern.NORM_MONTH_FORMATTER));
-        javaTimeModule.addDeserializer(YearMonth.class, new YearMonthDeserializer(DatePattern.NORM_MONTH_FORMATTER));
+        javaTimeModule.addSerializer(YearMonth.class, new YearMonthSerializer(DateFormatPool.NORM_MONTH_FORMATTER));
+        javaTimeModule.addDeserializer(YearMonth.class, new YearMonthDeserializer(DateFormatPool.NORM_MONTH_FORMATTER));
         return JsonMapper.builder()
                 .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
                 // empty string error

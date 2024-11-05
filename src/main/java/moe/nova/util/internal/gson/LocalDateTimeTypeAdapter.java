@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import org.dromara.hutool.core.date.DatePattern;
+import org.dromara.hutool.core.date.DateFormatPool;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -28,7 +28,7 @@ public final class LocalDateTimeTypeAdapter extends TypeAdapter<LocalDateTime> {
         if (localDateTime == null) {
             jsonWriter.nullValue();
         } else {
-            jsonWriter.value(localDateTime.format(DatePattern.NORM_DATETIME_FORMATTER));
+            jsonWriter.value(localDateTime.format(DateFormatPool.NORM_DATETIME_FORMATTER));
         }
     }
 
@@ -38,7 +38,7 @@ public final class LocalDateTimeTypeAdapter extends TypeAdapter<LocalDateTime> {
             jsonReader.nextNull();
             return null;
         } else {
-            return LocalDateTime.parse(jsonReader.nextString(), DatePattern.NORM_DATETIME_FORMATTER);
+            return LocalDateTime.parse(jsonReader.nextString(), DateFormatPool.NORM_DATETIME_FORMATTER);
         }
     }
 }

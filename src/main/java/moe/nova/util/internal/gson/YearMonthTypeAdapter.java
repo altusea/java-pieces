@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import org.dromara.hutool.core.date.DatePattern;
+import org.dromara.hutool.core.date.DateFormatPool;
 
 import java.io.IOException;
 import java.time.YearMonth;
@@ -28,7 +28,7 @@ public final class YearMonthTypeAdapter extends TypeAdapter<YearMonth> {
         if (yearMonth == null) {
             jsonWriter.nullValue();
         } else {
-            jsonWriter.value(yearMonth.format(DatePattern.NORM_MONTH_FORMATTER));
+            jsonWriter.value(yearMonth.format(DateFormatPool.NORM_MONTH_FORMATTER));
         }
     }
 
@@ -38,7 +38,7 @@ public final class YearMonthTypeAdapter extends TypeAdapter<YearMonth> {
             jsonReader.nextNull();
             return null;
         } else {
-            return YearMonth.parse(jsonReader.nextString(), DatePattern.NORM_MONTH_FORMATTER);
+            return YearMonth.parse(jsonReader.nextString(), DateFormatPool.NORM_MONTH_FORMATTER);
         }
     }
 }

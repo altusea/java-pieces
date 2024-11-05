@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import org.dromara.hutool.core.date.DatePattern;
+import org.dromara.hutool.core.date.DateFormatPool;
 import org.dromara.hutool.core.date.DateUtil;
 
 import java.io.IOException;
@@ -29,7 +29,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
         if (date == null) {
             jsonWriter.nullValue();
         } else {
-            jsonWriter.value(DateUtil.format(date, DatePattern.NORM_DATETIME_FORMAT));
+            jsonWriter.value(DateUtil.format(date, DateFormatPool.NORM_DATETIME_FORMAT));
         }
     }
 
@@ -39,7 +39,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
             jsonReader.nextNull();
             return null;
         } else {
-            return DateUtil.parse(jsonReader.nextString(), DatePattern.NORM_DATETIME_FORMAT);
+            return DateUtil.parse(jsonReader.nextString(), DateFormatPool.NORM_DATETIME_FORMAT);
         }
     }
 }
