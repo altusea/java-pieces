@@ -1,6 +1,6 @@
 package moe.nova.util;
 
-import org.jspecify.annotations.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.FilterInputStream;
 import java.io.IOException;
@@ -40,7 +40,7 @@ public class LookaheadInputStream extends FilterInputStream {
     }
 
     @Override
-    public int read(byte @NonNull [] b, int off, int len) throws IOException {
+    public int read(byte @NotNull [] b, int off, int len) throws IOException {
         if (next == null) {
             return super.read(b, off, len);
         }

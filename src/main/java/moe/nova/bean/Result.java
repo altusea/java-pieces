@@ -1,5 +1,7 @@
 package moe.nova.bean;
 
+import com.alibaba.excel.util.StringUtils;
+
 public sealed interface Result {
 
     static Result parseInt(String toParse) {
@@ -19,8 +21,8 @@ public sealed interface Result {
     }
 
     default int getOrDefault(int defaultValue) {
-        if (this instanceof Success success) {
-            return success.num();
+        if (this instanceof Success(int num)) {
+            return num;
         }
         return defaultValue;
     }
@@ -30,6 +32,12 @@ record Success(int num) implements Result {
 }
 
 record Error(String errorMsg) implements Result {
+
+    Error {
+        if (StringUtils.isEmpty(errorMsg)) {
+            throw new IllegalArgumentException("Param [errorMsg] cannot be empty!");
+        }
+    }
 }
 
 class ResultTest {

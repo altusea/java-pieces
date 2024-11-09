@@ -32,6 +32,7 @@ public class OptionalTypeAdapter<T> extends TypeAdapter<Optional<T>> {
 
     private final TypeAdapter<T> valueAdapter;
 
+    @SuppressWarnings("unchecked")
     public OptionalTypeAdapter(Gson gson, TypeToken<Optional<T>> type) {
         if (!Optional.class.isAssignableFrom(type.getRawType()))
             throw new IllegalArgumentException();

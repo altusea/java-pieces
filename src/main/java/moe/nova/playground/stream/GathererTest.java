@@ -47,9 +47,7 @@ public class GathererTest {
             }
             return true;
         };
-        BiConsumer<SequencedMap<K, T>, Gatherer.Downstream<? super T>> finisher = (state, downstream) -> {
-            state.values().forEach(downstream::push);
-        };
+        BiConsumer<SequencedMap<K, T>, Gatherer.Downstream<? super T>> finisher = (state, downstream) -> state.values().forEach(downstream::push);
         return Gatherer.ofSequential(initializer, integrator, finisher);
     }
 

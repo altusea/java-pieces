@@ -1,6 +1,6 @@
 package moe.nova.playground.juc;
 
-import org.jspecify.annotations.NonNull;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +19,7 @@ public class DelayedQueueTest {
             return unit.convert(diff, TimeUnit.MILLISECONDS);
         }
 
-        public int compareTo(@NonNull Delayed o) {
+        public int compareTo(@NotNull Delayed o) {
             return (int) (this.startTime - ((DelayedEvent) o).startTime);
         }
 

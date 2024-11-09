@@ -36,7 +36,7 @@ public class SymmetricTest {
             String decryptedText = new String(decryptedBytes, StandardCharsets.UTF_8);
             System.out.println("解密结果：" + decryptedText);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
     }

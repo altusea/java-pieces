@@ -11,7 +11,7 @@ import java.lang.invoke.VarHandle;
 class MyArrayClass {
     private int[] myArray;
 
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+    public static void main(String[] args) {
         MyArrayClass instance = new MyArrayClass();
         instance.myArray = new int[10];
 

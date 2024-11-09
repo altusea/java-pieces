@@ -6,7 +6,6 @@ import com.alibaba.excel.annotation.ExcelProperty;
 import org.dromara.hutool.core.io.file.FileUtil;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -71,7 +70,7 @@ public class ExcelExportTest {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         var demoDateList = List.of(
                 new DemoData("A", new Date(), 1.0, ""),
                 new DemoData("A", new Date(), 1.0, ""),
