@@ -1,6 +1,6 @@
 package moe.nova.bean;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class Organization implements Comparable<Organization> {
     }
 
     @Override
-    public int compareTo(@NotNull Organization o) {
+    public int compareTo(@NonNull Organization o) {
         return this.id.compareTo(o.getId());
     }
 

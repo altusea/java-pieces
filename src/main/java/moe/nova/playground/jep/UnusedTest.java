@@ -1,13 +1,13 @@
 package moe.nova.playground.jep;
 
 import com.google.common.collect.Lists;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 
 public class UnusedTest {
 
-    static <T> int count(@NotNull Iterable<T> orders) {
+    static <T> int count(@NonNull Iterable<T> orders) {
         int total = 0;
         for (T _ : orders) // Unnamed variable
             total++;

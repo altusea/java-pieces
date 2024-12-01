@@ -1,6 +1,6 @@
 package moe.nova.util;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Objects;
 import java.util.concurrent.ThreadFactory;
@@ -14,7 +14,7 @@ public class DaemonThreadFactory implements ThreadFactory {
     }
 
     @Override
-    public Thread newThread(@NotNull Runnable runnable) {
+    public Thread newThread(@NonNull Runnable runnable) {
         Thread thread = delegate.newThread(runnable);
         thread.setDaemon(true);
         return thread;

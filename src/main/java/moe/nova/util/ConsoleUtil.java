@@ -1,7 +1,7 @@
 package moe.nova.util;
 
 import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 public class ConsoleUtil {
 
@@ -17,7 +17,7 @@ public class ConsoleUtil {
         System.out.println(SEPARATE_LINE);
     }
 
-    public static void printSeparateLine(final @NotNull String msg) {
+    public static void printSeparateLine(final @NonNull String msg) {
         var str = StringUtils.center(msg, 40);
         System.out.println(SHORTER_SEPARATE_LINE + str + SHORTER_SEPARATE_LINE);
     }
