@@ -1,6 +1,6 @@
 package moe.nova.bean;
 
-import com.alibaba.excel.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public sealed interface Result {
 

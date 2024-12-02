@@ -1,8 +1,8 @@
 package moe.nova.playground;
 
-import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.annotation.ExcelIgnore;
-import com.alibaba.excel.annotation.ExcelProperty;
+import cn.idev.excel.EasyExcel;
+import cn.idev.excel.annotation.ExcelIgnore;
+import cn.idev.excel.annotation.ExcelProperty;
 import org.dromara.hutool.core.io.file.FileUtil;
 
 import java.io.File;

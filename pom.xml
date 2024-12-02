@@ -18,8 +18,8 @@
         <commons-compress.version>1.27.1</commons-compress.version>
         <commons-io.version>2.18.0</commons-io.version>
         <commons-lang3.version>3.17.0</commons-lang3.version>
-        <easyexcel.version>4.0.3</easyexcel.version>
         <failsafe.version>3.3.2</failsafe.version>
+        <fastexcel.version>0.0.1</fastexcel.version>
         <fastutil.version>8.5.15</fastutil.version>
         <freemarker.version>2.3.33</freemarker.version>
         <gson.version>2.11.0</gson.version>
@@ -246,9 +246,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>easyexcel</artifactId>
-            <version>${easyexcel.version}</version>
+            <groupId>cn.idev.excel</groupId>
+            <artifactId>fastexcel</artifactId>
+            <version>${fastexcel.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.commons</groupId>
