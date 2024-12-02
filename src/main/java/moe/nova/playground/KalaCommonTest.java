@@ -26,11 +26,12 @@ public class KalaCommonTest {
         Option<String> optionC = Option.none();
         System.out.println(optionC);
 
-        System.out.println("=====> Either");
+        System.out.println("\n=====> Either");
         Either<String, ?> either = Either.left("error msg");
-        System.out.println(either.isLeft());
-        System.out.println(either.isRight());
+        System.out.println(either.isLeft()); // should be "true"
         System.out.println(either.toResult());
+        var either2 = either.swap();
+        System.out.println(either2.isRight()); // should be "true"
 
         System.out.println("\n=====> ImmutableArray");
         ImmutableArray<Integer> l = ImmutableArray.of(1, 2, 3, 4, 5);

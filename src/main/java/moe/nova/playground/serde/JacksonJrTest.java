@@ -4,6 +4,7 @@ import com.fasterxml.jackson.jr.ob.JSON;
 import moe.nova.util.JacksonUtil;
 
 import java.io.IOException;
+import java.util.List;
 
 public class JacksonJrTest {
 
@@ -50,5 +51,10 @@ public class JacksonJrTest {
         b.setId(1);
         b.setName("B");
         System.out.println(JSON.std.asString(b));
+
+        List<String> c = List.of("a", "bb", "ccc");
+        var cs = JSON.std.asString(c);
+        List<String> d = JSON.std.listOfFrom(String.class, cs);
+        System.out.println(d);
     }
 }

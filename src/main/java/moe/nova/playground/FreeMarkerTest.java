@@ -10,7 +10,7 @@ import java.util.Map;
 public class FreeMarkerTest {
 
     public static void main(String[] args) throws IOException, TemplateException {
-        Configuration cfg = new Configuration(Configuration.VERSION_2_3_30);
+        Configuration cfg = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
         cfg.setDefaultEncoding("UTF-8");
 
         try (Reader reader = new StringReader("R u kidding ${name}?");
