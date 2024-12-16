@@ -3,6 +3,7 @@ package moe.nova.util;
 public final class ClassLoaderHelper {
 
     private ClassLoaderHelper() {
+        throw new UnsupportedOperationException();
     }
 
     private static Class<?> loadClassViaClasses(String fqcn, Class<?>[] classes) {

@@ -1,4 +1,4 @@
-package moe.nova.playground.lang;
+package moe.nova.playground.base;
 
 import kala.text.StringSlice;
 import moe.nova.util.StringUtil;
@@ -6,6 +6,13 @@ import moe.nova.util.StringUtil;
 public class StringTest {
 
     public static void main(String[] args) {
+        String s = """
+                第一行
+                第二行
+                第三行
+                """;
+        System.out.println(s);
+        System.out.println("===========");
         String onlyAscii = "hello, world";
         String hybrid = "我能吞下glass而不伤害body";
         System.out.println(onlyAscii.length()); // should be 12

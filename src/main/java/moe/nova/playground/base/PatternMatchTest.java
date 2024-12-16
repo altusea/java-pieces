@@ -1,4 +1,4 @@
-package moe.nova.playground.lang;
+package moe.nova.playground.base;
 
 import static java.lang.System.out;
 

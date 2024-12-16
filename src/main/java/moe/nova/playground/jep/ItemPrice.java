@@ -38,7 +38,7 @@ class ItemPriceTest {
         switch (ItemPrice.itemPriceFromWeb()) {
             case Sale sale -> System.out.println("Sale price: " + sale.price());
             case Trade trade -> System.out.println("Trade options: " + trade.tradeOptions());
-            case ContactMe ignored -> System.out.println("Contact me for price");
+            case ContactMe _ -> System.out.println("Contact me for price");
         }
     }
 }

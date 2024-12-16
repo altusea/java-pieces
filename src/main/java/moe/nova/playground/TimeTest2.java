@@ -12,7 +12,7 @@ public class TimeTest2 {
         System.out.println(Instant.now().toEpochMilli());
 
         String a = String.valueOf(System.currentTimeMillis());
-
+        System.out.println(a);
         Date date = DateUtil.date(System.currentTimeMillis());
         System.out.println(date);
         System.out.println(DateUtil.date(1725870017639L));

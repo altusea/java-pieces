@@ -15,6 +15,9 @@ public class MathTest {
     }
 
     public static void main(String[] args) {
+        System.out.println(Math.ceilDiv(10, 3));
+        System.out.println(Math.ceilDiv(10, 2));
+        System.out.println(Math.ceilDiv(1L, 3L));
         double a = 1.2;
         double b = 0.03;
         double[] result = safeAdd(a, b);

@@ -6,6 +6,7 @@ package moe.nova.util;
 public final class ByteUtil {
 
     private ByteUtil() {
+        throw new UnsupportedOperationException();
     }
 
     /**

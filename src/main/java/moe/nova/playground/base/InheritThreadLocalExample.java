@@ -1,9 +1,9 @@
-package moe.nova.playground.lang;
+package moe.nova.playground.base;
 
 public class InheritThreadLocalExample {
 
     // 创建一个 InheritableThreadLocal 对象
-    private static InheritableThreadLocal<String> threadLocal = new InheritableThreadLocal<>();
+    private static final InheritableThreadLocal<String> threadLocal = new InheritableThreadLocal<>();
 
     public static void main(String[] args) {
         // 在父线程中设置数据
