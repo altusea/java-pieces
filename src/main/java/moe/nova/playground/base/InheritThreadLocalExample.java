@@ -1,6 +1,11 @@
 package moe.nova.playground.base;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class InheritThreadLocalExample {
+
+    private static final Logger log = LoggerFactory.getLogger(InheritThreadLocalExample.class);
 
     // 创建一个 InheritableThreadLocal 对象
     private static final InheritableThreadLocal<String> threadLocal = new InheritableThreadLocal<>();
@@ -23,7 +28,7 @@ public class InheritThreadLocalExample {
             // 等待子线程执行完毕
             childThread.join();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("Interrupted", e);
         }
 
         // 在父线程中获取数据

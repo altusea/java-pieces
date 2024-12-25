@@ -1,5 +1,7 @@
 package moe.nova.playground.base;
 
+import com.google.common.collect.Lists;
+
 import java.util.*;
 
 import static moe.nova.util.ConsoleUtil.printSeparateLine;
@@ -7,6 +9,11 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 public class CollTest {
 
     public static void main(String[] args) {
+        var a = Lists.newArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+        a.removeIf(e -> Integer.parseInt(e) % 2 == 0);
+        System.out.println(a);
+
+        printSeparateLine();
         List<Integer> list = new ArrayList<>();
         list.add(1); // 0
         list.add(2); // 1

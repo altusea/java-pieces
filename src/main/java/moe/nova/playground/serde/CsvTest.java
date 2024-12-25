@@ -13,9 +13,9 @@ public class CsvTest {
     @JsonPropertyOrder({"name", "age", "validated"}) // important!
     public static class Person {
 
-        public String name;
-        public int age;
-        public boolean validated;
+        public final String name;
+        public final int age;
+        public final boolean validated;
 
         public Person(String n, int a, boolean v) {
             name = n;

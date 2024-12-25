@@ -12,5 +12,7 @@ public class SwitchTest {
     }
 
     public static void main(String[] args) {
+        System.out.println(toStr(new Result.Ok<>("hello")));
+        System.out.println(toStr(new Result.Err<>(new RuntimeException("error"))));
     }
 }
