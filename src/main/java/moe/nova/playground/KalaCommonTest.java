@@ -1,5 +1,6 @@
 package moe.nova.playground;
 
+import kala.collection.Seq;
 import kala.collection.immutable.ImmutableArray;
 import kala.collection.immutable.ImmutableMap;
 import kala.collection.immutable.ImmutableVector;
@@ -8,6 +9,7 @@ import kala.control.Either;
 import kala.control.Option;
 import kala.control.Result;
 import kala.control.Try;
+import kala.text.StringFormat;
 import kala.value.LateInitValue;
 import kala.value.LazyValue;
 import org.apache.commons.lang3.NotImplementedException;
@@ -18,7 +20,15 @@ import java.util.stream.Collectors;
 public class KalaCommonTest {
 
     public static void main(String[] args) {
-        System.out.println("=====> Option");
+        System.out.println(StringFormat.format("{0} is {1} years old", "Glavo", 5));
+        System.out.println(StringFormat.format("{} is {} years old", "Glavo", 5));
+
+        System.out.println("\n=====> Seq");
+        var a = Seq.of(1, 2, 3, 4, 5);
+        System.out.println(a.slice(0, ~2));
+        System.out.println(a.slice(~3, ~0));
+
+        System.out.println("\n=====> Option");
         Option<String> optionA = Option.some(null);
         System.out.println(optionA);
         Option<String> optionB = Option.some("hello");

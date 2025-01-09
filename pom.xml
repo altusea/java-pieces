@@ -6,14 +6,14 @@
 
     <groupId>moe.nova</groupId>
     <artifactId>java-pieces</artifactId>
-    <version>2024.12.0</version>
+    <version>2025.1.0</version>
 
     <properties>
         <maven.compiler.release>24</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- libs -->
         <bouncycastle.version>1.79</bouncycastle.version>
-        <commons-codec.version>1.17.1</commons-codec.version>
+        <commons-codec.version>1.17.2</commons-codec.version>
         <commons-collections4.version>4.5.0-M3</commons-collections4.version>
         <commons-compress.version>1.27.1</commons-compress.version>
         <commons-io.version>2.18.0</commons-io.version>
@@ -32,7 +32,7 @@
         <jsoup.version>1.18.3</jsoup.version>
         <jspecify.version>1.0.0</jspecify.version>
         <junit.version>5.11.4</junit.version>
-        <kala.version>0.77.0</kala.version>
+        <kala.version>0.79.0</kala.version>
         <log4j.version>2.24.3</log4j.version>
         <lombok.version>1.18.36</lombok.version>
         <slf4j.version>2.0.16</slf4j.version>
@@ -255,6 +255,11 @@
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>${freemarker.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.mizosoft.methanol</groupId>
+            <artifactId>methanol</artifactId>
+            <version>1.8.0</version>
         </dependency>
 
         <dependency>
