@@ -1,8 +1,10 @@
 package moe.nova.playground.codec;
 
+import moe.nova.util.JacksonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.dromara.hutool.core.convert.ConvertUtil;
 import org.dromara.hutool.core.net.url.UrlBuilder;
+import org.dromara.hutool.core.net.url.UrlDecoder;
 import org.dromara.hutool.core.net.url.UrlEncoder;
 import org.dromara.hutool.core.net.url.UrlQuery;
 
@@ -23,7 +25,48 @@ public class UrlTest {
         return s;
     }
 
+    static class UrlHolder {
+        String a;
+
+        String b;
+
+        public String getA() {
+            return a;
+        }
+
+        public void setA(String a) {
+            this.a = a;
+        }
+
+        public String getB() {
+            return b;
+        }
+
+        public void setB(String b) {
+            this.b = b;
+        }
+    }
+
     public static void main(String[] args) {
+        String s = "https://www.c.cc/index.html?code=xxx&aa=bb";
+        var urlHolder = new UrlHolder();
+        urlHolder.setA("axx");
+        urlHolder.setB(s);
+        var s1 = JacksonUtil.toJson(urlHolder);
+        var s2 = UrlEncoder.encodeAll(s1);
+        System.out.println(s2);
+        UrlBuilder urlBuilder0 = UrlBuilder.of("https://www.baidu.com" + "?p10=" + s2);
+        var s3 = urlBuilder0.getQuery().get("p10");
+        System.out.println("s3: " + s3);
+
+        var s4 = UrlDecoder.decode(s2);
+        var u1 = JacksonUtil.fromJson(s4, UrlHolder.class);
+
+
+        System.out.println(u1.getB());
+        System.out.println(UrlEncoder.encodeAll(s));
+        System.out.println(URLEncoder.encode(s, StandardCharsets.UTF_8));
+        printSeparateLine();
         var a = "测试一下子啊a";
         var b = a.getBytes(StandardCharsets.UTF_8);
         var c = UrlBuilder.of("www.baidu.com")

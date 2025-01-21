@@ -20,6 +20,9 @@ import java.util.stream.Collectors;
 public class KalaCommonTest {
 
     public static void main(String[] args) {
+        System.out.println("Hello, Kala.");
+
+        System.out.println("\n=====> StringFormat");
         System.out.println(StringFormat.format("{0} is {1} years old", "Glavo", 5));
         System.out.println(StringFormat.format("{} is {} years old", "Glavo", 5));
 

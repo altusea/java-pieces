@@ -1,7 +1,5 @@
 package moe.nova.playground.stream;
 
-import kala.comparator.Comparators;
-
 import java.time.LocalDate;
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -68,7 +66,7 @@ public class GathererTest {
 
         System.out.println("groupAndFindMax example: ");
         var listC = listA.stream()
-                .gather(groupAndFindMax(DateRecord::type, DateRecord::date, Comparators.naturalOrder()))
+                .gather(groupAndFindMax(DateRecord::type, DateRecord::date, Comparator.naturalOrder()))
                 .toList();
         listC.forEach(System.out::println);
 
