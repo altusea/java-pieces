@@ -1,5 +1,6 @@
 package moe.nova.playground;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.dromara.hutool.crypto.bc.SmUtil;
 
 public class DigestTest {
@@ -8,5 +9,8 @@ public class DigestTest {
         var hmac = SmUtil.hmacSm3("1234qwerasdfzxcv".getBytes());
         var content = "我爱你，玻璃；我能吞下？".getBytes();
         System.out.println(hmac.digestHex(content));
+        for (int i = 0; i < 20; i++) {
+            System.out.println(RandomStringUtils.insecure().nextNumeric(6));
+        }
     }
 }

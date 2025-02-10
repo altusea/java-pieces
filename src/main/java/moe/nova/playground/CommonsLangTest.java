@@ -33,9 +33,13 @@ public class CommonsLangTest {
         System.out.println(StringUtils.join(l, ", "));
 
         var stopWatch = StopWatch.createStarted();
-        Thread.sleep(Duration.ofSeconds(5));
+        Thread.sleep(Duration.ofSeconds(3));
+        stopWatch.suspend();
+        Thread.sleep(Duration.ofSeconds(2));
+        stopWatch.resume();
+        Thread.sleep(Duration.ofSeconds(1));
         stopWatch.stop();
-        System.out.println(stopWatch.formatTime());
+        System.out.println(stopWatch.formatTime()); // should be 4 seconds
 
         printSeparateLine();
         int[] a = new int[]{1, 2, 3};

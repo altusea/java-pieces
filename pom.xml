@@ -6,15 +6,15 @@
 
     <groupId>moe.nova</groupId>
     <artifactId>java-pieces</artifactId>
-    <version>2025.1.0</version>
+    <version>2025.2.0</version>
 
     <properties>
-        <maven.compiler.release>24</maven.compiler.release>
+        <maven.compiler.release>23</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- libs -->
         <bouncycastle.version>1.80</bouncycastle.version>
         <caffeine.version>3.2.0</caffeine.version>
-        <commons-codec.version>1.17.2</commons-codec.version>
+        <commons-codec.version>1.18.0</commons-codec.version>
         <commons-collections4.version>4.5.0-M3</commons-collections4.version>
         <commons-compress.version>1.27.1</commons-compress.version>
         <commons-io.version>2.18.0</commons-io.version>
@@ -24,21 +24,22 @@
         <fastjson.version>2.0.54</fastjson.version>
         <fastutil.version>8.5.15</fastutil.version>
         <freemarker.version>2.3.34</freemarker.version>
-        <gson.version>2.11.0</gson.version>
+        <gson.version>2.12.1</gson.version>
         <guava.version>33.4.0-jre</guava.version>
         <helidon.version>4.1.6</helidon.version>
-        <http-components.version>5.4.1</http-components.version>
+        <http-components.version>5.4.2</http-components.version>
         <hutool.version>6.0.0-M18</hutool.version>
         <jackson.version>2.18.2</jackson.version>
         <jctools.version>4.0.5</jctools.version>
         <joda-money.version>2.0.0</joda-money.version>
         <jsoup.version>1.18.3</jsoup.version>
         <jspecify.version>1.0.0</jspecify.version>
-        <junit.version>5.11.4</junit.version>
+        <junit.version>5.12.0-RC1</junit.version>
         <kala.version>0.80.0</kala.version>
         <log4j.version>2.24.3</log4j.version>
         <lombok.version>1.18.36</lombok.version>
         <slf4j.version>2.0.16</slf4j.version>
+        <tika.version>3.1.0</tika.version>
         <!-- maven -->
         <maven-clean-plugin.version>3.3.2</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
@@ -298,7 +299,7 @@
         <dependency>
             <groupId>com.github.mizosoft.methanol</groupId>
             <artifactId>methanol</artifactId>
-            <version>1.8.0</version>
+            <version>1.8.1</version>
         </dependency>
 
         <dependency>
@@ -314,6 +315,16 @@
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
             <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>${tika.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-parsers-standard-package</artifactId>
+            <version>${tika.version}</version>
         </dependency>
 
         <dependency>
