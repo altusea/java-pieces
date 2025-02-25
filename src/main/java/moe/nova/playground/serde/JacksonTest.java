@@ -18,8 +18,19 @@ public class JacksonTest {
     record TestRecord(String aField, String bField) {
     }
 
+    record EnumHolder(TestEnum e) {
+    }
+
     public static void main(String[] args) throws JsonProcessingException {
         ObjectMapper objectMapper = JacksonObjectMapperFactory.createJsonMapper();
+
+        var n = new EnumHolder(TestEnum.INIT);
+        var s = objectMapper.writeValueAsString(n);
+        System.out.println(s);
+        var n2 = objectMapper.readValue(s, EnumHolder.class);
+        System.out.println(n2);
+
+        System.out.println("=====================================================================");
 
         Optional<String> stringOptional = Optional.of("hello");
         var a = objectMapper.writeValueAsString(stringOptional);

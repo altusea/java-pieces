@@ -9,7 +9,6 @@ import kala.control.Either;
 import kala.control.Option;
 import kala.control.Result;
 import kala.control.Try;
-import kala.text.StringFormat;
 import kala.value.LateInitValue;
 import kala.value.LazyValue;
 import org.apache.commons.lang3.NotImplementedException;
@@ -21,10 +20,6 @@ public class KalaCommonTest {
 
     public static void main(String[] args) {
         System.out.println("Hello, Kala.");
-
-        System.out.println("\n=====> StringFormat");
-        System.out.println(StringFormat.format("{0} is {1} years old", "Glavo", 5));
-        System.out.println(StringFormat.format("{} is {} years old", "Glavo", 5));
 
         System.out.println("\n=====> Seq");
         var a = Seq.of(1, 2, 3, 4, 5);
