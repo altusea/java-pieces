@@ -1,8 +1,10 @@
 package moe.nova.playground;
 
 import com.ginsberg.gatherers4j.Gatherers4j;
+import com.pivovarit.gatherers.MoreGatherers;
 
 import java.util.List;
+import java.util.Map;
 
 public class GathererTest {
     public static void main(String[] args) {
@@ -11,5 +13,11 @@ public class GathererTest {
                 .gather(Gatherers4j.dedupeConsecutive())
                 .toList();
         System.out.println(b);
+
+        var c = a.stream()
+                .gather(MoreGatherers.zipWithIndex())
+                .gather(MoreGatherers.distinctByKeepLast(Map.Entry::getKey))
+                .toList();
+        System.out.println(c);
     }
 }
