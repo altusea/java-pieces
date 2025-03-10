@@ -9,7 +9,7 @@
     <version>2025.2.0</version>
 
     <properties>
-        <maven.compiler.release>24</maven.compiler.release>
+        <maven.compiler.release>23</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- libs -->
         <bouncycastle.version>1.80</bouncycastle.version>
@@ -29,7 +29,7 @@
         <helidon.version>4.2.0</helidon.version>
         <httpclient5.version>5.5-alpha1</httpclient5.version>
         <hutool.version>6.0.0-M20</hutool.version>
-        <jackson.version>2.18.3</jackson.version>
+        <jackson.version>3.0.0-rc1</jackson.version>
         <jctools.version>4.0.5</jctools.version>
         <joda-money.version>2.0.0</joda-money.version>
         <jsoup.version>1.19.1</jsoup.version>
@@ -40,6 +40,7 @@
         <lombok.version>1.18.36</lombok.version>
         <slf4j.version>2.0.16</slf4j.version>
         <tika.version>3.1.0</tika.version>
+        <vavr.version>0.10.6</vavr.version>
         <!-- maven -->
         <maven-clean-plugin.version>3.4.1</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
@@ -72,7 +73,7 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.fasterxml.jackson</groupId>
+                <groupId>tools.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
                 <version>${jackson.version}</version>
                 <type>pom</type>
@@ -225,31 +226,23 @@
         </dependency>
         <!-- jackson -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
+            <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
+            <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <groupId>tools.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jdk8</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <groupId>tools.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-csv</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.jr</groupId>
+            <groupId>tools.jackson.jr</groupId>
             <artifactId>jackson-jr-all</artifactId>
         </dependency>
         <dependency>
@@ -327,14 +320,9 @@
             <version>4.0.0</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.tika</groupId>
-            <artifactId>tika-core</artifactId>
-            <version>${tika.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tika</groupId>
-            <artifactId>tika-parsers-standard-package</artifactId>
-            <version>${tika.version}</version>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>${vavr.version}</version>
         </dependency>
 
         <dependency>

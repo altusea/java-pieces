@@ -1,7 +1,7 @@
 package moe.nova.playground.serde;
 
-import com.fasterxml.jackson.jr.ob.JSON;
 import moe.nova.util.JacksonUtil;
+import tools.jackson.jr.ob.JSON;
 
 import java.io.IOException;
 import java.util.List;

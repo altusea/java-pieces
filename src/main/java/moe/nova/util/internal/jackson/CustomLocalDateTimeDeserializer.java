@@ -1,13 +1,12 @@
 package moe.nova.util.internal.jackson;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import org.apache.commons.lang3.StringUtils;
 import org.dromara.hutool.core.date.DateFormatPool;
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.JsonToken;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 
-import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,12 +14,12 @@ import java.time.ZoneId;
 
 public class CustomLocalDateTimeDeserializer extends LocalDateTimeDeserializer {
 
-    public CustomLocalDateTimeDeserializer() {
-        super(LocalDateTimeDeserializer.INSTANCE, null);
-    }
+//    public CustomLocalDateTimeDeserializer() {
+//        super(LocalDateTimeDeserializer.INSTANCE, null);
+//    }
 
     @Override
-    public LocalDateTime deserialize(JsonParser parser, DeserializationContext context) throws IOException {
+    public LocalDateTime deserialize(JsonParser parser, DeserializationContext context) {
         if (parser.hasToken(JsonToken.VALUE_NUMBER_INT)) {
             long timestamp = parser.getLongValue();
             // Handle timestamp conversion to LocalDateTime
@@ -32,7 +31,7 @@ public class CustomLocalDateTimeDeserializer extends LocalDateTimeDeserializer {
                 return LocalDateTime.ofInstant(Instant.ofEpochSecond(timestamp), ZoneId.systemDefault());
             }
         } else if (parser.hasToken(JsonToken.VALUE_STRING)) {
-            String text = parser.getText();
+            String text = parser.getString();
             if (StringUtils.isEmpty(text)) {
                 return null;
             }

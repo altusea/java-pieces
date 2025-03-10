@@ -1,8 +1,8 @@
 package moe.nova.playground.generic;
 
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 import moe.nova.util.JacksonObjectMapperFactory;
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.type.TypeFactory;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class JavaTypeTest {
 
     public static void main(String[] args) {
-        TypeFactory typeFactory1 = TypeFactory.defaultInstance();
+        TypeFactory typeFactory1 = TypeFactory.createDefaultInstance();
         TypeFactory typeFactory2 = JacksonObjectMapperFactory.createJsonMapper().getTypeFactory();
         System.out.println("typeFactory1 == typeFactory2: " + (typeFactory1 == typeFactory2));
 
