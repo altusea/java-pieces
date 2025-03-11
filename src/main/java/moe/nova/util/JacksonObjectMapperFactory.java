@@ -40,17 +40,15 @@ public final class JacksonObjectMapperFactory {
         // YearMonth
         javaTimeModule.addSerializer(YearMonth.class, new YearMonthSerializer(DateFormatPool.NORM_MONTH_FORMATTER));
         javaTimeModule.addDeserializer(YearMonth.class, new YearMonthDeserializer(DateFormatPool.NORM_MONTH_FORMATTER));
-        var jsonMapper =  JsonMapper.builder()
+        return JsonMapper.builder()
                 .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
                 // empty string error
                 .configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true)
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                .changeDefaultPropertyInclusion(JsonInclude.Include.NON_NULL.)
-//                .serializationInclusion(JsonInclude.Include.NON_NULL) // todo
+                .changeDefaultPropertyInclusion(old -> old.withValueInclusion(JsonInclude.Include.NON_NULL))
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
                 .addModule(javaTimeModule)
                 .build();
-        jsonMapper.
     }
 
     public static void main(String[] args) {
