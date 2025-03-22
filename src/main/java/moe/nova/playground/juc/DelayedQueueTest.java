@@ -26,7 +26,7 @@ public class DelayedQueueTest {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        final DelayQueue<DelayedEvent> delayQueue = new DelayQueue<>();
+        final var delayQueue = new DelayQueue<DelayedEvent>();
         final long timeFirst = System.currentTimeMillis() + 10000;
         delayQueue.offer(new DelayedEvent(timeFirst, "1"));
         log.info("Done");

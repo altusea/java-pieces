@@ -59,6 +59,7 @@ public final class JacksonObjectMapperFactory {
         var mapper = createJsonMapper();
         var s = mapper.writeValueAsString(timeHolder);
         System.out.println(s);
+        System.out.println("The above json string contains null value: " + s.contains("null"));
         var o = mapper.readValue(s, TimeHolder.class);
         System.out.println(o);
     }

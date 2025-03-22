@@ -5,8 +5,10 @@ import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.UUID;
 
-public class RawJacksonTest {
+public class VanillaJacksonTest {
 
     public static void main(String[] args) {
         final var mapper = JsonMapper.builder()
@@ -18,5 +20,10 @@ public class RawJacksonTest {
         System.out.println(s);
         final var t = mapper.readValue(s, LocalDateTime.class);
         System.out.println(t);
+
+        var o = Optional.of("hello");
+        System.out.println(mapper.writeValueAsString(o));
+        var u = UUID.randomUUID();
+        System.out.println(mapper.writeValueAsString(u));
     }
 }

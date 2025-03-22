@@ -6,10 +6,10 @@
 
     <groupId>moe.nova</groupId>
     <artifactId>java-pieces</artifactId>
-    <version>2025.2.0</version>
+    <version>2025.4.0</version>
 
     <properties>
-        <maven.compiler.release>23</maven.compiler.release>
+        <maven.compiler.release>24</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- libs -->
         <bouncycastle.version>1.80</bouncycastle.version>
@@ -19,27 +19,35 @@
         <commons-compress.version>1.27.1</commons-compress.version>
         <commons-io.version>2.18.0</commons-io.version>
         <commons-lang3.version>3.17.0</commons-lang3.version>
+        <disruptor.version>4.0.0</disruptor.version>
+        <duckdb.version>1.2.1</duckdb.version>
         <failsafe.version>3.3.2</failsafe.version>
         <fastexcel.version>1.1.0</fastexcel.version>
-        <fastjson.version>2.0.56</fastjson.version>
+        <fastjson.version>2.0.57</fastjson.version>
         <fastutil.version>8.5.15</fastutil.version>
         <freemarker.version>2.3.34</freemarker.version>
+        <gatherers4j.version>0.10.0</gatherers4j.version>
         <gson.version>2.12.1</gson.version>
-        <guava.version>33.4.0-jre</guava.version>
+        <guava.version>33.4.6-jre</guava.version>
         <helidon.version>4.2.0</helidon.version>
         <httpclient5.version>5.5-alpha1</httpclient5.version>
         <hutool.version>6.0.0-M20</hutool.version>
-        <jackson.version>3.0.0-rc1</jackson.version>
+        <jackson.version>3.0.0-rc2</jackson.version>
+        <java-uuid-generator>5.1.0</java-uuid-generator>
         <jctools.version>4.0.5</jctools.version>
-        <joda-money.version>2.0.0</joda-money.version>
+        <joda-money.version>2.0.2</joda-money.version>
         <jsoup.version>1.19.1</jsoup.version>
         <jspecify.version>1.0.0</jspecify.version>
-        <junit.version>5.12.0</junit.version>
+        <junit.version>5.13.0-M2</junit.version>
         <kala.version>0.82.0</kala.version>
         <log4j.version>2.24.3</log4j.version>
-        <lombok.version>1.18.36</lombok.version>
+        <lombok.version>1.18.38</lombok.version>
+        <methanol.version>1.8.2</methanol.version>
+        <more-gatherers.version>0.0.2</more-gatherers.version>
+        <noexception.version>1.9.1</noexception.version>
         <slf4j.version>2.0.16</slf4j.version>
         <tika.version>3.1.0</tika.version>
+        <tsid-creator.version>5.2.6</tsid-creator.version>
         <vavr.version>0.10.6</vavr.version>
         <!-- maven -->
         <maven-clean-plugin.version>3.4.1</maven-clean-plugin.version>
@@ -137,7 +145,6 @@
             <artifactId>hutool-crypto</artifactId>
             <version>${hutool.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on -->
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk18on</artifactId>
@@ -171,7 +178,7 @@
         <dependency>
             <groupId>org.duckdb</groupId>
             <artifactId>duckdb_jdbc</artifactId>
-            <version>1.2.0</version>
+            <version>${duckdb.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jctools</groupId>
@@ -181,22 +188,17 @@
         <dependency>
             <groupId>com.fasterxml.uuid</groupId>
             <artifactId>java-uuid-generator</artifactId>
-            <version>5.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.f4b6a3</groupId>
-            <artifactId>uuid-creator</artifactId>
-            <version>6.0.0</version>
+            <version>${java-uuid-generator}</version>
         </dependency>
         <dependency>
             <groupId>com.github.f4b6a3</groupId>
             <artifactId>tsid-creator</artifactId>
-            <version>5.2.6</version>
+            <version>${tsid-creator.version}</version>
         </dependency>
         <dependency>
             <groupId>com.machinezoo.noexception</groupId>
             <artifactId>noexception</artifactId>
-            <version>1.9.1</version>
+            <version>${noexception.version}</version>
         </dependency>
         <dependency>
             <groupId>dev.failsafe</groupId>
@@ -238,12 +240,30 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
         <dependency>
+            <groupId>tools.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-guava</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>tools.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-csv</artifactId>
         </dependency>
         <dependency>
             <groupId>tools.jackson.jr</groupId>
-            <artifactId>jackson-jr-all</artifactId>
+            <artifactId>jackson-jr-objects</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tools.jackson.jr</groupId>
+            <artifactId>jackson-jr-annotation-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tools.jackson.jr</groupId>
+            <artifactId>jackson-jr-extension-javatime</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
@@ -301,17 +321,17 @@
         <dependency>
             <groupId>com.github.mizosoft.methanol</groupId>
             <artifactId>methanol</artifactId>
-            <version>1.8.2</version>
+            <version>${methanol.version}</version>
         </dependency>
         <dependency>
             <groupId>com.ginsberg</groupId>
             <artifactId>gatherers4j</artifactId>
-            <version>0.9.0</version>
+            <version>${gatherers4j.version}</version>
         </dependency>
         <dependency>
             <groupId>com.pivovarit</groupId>
             <artifactId>more-gatherers</artifactId>
-            <version>0.0.1</version>
+            <version>${more-gatherers.version}</version>
         </dependency>
 
         <dependency>
@@ -326,7 +346,7 @@
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
-            <version>4.0.0</version>
+            <version>${disruptor.version}</version>
         </dependency>
         <dependency>
             <groupId>io.vavr</groupId>

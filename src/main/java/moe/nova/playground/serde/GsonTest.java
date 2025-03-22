@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 import java.time.YearMonth;
 import java.util.List;
 
+import static moe.nova.util.ConsoleUtil.printSeparateLine;
+
 public class GsonTest {
 
     public static void main(String[] args) {
@@ -25,13 +27,13 @@ public class GsonTest {
         clazz.setLocalDateTime(LocalDateTime.now());
 
         String jsonStr = GsonUtil.toJson(clazz);
-        System.out.println(jsonStr);
+        System.out.println("[line 30] " + jsonStr);
         TimeHolder fromJson = GsonUtil.fromJson(jsonStr, TimeHolder.class);
-        System.out.println(fromJson);
+        System.out.println("[line 32] " + fromJson);
 
-        String jsonStr2 = "{\"localDate\":\"2024-01-26\",\"localDateTime\":\"\"}";
+        String jsonStr2 = "{\"localDate\":\"2024-01-26\"}";
         TimeHolder fromJson2 = GsonUtil.fromJson(jsonStr2, TimeHolder.class);
-        System.out.println(fromJson2);
+        System.out.println("[line 36] " + fromJson2);
 
         DataHolder dataHolder = new DataHolder();
         DataHolder.InnerClazz innerClazz = new DataHolder.InnerClazz();
@@ -40,9 +42,11 @@ public class GsonTest {
         dataHolder.setField("ccc");
         dataHolder.setInnerClazz(innerClazz);
         String jsonStr3 = GsonUtil.toJson(dataHolder);
-        System.out.println(jsonStr3);
+        System.out.println("[line 45] " + jsonStr3);
         DataHolder fromJson3 = GsonUtil.fromJson(jsonStr3, DataHolder.class);
-        System.out.println(fromJson3);
+        System.out.println("[line 47] " + fromJson3);
+
+        printSeparateLine();
         String jsonStr4 = "{\"field\":\"ccc\",\"innerClazz\":\"\"}";
         DataHolder fromJson4 = GsonUtil.fromJson(jsonStr4, DataHolder.class);
         System.out.println(fromJson4);

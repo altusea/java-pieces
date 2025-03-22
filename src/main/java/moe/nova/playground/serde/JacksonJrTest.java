@@ -1,6 +1,8 @@
 package moe.nova.playground.serde;
 
 import moe.nova.util.JacksonUtil;
+import tools.jackson.jr.annotationsupport.JacksonAnnotationExtension;
+import tools.jackson.jr.extension.javatime.JacksonJrJavaTimeExtension;
 import tools.jackson.jr.ob.JSON;
 
 import java.io.IOException;
@@ -56,5 +58,12 @@ public class JacksonJrTest {
         var cs = JSON.std.asString(c);
         List<String> d = JSON.std.listOfFrom(String.class, cs);
         System.out.println(d);
+        System.out.println("================================");
+        var jsonExt = JSON.builder()
+                .register(JacksonAnnotationExtension.std)
+                .register(new JacksonJrJavaTimeExtension())
+                .build();
+        var json = jsonExt.asString(a);
+        System.out.println(json);
     }
 }

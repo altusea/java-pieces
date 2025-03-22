@@ -13,8 +13,8 @@ public class TimeBasedIdTest {
 
         printSeparateLine();
         var a = TsidCreator.getTsid256();
-        System.out.println(a);
-        System.out.println(a.toLong());
+        System.out.println(a); // '0K692CY3072M9', 13 chars
+        System.out.println(a.toLong()); // '691621845803436681', 18 digits
         System.out.println(a.getInstant());
     }
 }

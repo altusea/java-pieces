@@ -1,16 +1,19 @@
 package moe.nova.playground;
 
-import org.apache.commons.lang3.RandomStringUtils;
-import org.dromara.hutool.crypto.bc.SmUtil;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.dromara.hutool.crypto.digest.DigestUtil;
 
 public class DigestTest {
 
     public static void main(String[] args) {
-        var hmac = SmUtil.hmacSm3("1234qwerasdfzxcv".getBytes());
-        var content = "我爱你，玻璃；我能吞下？".getBytes();
-        System.out.println(hmac.digestHex(content));
-        for (int i = 0; i < 20; i++) {
-            System.out.println(RandomStringUtils.insecure().nextNumeric(6));
-        }
+        var content = "我爱你，玻璃；我能吞下？";
+        var contentBytes = content.getBytes();
+        System.out.println("test Hex:");
+        System.out.println(new String(org.bouncycastle.util.encoders.Hex.encode(contentBytes)));
+        System.out.println(org.apache.commons.codec.binary.Hex.encodeHexString(contentBytes));
+
+        System.out.println("\ntest MD5:");
+        System.out.println(DigestUtil.md5Hex(content));
+        System.out.println(DigestUtils.md5Hex(content));
     }
 }
