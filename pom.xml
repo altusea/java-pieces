@@ -31,7 +31,7 @@
         <guava.version>33.4.6-jre</guava.version>
         <helidon.version>4.2.0</helidon.version>
         <httpclient5.version>5.5-alpha1</httpclient5.version>
-        <hutool.version>6.0.0-M20</hutool.version>
+        <hutool.version>6.0.0-M21</hutool.version>
         <jackson.version>3.0.0-rc2</jackson.version>
         <java-uuid-generator>5.1.0</java-uuid-generator>
         <jctools.version>4.0.5</jctools.version>
@@ -49,6 +49,7 @@
         <tika.version>3.1.0</tika.version>
         <tsid-creator.version>5.2.6</tsid-creator.version>
         <vavr.version>0.10.6</vavr.version>
+        <netty.version>4.2.0.Final</netty.version>
         <!-- maven -->
         <maven-clean-plugin.version>3.4.1</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
@@ -279,6 +280,11 @@
             <groupId>io.helidon.common</groupId>
             <artifactId>helidon-common</artifactId>
             <version>${helidon.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty.version}</version>
         </dependency>
 
         <dependency>

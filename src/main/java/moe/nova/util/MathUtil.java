@@ -1,6 +1,6 @@
-package moe.nova.playground;
+package moe.nova.util;
 
-public class MathTest {
+public class MathUtil {
 
     private static double stepDown(double d) {
         return Math.nextAfter(d, Double.NEGATIVE_INFINITY);
