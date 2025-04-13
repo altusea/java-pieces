@@ -45,10 +45,7 @@
         <methanol.version>1.8.2</methanol.version>
         <more-gatherers.version>0.0.2</more-gatherers.version>
         <noexception.version>1.9.1</noexception.version>
-        <slf4j.version>2.0.16</slf4j.version>
-        <tika.version>3.1.0</tika.version>
-        <tsid-creator.version>5.2.6</tsid-creator.version>
-        <vavr.version>0.10.6</vavr.version>
+        <slf4j.version>2.0.17</slf4j.version>
         <netty.version>4.2.0.Final</netty.version>
         <!-- maven -->
         <maven-clean-plugin.version>3.4.1</maven-clean-plugin.version>
@@ -190,11 +187,6 @@
             <groupId>org.jctools</groupId>
             <artifactId>jctools-core</artifactId>
             <version>${jctools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.f4b6a3</groupId>
-            <artifactId>tsid-creator</artifactId>
-            <version>${tsid-creator.version}</version>
         </dependency>
         <dependency>
             <groupId>com.machinezoo.noexception</groupId>
@@ -353,11 +345,6 @@
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
             <version>${disruptor.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.vavr</groupId>
-            <artifactId>vavr</artifactId>
-            <version>${vavr.version}</version>
         </dependency>
 
         <dependency>
