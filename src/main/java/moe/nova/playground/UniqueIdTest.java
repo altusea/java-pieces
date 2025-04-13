@@ -1,12 +1,16 @@
 package moe.nova.playground;
 
 import com.github.f4b6a3.tsid.TsidCreator;
+import org.dromara.hutool.core.data.id.NanoId;
 
 import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
-public class TimeBasedIdTest {
+public class UniqueIdTest {
 
     public static void main(String[] args) {
+        System.out.println("generate a nanoid which is url-friendly:");
+        System.out.println(NanoId.randomNanoId());
+
         for (int i = 0; i < 100; i++) {
             System.out.println(TsidCreator.getTsid256().toLong());
         }

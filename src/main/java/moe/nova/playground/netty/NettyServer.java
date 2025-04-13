@@ -24,7 +24,7 @@ public class NettyServer {
 
         @Override
         public void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-            System.out.println("Received message: " + msg);
+            System.out.println("Received message from client: " + msg);
             ctx.writeAndFlush("Server received: " + msg);
         }
 
