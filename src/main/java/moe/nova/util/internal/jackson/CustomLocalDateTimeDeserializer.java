@@ -5,7 +5,7 @@ import org.dromara.hutool.core.date.DateFormatPool;
 import tools.jackson.core.JsonParser;
 import tools.jackson.core.JsonToken;
 import tools.jackson.databind.DeserializationContext;
-import tools.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import tools.jackson.databind.ext.javatime.deser.LocalDateTimeDeserializer;
 
 import java.time.Instant;
 import java.time.LocalDate;

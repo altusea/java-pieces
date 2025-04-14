@@ -6,15 +6,15 @@ import moe.nova.util.internal.jackson.CustomLocalDateTimeDeserializer;
 import org.dromara.hutool.core.date.DateFormatPool;
 import tools.jackson.databind.DeserializationFeature;
 import tools.jackson.databind.SerializationFeature;
+import tools.jackson.databind.ext.javatime.deser.LocalDateDeserializer;
+import tools.jackson.databind.ext.javatime.deser.LocalTimeDeserializer;
+import tools.jackson.databind.ext.javatime.deser.YearMonthDeserializer;
+import tools.jackson.databind.ext.javatime.ser.LocalDateSerializer;
+import tools.jackson.databind.ext.javatime.ser.LocalDateTimeSerializer;
+import tools.jackson.databind.ext.javatime.ser.LocalTimeSerializer;
+import tools.jackson.databind.ext.javatime.ser.YearMonthSerializer;
 import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.databind.module.SimpleModule;
-import tools.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import tools.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
-import tools.jackson.datatype.jsr310.deser.YearMonthDeserializer;
-import tools.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import tools.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import tools.jackson.datatype.jsr310.ser.LocalTimeSerializer;
-import tools.jackson.datatype.jsr310.ser.YearMonthSerializer;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -46,7 +46,6 @@ public final class JacksonObjectMapperFactory {
                 .configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true)
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .changeDefaultPropertyInclusion(old -> old.withValueInclusion(JsonInclude.Include.NON_NULL))
-                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
                 .addModule(javaTimeModule)
                 .build();
     }
