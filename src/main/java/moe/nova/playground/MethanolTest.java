@@ -18,7 +18,7 @@ public class MethanolTest {
                 .defaultHeader("Accept", "application/json") // Default request headers
                 .requestTimeout(Duration.ofSeconds(20)) // Default request timeout
                 .headersTimeout(Duration.ofSeconds(5)) // Timeout for receiving response headers
-                .readTimeout(Duration.ofSeconds(5)) // Timeout for single reads
+                .readTimeout(Duration.ofSeconds(15)) // Timeout for single reads
                 .autoAcceptEncoding(true); // Transparent response compression, this is true by default
 
         // Continue using as a standard HttpClient.Builder.
@@ -29,8 +29,7 @@ public class MethanolTest {
                             .uri(URI.create("https://api.github.com/users/moe-nova"))
                             .build(), String.class);
             System.out.println(response.body());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception _) {
         }
     }
 }

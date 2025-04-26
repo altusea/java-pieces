@@ -15,27 +15,27 @@
         <bouncycastle.version>1.80</bouncycastle.version>
         <caffeine.version>3.2.0</caffeine.version>
         <commons-codec.version>1.18.0</commons-codec.version>
-        <commons-collections4.version>4.5.0-M3</commons-collections4.version>
+        <commons-collections4.version>4.5.0</commons-collections4.version>
         <commons-compress.version>1.27.1</commons-compress.version>
         <commons-io.version>2.19.0</commons-io.version>
         <commons-lang3.version>3.17.0</commons-lang3.version>
         <disruptor.version>4.0.0</disruptor.version>
         <duckdb.version>1.2.2.0</duckdb.version>
         <failsafe.version>3.3.2</failsafe.version>
-        <fastexcel.version>1.1.0</fastexcel.version>
+        <fastexcel.version>1.2.0</fastexcel.version>
         <fastjson.version>2.0.57</fastjson.version>
         <fastutil.version>8.5.15</fastutil.version>
         <freemarker.version>2.3.34</freemarker.version>
         <gatherers4j.version>0.10.0</gatherers4j.version>
-        <gson.version>2.13.0</gson.version>
-        <guava.version>33.4.7-jre</guava.version>
-        <helidon.version>4.2.0</helidon.version>
+        <gson.version>2.13.1</gson.version>
+        <guava.version>33.4.8-jre</guava.version>
+        <helidon.version>4.2.1</helidon.version>
         <httpclient5.version>5.5-alpha1</httpclient5.version>
         <hutool.version>6.0.0-M21</hutool.version>
         <jackson.version>3.0.0-rc3</jackson.version>
         <jctools.version>4.0.5</jctools.version>
         <joda-money.version>2.0.2</joda-money.version>
-        <jsoup.version>1.19.1</jsoup.version>
+        <jsoup.version>1.20.1</jsoup.version>
         <jspecify.version>1.0.0</jspecify.version>
         <junit.version>5.13.0-M2</junit.version>
         <kala-common.version>0.82.0</kala-common.version>
