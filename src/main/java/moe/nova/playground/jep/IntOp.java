@@ -6,13 +6,14 @@ public sealed interface IntOp {
 
     static int opOn(int i, IntOp intOp) {
         return switch (intOp) {
-            case AddOne addTen -> addTen.op(i);
-            case MulTwo mulTwo -> mulTwo.op(i);
+            case Increment increment -> increment.op(i);
+            case Redouble redouble -> redouble.op(i);
+            case Halve halve -> halve.op(i);
         };
     }
 }
 
-final class AddOne implements IntOp {
+final class Increment implements IntOp {
 
     @Override
     public int op(int i) {
@@ -20,7 +21,7 @@ final class AddOne implements IntOp {
     }
 }
 
-final class MulTwo implements IntOp {
+final class Redouble implements IntOp {
 
     @Override
     public int op(int i) {
@@ -28,12 +29,22 @@ final class MulTwo implements IntOp {
     }
 }
 
+final class Halve implements IntOp {
+
+    @Override
+    public int op(int i) {
+        return i / 2;
+    }
+}
+
 class IntOpTest {
     public static void main(String[] args) {
         int i = 10;
-        var op1 = new AddOne();
+        var op1 = new Increment();
         System.out.println(IntOp.opOn(i, op1));
-        var op2 = new MulTwo();
+        var op2 = new Redouble();
         System.out.println(IntOp.opOn(i, op2));
+        var op3 = new Halve();
+        System.out.println(IntOp.opOn(i, op3));
     }
 }
