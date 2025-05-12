@@ -37,7 +37,7 @@
         <joda-money.version>2.0.2</joda-money.version>
         <jsoup.version>1.20.1</jsoup.version>
         <jspecify.version>1.0.0</jspecify.version>
-        <junit.version>5.13.0-M2</junit.version>
+        <junit.version>5.13.0-M3</junit.version>
         <kala-common.version>0.82.0</kala-common.version>
         <kala-compress.version>1.27.1-1</kala-compress.version>
         <log4j.version>2.24.3</log4j.version>
@@ -46,7 +46,7 @@
         <more-gatherers.version>0.0.2</more-gatherers.version>
         <noexception.version>1.9.1</noexception.version>
         <slf4j.version>2.0.17</slf4j.version>
-        <netty.version>4.2.0.Final</netty.version>
+        <netty.version>4.2.1.Final</netty.version>
         <!-- maven -->
         <maven-clean-plugin.version>3.4.1</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>

@@ -20,6 +20,12 @@ public class TimeTest3 {
         System.out.println(TimeUtil.betweenPeriod(date1, date2).getYears());
         System.out.println(ChronoUnit.YEARS.between(date1, date2));
 
-        System.out.println(LocalDateTime.now().minusMonths(1L).format(DateFormatPool.NORM_DATETIME_FORMATTER));
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now);
+        System.out.println(now.minusMonths(1L));
+
+        LocalDateTime someTime = LocalDateTime.of(2025, 3, 31, 0, 5, 30);
+        System.out.println(someTime);
+        System.out.println(someTime.minusMonths(1L));
     }
 }
