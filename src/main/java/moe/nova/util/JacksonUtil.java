@@ -13,33 +13,33 @@ import static moe.nova.util.FunctionalUtil.invokeSafely;
 
 public class JacksonUtil {
 
-    private static final JsonMapper JSON_MAPPER;
+    private static final StableValue<JsonMapper> JSON_MAPPER = StableValue.of();
 
-    static {
-        JSON_MAPPER = JacksonObjectMapperFactory.createJsonMapper();
+    static JsonMapper getJsonMapper() {
+        return JSON_MAPPER.orElseSet(JacksonObjectMapperFactory::createJsonMapper);
     }
 
     public static String toJson(Object value) {
-        return invokeSafely(() -> JSON_MAPPER.writeValueAsString(value));
+        return invokeSafely(() -> getJsonMapper().writeValueAsString(value));
     }
 
     public static <T> T fromJson(String content, Class<T> valueType) {
-        return invokeSafely(() -> JSON_MAPPER.readValue(content, valueType));
+        return invokeSafely(() -> getJsonMapper().readValue(content, valueType));
     }
 
     public static <T> T fromJson(String content, TypeReference<T> valueTypeRef) {
-        return invokeSafely(() -> JSON_MAPPER.readValue(content, valueTypeRef));
+        return invokeSafely(() -> getJsonMapper().readValue(content, valueTypeRef));
     }
 
     public static <T> T fromJson(String content, JavaType valueType) {
-        return invokeSafely(() -> JSON_MAPPER.readValue(content, valueType));
+        return invokeSafely(() -> getJsonMapper().readValue(content, valueType));
     }
 
     public static JavaType buildJavaTypeLinearly(Class<?>... classes) {
         if (ArrayUtils.isEmpty(classes)) {
             return null;
         }
-        TypeFactory typeFactory = JSON_MAPPER.getTypeFactory();
+        TypeFactory typeFactory = getJsonMapper().getTypeFactory();
         int n = classes.length;
         if (n == 1) {
             return typeFactory.constructType(classes[0]);
@@ -62,7 +62,7 @@ public class JacksonUtil {
         System.out.println(buildJavaTypeLinearly(List.class, Integer.class));
         System.out.println(buildJavaTypeLinearly(List.class, List.class, String.class));
 
-        TypeFactory typeFactory = JSON_MAPPER.getTypeFactory();
+        TypeFactory typeFactory = getJsonMapper().getTypeFactory();
         System.out.println(typeFactory.constructMapType(Map.class, String.class, Integer.class));
     }
 }

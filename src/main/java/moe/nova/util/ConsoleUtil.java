@@ -21,4 +21,8 @@ public class ConsoleUtil {
         var str = StringUtils.center(msg, 40);
         System.out.println(SHORTER_SEPARATE_LINE + str + SHORTER_SEPARATE_LINE);
     }
+
+    public static void main(String[] args) {
+        System.out.println(StringUtils.repeat("=", 80));
+    }
 }

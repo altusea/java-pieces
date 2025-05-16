@@ -65,7 +65,7 @@ public class PlayWithStructuredConcurrency {
             scope.join();
             Map<StructuredTaskScope.Subtask.State, List<StructuredTaskScope.Subtask<Weather>>> map = subtasks.stream()
                     .collect(Collectors.groupingBy(StructuredTaskScope.Subtask::state, Collectors.toList()));
-            map.forEach((key, value) -> System.out.print(key.name() + ": " + value.stream().map(PlayWithStructuredConcurrency::toString).collect(Collectors.joining(", ")) + "\n"));
+            map.forEach((key, val) -> System.out.print(key.name() + ": " + val.stream().map(PlayWithStructuredConcurrency::toString).collect(Collectors.joining(", ")) + "\n"));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

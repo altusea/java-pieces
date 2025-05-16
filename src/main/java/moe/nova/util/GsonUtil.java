@@ -12,28 +12,30 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class GsonUtil {
 
-    private static final Gson gson;
+    private static final StableValue<Gson> GSON = StableValue.of();
 
-    static {
-        GsonBuilder builder = new GsonBuilder()
-                .registerTypeAdapterFactory(DateTypeAdapter.FACTORY)
-                .registerTypeAdapterFactory(LocalDateTypeAdapter.FACTORY)
-                .registerTypeAdapterFactory(LocalDateTimeTypeAdapter.FACTORY)
-                .registerTypeAdapterFactory(YearMonthTypeAdapter.FACTORY)
-                .registerTypeAdapterFactory(OptionalTypeAdapter.factory());
-        gson = builder.create();
+    static Gson getGsonInstance() {
+        return GSON.orElseSet(() -> {
+            GsonBuilder builder = new GsonBuilder()
+                    .registerTypeAdapterFactory(DateTypeAdapter.FACTORY)
+                    .registerTypeAdapterFactory(LocalDateTypeAdapter.FACTORY)
+                    .registerTypeAdapterFactory(LocalDateTimeTypeAdapter.FACTORY)
+                    .registerTypeAdapterFactory(YearMonthTypeAdapter.FACTORY)
+                    .registerTypeAdapterFactory(OptionalTypeAdapter.factory());
+            return builder.create();
+        });
     }
 
     public static <T> T fromJson(String jsonStr, Class<T> classOfT) {
-        return gson.fromJson(jsonStr, classOfT);
+        return getGsonInstance().fromJson(jsonStr, classOfT);
     }
 
     public static <T> T fromJson(String jsonStr, TypeToken<T> typeOfT) {
-        return gson.fromJson(jsonStr, typeOfT);
+        return getGsonInstance().fromJson(jsonStr, typeOfT);
     }
 
     public static String toJson(Object obj) {
-        return gson.toJson(obj);
+        return getGsonInstance().toJson(obj);
     }
 
     public static void main(String[] args) {

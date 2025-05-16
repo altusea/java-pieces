@@ -6,6 +6,7 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.cookie.StandardCookieSpec;
+import org.apache.hc.client5.http.fluent.Request;
 import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
@@ -117,12 +118,19 @@ public class ApacheHttpUtil {
         return executeRequestWithProxy(httpGet, proxy);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String url = "https://www.baidu.com";
         System.out.println(get(url));
 
         printSeparateLine();
         HttpHost proxy = new HttpHost("127.0.0.1", 1234);
         System.out.println(getWithProxy(url, proxy));
+
+        printSeparateLine();
+        var client2 = HttpClients.createDefault();
+        var response2 = Request.get("https://www.baidu.com")
+                .viaProxy(proxy)
+                .execute(client2);
+        System.out.println(response2.handleResponse(DEFAULT_RESPONSE_HANDLER));
     }
 }

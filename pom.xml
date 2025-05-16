@@ -12,6 +12,7 @@
         <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- libs -->
+        <avaje.client.version>3.3</avaje.client.version>
         <bouncycastle.version>1.80</bouncycastle.version>
         <caffeine.version>3.2.0</caffeine.version>
         <commons-codec.version>1.18.0</commons-codec.version>
@@ -29,10 +30,10 @@
         <gatherers4j.version>0.10.0</gatherers4j.version>
         <gson.version>2.13.1</gson.version>
         <guava.version>33.4.8-jre</guava.version>
-        <helidon.version>4.2.1</helidon.version>
+        <helidon.version>4.2.2</helidon.version>
         <httpclient5.version>5.5-alpha1</httpclient5.version>
         <hutool.version>6.0.0-M21</hutool.version>
-        <jackson.version>3.0.0-rc3</jackson.version>
+        <jackson.version>3.0.0-rc4</jackson.version>
         <jctools.version>4.0.5</jctools.version>
         <joda-money.version>2.0.2</joda-money.version>
         <jsoup.version>1.20.1</jsoup.version>
@@ -316,6 +317,16 @@
             <groupId>com.github.mizosoft.methanol</groupId>
             <artifactId>methanol</artifactId>
             <version>${methanol.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.avaje</groupId>
+            <artifactId>avaje-http-client</artifactId>
+            <version>${avaje.client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.avaje</groupId>
+            <artifactId>avaje-jsonb</artifactId>
+            <version>${avaje.client.version}</version>
         </dependency>
         <dependency>
             <groupId>com.ginsberg</groupId>

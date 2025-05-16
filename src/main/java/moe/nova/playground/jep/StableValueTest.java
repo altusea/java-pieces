@@ -1,14 +1,18 @@
 package moe.nova.playground.jep;
 
-import java.util.function.Supplier;
+import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class StableValueTest {
 
-    private static final Supplier<String> stableValue = StableValue.supplier(
-            () -> "hello, world"
-    );
-
     public static void main(String[] args) {
-        System.out.println(stableValue.get());
+        var supplier = StableValue.supplier(() -> "hello, world");
+        System.out.println(supplier.get());
+
+        printSeparateLine();
+
+        StableValue<String> stableValue2 = StableValue.of();
+        System.out.println(stableValue2.orElse("backup"));
+        stableValue2.trySet("hello, world");
+        System.out.println(stableValue2.orElse("backup"));
     }
 }
