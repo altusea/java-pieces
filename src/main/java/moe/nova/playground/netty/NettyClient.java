@@ -31,7 +31,7 @@ public class NettyClient {
 
         @Override
         public void channelRead0(ChannelHandlerContext ctx, String msg) {
-            System.out.println("Received message from server: " + msg);
+            IO.println("Received message from server: " + msg);
         }
 
         @Override

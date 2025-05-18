@@ -36,7 +36,7 @@ public class CsvTest {
             seqW.write(new Person("Bob", 37, false));
             seqW.write(new Person("Jeff", 28, true));
 
-            System.out.println(strW);
+            IO.println(strW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

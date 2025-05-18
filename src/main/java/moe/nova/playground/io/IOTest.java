@@ -17,7 +17,7 @@ public class IOTest {
         try (InputStream inputStream = ByteSource.wrap(bytes).openStream();
              ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
             IOUtils.copy(inputStream, outputStream);
-            System.out.println(outputStream.toString(StandardCharsets.UTF_8));
+            IO.println(outputStream.toString(StandardCharsets.UTF_8));
         }
     }
 }

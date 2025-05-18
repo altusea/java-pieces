@@ -22,7 +22,7 @@ public class ApacheHttpClientFactory {
         ClassicHttpRequest request = ClassicRequestBuilder.get("https://www.google.com").build();
         try (var httpClient = createProxyClient(new HttpHost("127.0.0.1", 7890))) {
             var response = httpClient.execute(request, ApacheHttpUtil.DEFAULT_RESPONSE_HANDLER);
-            System.out.println(response);
+            IO.println(response);
         }
     }
 }

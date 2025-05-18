@@ -12,19 +12,19 @@ public class StrTest {
     public static void main(String[] args) {
         printSeparateLine();
         String a = "hello about 中国 西方 二分 earth all.";
-        System.out.println("raw length: " + a.length());
-        System.out.println("hutool length: " + StrUtil.length(a));
-        System.out.println(StrUtil.replaceByCodePoint(a, 12, 20, "r"));
+        IO.println("raw length: " + a.length());
+        IO.println("hutool length: " + StrUtil.length(a));
+        IO.println(StrUtil.replaceByCodePoint(a, 12, 20, "r"));
 
         String link = "https://test.regex.com/markStart/water/123456-ff3fd979581267a4";
         Pattern pattern = Pattern.compile("markStart/(\\w+)/(\\d+)-([0-9a-f]{16})$");
         Matcher matcher = pattern.matcher(link);
         if (matcher.find()) {
-            System.out.println(matcher.group(1));
-            System.out.println(matcher.group(2));
-            System.out.println(matcher.group(3));
+            IO.println(matcher.group(1));
+            IO.println(matcher.group(2));
+            IO.println(matcher.group(3));
         } else {
-            System.out.println("not matched!");
+            IO.println("not matched!");
         }
 
         final String MSG = "{\"encrypt\":\"%1$s\",\"msg_signature\":\"%2$s\",\"timestamp\":\"%3$s\",\"nonce\":\"%4$s\"}";

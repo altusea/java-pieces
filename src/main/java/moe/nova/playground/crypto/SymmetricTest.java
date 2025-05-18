@@ -24,7 +24,7 @@ public class SymmetricTest {
 
             // 将加密结果转换为Base64字符串
             String encryptedText = Base64.getEncoder().encodeToString(encryptedBytes);
-            System.out.println("加密结果：" + encryptedText);
+            IO.println("加密结果：" + encryptedText);
 
             // 创建解密器
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
@@ -34,9 +34,9 @@ public class SymmetricTest {
 
             // 将解密结果转换为字符串
             String decryptedText = new String(decryptedBytes, StandardCharsets.UTF_8);
-            System.out.println("解密结果：" + decryptedText);
+            IO.println("解密结果：" + decryptedText);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            IO.println(e.getMessage());
         }
 
     }

@@ -25,13 +25,13 @@ public class AnimalStreamUtil {
 
     public static void main(String[] args) {
         var validSequence = List.of(SHEEP, SHEEP_DOG, WOLF, WOLF);
-        System.out.println("Valid animal sequence result:");
+        IO.println("Valid animal sequence result:");
         validSequence.stream()
                 .gather(AnimalStreamUtil.isValidSequence())
                 .forEach(System.out::println);
 
         var invalidSequence = List.of(SHEEP_DOG, SHEEP, WOLF, WOLF);
-        System.out.println("\nInvalid animal sequence result:");
+        IO.println("\nInvalid animal sequence result:");
         invalidSequence.stream()
                 .gather(AnimalStreamUtil.isValidSequence())
                 .forEach(System.out::println);

@@ -15,7 +15,7 @@ public class ScopedValueExample {
         try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
             scope.fork(() -> {
                 ScopedValue.where(scopedValue, "Scoped Value").run(
-                        () -> System.out.println(Thread.currentThread().getName() + " - " + scopedValue.get()));
+                        () -> IO.println(Thread.currentThread().getName() + " - " + scopedValue.get()));
                 return null;
             });
             scope.join();

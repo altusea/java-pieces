@@ -17,10 +17,10 @@ public class ThreadId {
 
     public static void main(String[] args) throws InterruptedException {
         // Run a task in a virtual thread
-        Thread.startVirtualThread(() -> System.out.println("Virtual Thread ID: " + get()));
+        Thread.startVirtualThread(() -> IO.println("Virtual Thread ID: " + get()));
 
         // Run the same task in a platform thread
-        Thread t = new Thread(() -> System.out.println("Platform Thread ID: " + get()));
+        Thread t = new Thread(() -> IO.println("Platform Thread ID: " + get()));
         t.start();
         // wait
         Thread.sleep(Duration.ofSeconds(5L));

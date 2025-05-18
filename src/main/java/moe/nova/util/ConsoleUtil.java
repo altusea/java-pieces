@@ -10,19 +10,19 @@ public class ConsoleUtil {
     private static final String SHORTER_SEPARATE_LINE = "=".repeat(20);
 
     public static void printLine() {
-        System.out.println();
+        IO.println();
     }
 
     public static void printSeparateLine() {
-        System.out.println(SEPARATE_LINE);
+        IO.println(SEPARATE_LINE);
     }
 
     public static void printSeparateLine(final @NonNull String msg) {
         var str = StringUtils.center(msg, 40);
-        System.out.println(SHORTER_SEPARATE_LINE + str + SHORTER_SEPARATE_LINE);
+        IO.println(SHORTER_SEPARATE_LINE + str + SHORTER_SEPARATE_LINE);
     }
 
     public static void main(String[] args) {
-        System.out.println(StringUtils.repeat("=", 80));
+        IO.println(StringUtils.repeat("=", 80));
     }
 }

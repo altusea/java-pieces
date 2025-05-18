@@ -70,8 +70,8 @@ public final class ByteUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(0x57);
+        IO.println(0x57);
         var a = new byte[]{14, 15, 16, 17, 18};
-        System.out.println(toHexadecimal(a));
+        IO.println(toHexadecimal(a));
     }
 }

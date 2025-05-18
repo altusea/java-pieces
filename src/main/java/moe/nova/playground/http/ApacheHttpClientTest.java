@@ -24,7 +24,7 @@ public class ApacheHttpClientTest {
     public static void main(String[] args) throws IOException {
         try (var client = HttpClients.createDefault()) {
             String body = client.execute(ClassicRequestBuilder.get().setUri("https://www.baidu.com").build(), new BasicHttpClientResponseHandler());
-            System.out.println(body);
+            IO.println(body);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -53,6 +53,6 @@ public class ApacheHttpClientTest {
                 .build();
         client.close();
         client.execute(ClassicRequestBuilder.get().setUri("https://www.baidu.com").build(), new BasicHttpClientResponseHandler());
-        System.out.println(connManager.isClosed());
+        IO.println(connManager.isClosed());
     }
 }

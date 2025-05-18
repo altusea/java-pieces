@@ -50,7 +50,7 @@ public class GathererTest {
     }
 
     public static void main(String[] args) {
-        System.out.println("groupAndFindMax example: ");
+        IO.println("groupAndFindMax example: ");
         var listA = List.of(
                 new DateRecord("B", LocalDate.of(2024, 6, 2)),
                 new DateRecord("B", LocalDate.of(2024, 6, 3)), // desired
@@ -64,33 +64,33 @@ public class GathererTest {
         var listB = listA.stream().gather(distinctBy(DateRecord::type)).toList();
         listB.forEach(System.out::println);
 
-        System.out.println("groupAndFindMax example: ");
+        IO.println("groupAndFindMax example: ");
         var listC = listA.stream()
                 .gather(groupAndFindMax(DateRecord::type, DateRecord::date, Comparator.naturalOrder()))
                 .toList();
         listC.forEach(System.out::println);
 
-        System.out.println("Fold example: ");
+        IO.println("Fold example: ");
         Stream.of(1, 2, 3, 4, 5)
                 .gather(Gatherers.fold(() -> 1, (a, b) -> a * b))
                 .forEach(System.out::println);
 
-        System.out.println("Map concurrent example:");
+        IO.println("Map concurrent example:");
         Stream.of(1, 2, 3, 4, 5)
                 .gather(Gatherers.mapConcurrent(4, a -> a * 2))
                 .forEach(System.out::println);
 
-        System.out.println("Scan example:");
+        IO.println("Scan example:");
         Stream.of(1, 2, 3, 4, 5)
                 .gather(Gatherers.scan(() -> 1, (a, b) -> a * b))
                 .forEach(System.out::println);
 
-        System.out.println("Window fixed example:");
+        IO.println("Window fixed example:");
         Stream.of(1, 2, 3, 4, 5)
                 .gather(Gatherers.windowFixed(2))
                 .forEach(System.out::println);
 
-        System.out.println("Window sliding example:");
+        IO.println("Window sliding example:");
         Stream.of(1, 2, 3, 4, 5)
                 .gather(Gatherers.windowSliding(2))
                 .forEach(System.out::println);

@@ -13,6 +13,6 @@ public class CipherUtil {
 
     public static void main(String[] args) {
         var sm4 = new SM4();
-        System.out.println(Hex.encodeHexString(sm4.getSecretKey().getEncoded()));
+        IO.println(Hex.encodeHexString(sm4.getSecretKey().getEncoded()));
     }
 }

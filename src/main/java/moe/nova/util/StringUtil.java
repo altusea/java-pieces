@@ -27,7 +27,7 @@ public class StringUtil {
         String hybrid = "我能吞下glass而不伤害body";
         int[] codePoints = StringUtils.toCodePoints(hybrid);
         for (int codePoint : codePoints) {
-            System.out.println(Character.toString(codePoint));
+            IO.println(Character.toString(codePoint));
         }
     }
 }

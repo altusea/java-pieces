@@ -29,7 +29,7 @@ public class StampedLockTest {
         Runnable w = () -> {
             long stamp = lock.writeLock();
             b.setAmount(b.getAmount() + 1000);
-            System.out.println("Write: " + b.getAmount());
+            IO.println("Write: " + b.getAmount());
             lock.unlockWrite(stamp);
         };
         Runnable r = () -> {
@@ -37,12 +37,12 @@ public class StampedLockTest {
             if (!lock.validate(stamp)) {
                 stamp = lock.readLock();
                 try {
-                    System.out.println("Read: " + b.getAmount());
+                    IO.println("Read: " + b.getAmount());
                 } finally {
                     lock.unlockRead(stamp);
                 }
             } else {
-                System.out.println("Optimistic read fails");
+                IO.println("Optimistic read fails");
             }
         };
 

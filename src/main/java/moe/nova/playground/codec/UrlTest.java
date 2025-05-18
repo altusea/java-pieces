@@ -54,18 +54,18 @@ public class UrlTest {
         urlHolder.setB(s);
         var s1 = JacksonUtil.toJson(urlHolder);
         var s2 = UrlEncoder.encodeAll(s1);
-        System.out.println(s2);
+        IO.println(s2);
         UrlBuilder urlBuilder0 = UrlBuilder.of("https://www.baidu.com" + "?p10=" + s2);
         var s3 = urlBuilder0.getQuery().get("p10");
-        System.out.println("s3: " + s3);
+        IO.println("s3: " + s3);
 
         var s4 = UrlDecoder.decode(s2);
         var u1 = JacksonUtil.fromJson(s4, UrlHolder.class);
 
 
-        System.out.println(u1.getB());
-        System.out.println(UrlEncoder.encodeAll(s));
-        System.out.println(URLEncoder.encode(s, StandardCharsets.UTF_8));
+        IO.println(u1.getB());
+        IO.println(UrlEncoder.encodeAll(s));
+        IO.println(URLEncoder.encode(s, StandardCharsets.UTF_8));
         printSeparateLine();
         var a = "测试一下子啊a";
         var b = a.getBytes(StandardCharsets.UTF_8);
@@ -74,28 +74,28 @@ public class UrlTest {
                 .addQuery("another", 1)
                 .build();
         var d = UrlBuilder.of(c);
-        System.out.println(d.getQuery().getQueryMap().get("info"));
+        IO.println(d.getQuery().getQueryMap().get("info"));
 
         printSeparateLine();
-        System.out.println(ConvertUtil.toStr("测试"));
-        System.out.println(URLEncoder.encode("测试", StandardCharsets.UTF_8));
-        System.out.println(URLEncoder.encode("hello", StandardCharsets.UTF_8));
+        IO.println(ConvertUtil.toStr("测试"));
+        IO.println(URLEncoder.encode("测试", StandardCharsets.UTF_8));
+        IO.println(URLEncoder.encode("hello", StandardCharsets.UTF_8));
 
         UrlQuery urlQuery = UrlQuery.of(UrlQuery.EncodeMode.STRICT);
         urlQuery.add("a", "xxx");
         urlQuery.add("b", "yyy");
         urlQuery.add("a", "zzz");
-        System.out.println(urlQuery.build(StandardCharsets.UTF_8));
+        IO.println(urlQuery.build(StandardCharsets.UTF_8));
 
         Map<String, String> params = Map.of("a", "a", "b", "测试");
-        System.out.println(UrlQuery.of(params).build(StandardCharsets.UTF_8));
+        IO.println(UrlQuery.of(params).build(StandardCharsets.UTF_8));
 
         printSeparateLine("test anchor:");
         String anchorUrl = UrlBuilder.of("https://www.baidu.com#toc")
                 .addQuery("key1", "a")
                 .addQuery("key2", "b")
                 .build();
-        System.out.println(anchorUrl);
+        IO.println(anchorUrl);
 
         printSeparateLine("test anchor 2:");
         String anchorUrl2 = UrlBuilder.of("https://www.baidu.com#toc")
@@ -103,7 +103,7 @@ public class UrlTest {
                 .addQuery("key2", "b")
                 .setFragment("/login")
                 .build();
-        System.out.println(anchorUrl2);
+        IO.println(anchorUrl2);
 
         printSeparateLine();
         UrlBuilder urlBuilder = UrlBuilder.of("https://www.google.com", StandardCharsets.UTF_8);
@@ -111,27 +111,27 @@ public class UrlTest {
         urlBuilder.addPathSegment("path3");
         urlBuilder.addQuery("order", "ascend");
         urlBuilder.addQuery("name", "张三");
-        System.out.println(urlBuilder.build());
+        IO.println(urlBuilder.build());
 
         UrlBuilder urlBuilder1 = UrlBuilder.of("https://www.google.com?order=ascend", StandardCharsets.UTF_8);
         urlBuilder1.addQuery("pageSize", 10);
         String url = urlBuilder1.build();
-        System.out.println(url);
-        System.out.println(UrlEncoder.encodeAll(url, StandardCharsets.UTF_8));
+        IO.println(url);
+        IO.println(UrlEncoder.encodeAll(url, StandardCharsets.UTF_8));
 
-        System.out.println(URLEncoder.encode(url, StandardCharsets.UTF_8));
+        IO.println(URLEncoder.encode(url, StandardCharsets.UTF_8));
 
         printSeparateLine();
         String url2 = "https://www.google.com?query=todo&timezone=taipei+qwe";
-        System.out.println("net:       " + URLEncoder.encode(url2, StandardCharsets.UTF_8));
-        System.out.println("hutool:    " + UrlEncoder.encodeAll(url2));
+        IO.println("net:       " + URLEncoder.encode(url2, StandardCharsets.UTF_8));
+        IO.println("hutool:    " + UrlEncoder.encodeAll(url2));
 
         printSeparateLine();
         UrlBuilder urlBuilder3 = UrlBuilder.of("https://www.baidu.com?query=hello");
         urlBuilder3.setFragment("/login");
         String test = urlBuilder3.build();
-        System.out.println(test);
-        System.out.println(stripAnchor(test));
-        System.out.println(stripAnchor("https://www.baidu.com/#/login?query=hello"));
+        IO.println(test);
+        IO.println(stripAnchor(test));
+        IO.println(stripAnchor("https://www.baidu.com/#/login?query=hello"));
     }
 }

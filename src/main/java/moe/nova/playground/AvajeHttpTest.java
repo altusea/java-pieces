@@ -18,7 +18,7 @@ public class AvajeHttpTest {
                     .url("https://www.baidu.com")
                     .GET()
                     .asString();
-            System.out.println(response.body());
+            IO.println(response.body());
         }
     }
 }

@@ -18,10 +18,10 @@ public sealed class Animal permits Dog, Cat {
         var a = new Dog();
         a.setAge(10);
         a.setSpices("white");
-        System.out.println(JacksonUtil.toJson(a));
+        IO.println(JacksonUtil.toJson(a));
         var b = new Cat();
         b.setAge(10);
         b.setFurColor("white");
-        System.out.println(JacksonUtil.toJson(b));
+        IO.println(JacksonUtil.toJson(b));
     }
 }

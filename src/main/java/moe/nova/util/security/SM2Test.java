@@ -8,7 +8,7 @@ public class SM2Test {
         SM2 sm2 = new SM2(); // 生成密钥对
         var pubKeyBase64 = sm2.getPublicKeyBase64(); // 公钥
         var priKeyBase64 = sm2.getPrivateKeyBase64(); // 私钥
-        System.out.println(pubKeyBase64);
-        System.out.println(priKeyBase64);
+        IO.println(pubKeyBase64);
+        IO.println(priKeyBase64);
     }
 }

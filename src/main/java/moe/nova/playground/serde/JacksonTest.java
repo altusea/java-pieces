@@ -25,11 +25,11 @@ public class JacksonTest {
 
         var n = new EnumHolder(TestEnum.INIT);
         var s = jsonMapper.writeValueAsString(n);
-        System.out.println(s);
+        IO.println(s);
         var n2 = jsonMapper.readValue(s, EnumHolder.class);
-        System.out.println(n2);
+        IO.println(n2);
 
-        System.out.println("=====================================================================");
+        IO.println("=====================================================================");
 
         Optional<String> stringOptional = Optional.of("hello");
         var a = jsonMapper.writeValueAsString(stringOptional);
@@ -49,20 +49,20 @@ public class JacksonTest {
         clazz.setLocalDateTime(LocalDateTime.now());
 
         String jsonStr = jsonMapper.writeValueAsString(clazz);
-        System.out.println("1: " + jsonStr);
+        IO.println("1: " + jsonStr);
         TimeHolder fromJson = jsonMapper.readValue(jsonStr, TimeHolder.class);
-        System.out.println("2: " + fromJson);
+        IO.println("2: " + fromJson);
 
         String jsonStr2 = "{\"localDate\":\"2024-01-26\",\"localDateTime\":\"\", \"extra\":\"xx\"}";
         TimeHolder fromJson2 = jsonMapper.readValue(jsonStr2, TimeHolder.class);
-        System.out.println("3: " + fromJson2);
+        IO.println("3: " + fromJson2);
 
         JsonObject jsonObj = new JsonObject();
         jsonObj.addProperty("localDateTime", System.currentTimeMillis());
         TimeHolder fromJson3 = jsonMapper.readValue(jsonObj.toString(), TimeHolder.class);
-        System.out.println("4: " + fromJson3);
+        IO.println("4: " + fromJson3);
 
-        System.out.println("=====================================================================");
+        IO.println("=====================================================================");
 
         DataHolder dataHolder = new DataHolder();
         DataHolder.InnerClazz innerClazz = new DataHolder.InnerClazz();
@@ -71,11 +71,11 @@ public class JacksonTest {
         dataHolder.setField("ccc");
         dataHolder.setInnerClazz(innerClazz);
         String jsonStr3 = jsonMapper.writeValueAsString(dataHolder);
-        System.out.println("5: " + jsonStr3);
+        IO.println("5: " + jsonStr3);
         DataHolder fromJson4 = jsonMapper.readValue(jsonStr3, DataHolder.class);
-        System.out.println("6: " + fromJson4);
+        IO.println("6: " + fromJson4);
         String jsonStr4 = "{\"field\":\"ccc\",\"innerClazz\":\"\"}";
         DataHolder fromJson5 = jsonMapper.readValue(jsonStr4, DataHolder.class);
-        System.out.println("7: " + fromJson5);
+        IO.println("7: " + fromJson5);
     }
 }

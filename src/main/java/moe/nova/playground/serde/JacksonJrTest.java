@@ -46,24 +46,24 @@ public class JacksonJrTest {
 
     public static void main(String[] args) throws IOException {
         var a = new TestRecord(1, "A", 18);
-        System.out.println(JSON.std.asString(a));
-        System.out.println(JacksonUtil.toJson(a));
+        IO.println(JSON.std.asString(a));
+        IO.println(JacksonUtil.toJson(a));
 
         var b = new TestClazz();
         b.setId(1);
         b.setName("B");
-        System.out.println(JSON.std.asString(b));
+        IO.println(JSON.std.asString(b));
 
         List<String> c = List.of("a", "bb", "ccc");
         var cs = JSON.std.asString(c);
         List<String> d = JSON.std.listOfFrom(String.class, cs);
-        System.out.println(d);
-        System.out.println("================================");
+        IO.println(d);
+        IO.println("================================");
         var jsonExt = JSON.builder()
                 .register(JacksonAnnotationExtension.std)
                 .register(new JacksonJrJavaTimeExtension())
                 .build();
         var json = jsonExt.asString(a);
-        System.out.println(json);
+        IO.println(json);
     }
 }

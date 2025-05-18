@@ -54,8 +54,8 @@ public class EnumTest {
 
     public static void main(String[] args) {
         var map = EnumUtils.getEnumMap(Color.class, Color::getCode);
-        System.out.println(map.size());
+        IO.println(map.size());
         var red = map.get(Color.RED.code);
-        System.out.println(red);
+        IO.println(red);
     }
 }

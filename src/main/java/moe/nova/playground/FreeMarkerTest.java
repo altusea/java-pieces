@@ -21,7 +21,7 @@ public class FreeMarkerTest {
             template.process(map, writer);
 
             // 输出结果
-            System.out.println(writer);
+            IO.println(writer);
         }
     }
 }

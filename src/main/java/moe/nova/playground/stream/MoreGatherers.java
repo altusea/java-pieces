@@ -76,14 +76,14 @@ public final class MoreGatherers {
     public static void main(String[] args) {
         var a = List.of("a", "b", "c");
         var ai = a.stream().gather(zipWithIndex()).toList();
-        System.out.println(ai);
+        IO.println(ai);
 
         var b = List.of("b", "cc", "ddd", "ee", "bbbb", "df");
         var bd = b.stream().gather(distinctBy(String::length)).toList();
-        System.out.println(bd);
-        System.out.println(bd.stream().gather(zip(a)).toList());
+        IO.println(bd);
+        IO.println(bd.stream().gather(zip(a)).toList());
 
         var c = IntStream.rangeClosed(1, 10).iterator();
-        System.out.println(a.stream().gather(zip(c, String::repeat)).toList());
+        IO.println(a.stream().gather(zip(c, String::repeat)).toList());
     }
 }

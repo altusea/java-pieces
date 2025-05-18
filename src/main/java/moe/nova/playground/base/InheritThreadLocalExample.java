@@ -18,7 +18,7 @@ public class InheritThreadLocalExample {
         Thread childThread = new Thread(() -> {
             // 在子线程中获取父线程的数据
             String data = threadLocal.get();
-            System.out.println("Child Thread - Data: " + data);
+            IO.println("Child Thread - Data: " + data);
         });
 
         // 启动子线程
@@ -33,6 +33,6 @@ public class InheritThreadLocalExample {
 
         // 在父线程中获取数据
         String data = threadLocal.get();
-        System.out.println("Main Thread - Data: " + data);
+        IO.println("Main Thread - Data: " + data);
     }
 }

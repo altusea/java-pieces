@@ -22,12 +22,12 @@ public class PlayWithStructuredConcurrency {
             var future3 = scope.fork(readWeatherC());
             scope.join();
 
-            System.out.println("future1: " + future1.state());
-            System.out.println("future2: " + future2.state());
-            System.out.println("future3: " + future3.state());
+            IO.println("future1: " + future1.state());
+            IO.println("future2: " + future2.state());
+            IO.println("future3: " + future3.state());
 
             if (future1.state() == StructuredTaskScope.Subtask.State.SUCCESS) {
-                System.out.println("future1.get(): " + future1.get());
+                IO.println("future1.get(): " + future1.get());
             }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -40,7 +40,7 @@ public class PlayWithStructuredConcurrency {
             scope.fork(readWeatherB());
             scope.fork(readWeatherC());
             scope.join();
-            System.out.println(scope.result());
+            IO.println(scope.result());
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
@@ -52,7 +52,7 @@ public class PlayWithStructuredConcurrency {
             scope.fork(readWeatherB());
             scope.fork(readWeatherC());
             scope.join();
-            System.out.println(scope.exception());
+            IO.println(scope.exception());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

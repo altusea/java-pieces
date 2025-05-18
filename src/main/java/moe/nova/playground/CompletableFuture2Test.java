@@ -15,11 +15,11 @@ public class CompletableFuture2Test {
                 return "Hello";
             });
             future.whenComplete(
-                    (result, _) -> System.out.println("Future completed with result=" + result + "."));
+                    (result, _) -> IO.println("Future completed with result=" + result + "."));
 
             Thread.sleep(Duration.ofSeconds(5));
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            IO.println(e.getMessage());
         }
     }
 }

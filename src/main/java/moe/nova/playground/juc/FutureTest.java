@@ -34,7 +34,7 @@ public class FutureTest {
                 future.get();
             }
             long end = System.currentTimeMillis();
-            System.out.println((end - start) + " ms!");
+            IO.println((end - start) + " ms!");
         } catch (Exception e) {
             throw ExceptionUtils.asRuntimeException(e);
         }

@@ -40,7 +40,7 @@ public class RetryUtil {
 
     public static void main(String[] args) {
         withTry((CheckedRunnable) () -> {
-            System.out.println("exec time: " + LocalDateTime.now());
+            IO.println("exec time: " + LocalDateTime.now());
             throw new NotImplementedException("todo");
         }, 3, e -> e instanceof SocketTimeoutException);
     }

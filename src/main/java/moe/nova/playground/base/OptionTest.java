@@ -31,15 +31,15 @@ public class OptionTest {
         a.add("a");
         a.add("b");
         a.add("c");
-        System.out.println(getFirst(a));
-        System.out.println(getFirst2(a));
+        IO.println(getFirst(a));
+        IO.println(getFirst2(a));
 
         var b = new MutableArrayList<>();
         b.append(null);
         b.append("a");
         b.append("b");
         b.append("c");
-        System.out.println(getFirst(b));
-        System.out.println(b.getFirstOption());
+        IO.println(getFirst(b));
+        IO.println(b.getFirstOption());
     }
 }

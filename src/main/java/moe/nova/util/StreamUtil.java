@@ -102,9 +102,9 @@ public class StreamUtil {
     public static void main(String[] args) {
         List<Character> characters = Lists.newArrayList('a', 'b', 'c');
         List<CharSequence> charSequences = mapAsList(characters, e -> StringUtils.repeat(e, 3));
-        System.out.println(charSequences);
+        IO.println(charSequences);
         List<String> strings = mapAsList(characters, e -> StringUtils.repeat(e, 3));
-        System.out.println(strings);
+        IO.println(strings);
 
         List<String> a = List.of("a", "b", "c");
         var b = ofType(a, CharSequence.class).toList();

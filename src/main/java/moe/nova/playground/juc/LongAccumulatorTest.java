@@ -17,7 +17,7 @@ public class LongAccumulatorTest {
 
             executor.shutdown();
             if (executor.awaitTermination(1000L, TimeUnit.MILLISECONDS))
-                System.out.println("Balance: " + balance.get());
+                IO.println("Balance: " + balance.get());
             assert balance.get() == 60000L;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

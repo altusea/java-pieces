@@ -40,7 +40,7 @@ public class RandomStringGenerator {
 
     public static void prettyPrint(List<String> stringList) {
         List<List<String>> partitions = Lists.partition(stringList, 20);
-        partitions.forEach(e -> System.out.println(String.join(" ", e)));
+        partitions.forEach(e -> IO.println(String.join(" ", e)));
     }
 
     public static void main(String[] args) {

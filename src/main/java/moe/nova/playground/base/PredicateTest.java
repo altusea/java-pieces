@@ -19,6 +19,6 @@ public class PredicateTest {
                 .filter(allPredicates.stream().reduce(_ -> true, Predicate::and))
                 .toList();
 
-        System.out.println(result);
+        IO.println(result);
     }
 }

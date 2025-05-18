@@ -16,6 +16,6 @@ public class UnusedTest {
 
     public static void main(String[] args) {
         List<String> a = Lists.newArrayList("a", "b", "c");
-        System.out.println(count(a));
+        IO.println(count(a));
     }
 }

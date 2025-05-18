@@ -3,6 +3,6 @@ String hello() {
 }
 
 void main() {
-    System.out.println(hello());
+    IO.println(hello());
     IO.println(hello());
 }

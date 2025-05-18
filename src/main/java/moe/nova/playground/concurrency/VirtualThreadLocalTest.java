@@ -11,7 +11,7 @@ public class VirtualThreadLocalTest {
     public static void main(String[] args) {
         try (var e = Executors.newVirtualThreadPerTaskExecutor()) {
             for (int i = 0; i < 100; i++) {
-                e.execute(() -> System.out.println(Thread.currentThread().threadId() + " get: " + localVar.get()));
+                e.execute(() -> IO.println(Thread.currentThread().threadId() + " get: " + localVar.get()));
             }
         }
     }

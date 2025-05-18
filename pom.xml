@@ -45,7 +45,7 @@
         <lombok.version>1.18.38</lombok.version>
         <methanol.version>1.8.2</methanol.version>
         <more-gatherers.version>0.0.2</more-gatherers.version>
-        <noexception.version>1.9.1</noexception.version>
+        <resilience4j.version>2.3.0</resilience4j.version>
         <slf4j.version>2.0.17</slf4j.version>
         <netty.version>4.2.1.Final</netty.version>
         <!-- maven -->
@@ -190,14 +190,14 @@
             <version>${jctools.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.machinezoo.noexception</groupId>
-            <artifactId>noexception</artifactId>
-            <version>${noexception.version}</version>
-        </dependency>
-        <dependency>
             <groupId>dev.failsafe</groupId>
             <artifactId>failsafe</artifactId>
             <version>${failsafe.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-retry</artifactId>
+            <version>${resilience4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>

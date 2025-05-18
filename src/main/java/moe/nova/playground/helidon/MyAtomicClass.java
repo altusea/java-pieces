@@ -19,9 +19,9 @@ class MyAtomicClass {
         // 使用 compareAndSet 进行原子更新
         boolean success = atomicFieldHandle.compareAndSet(instance, 0, 10);
         if (success) {
-            System.out.println("Field updated atomically.");
+            IO.println("Field updated atomically.");
         } else {
-            System.out.println("Field update failed.");
+            IO.println("Field update failed.");
         }
     }
 }

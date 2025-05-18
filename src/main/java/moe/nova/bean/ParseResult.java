@@ -43,11 +43,11 @@ record Error(String errorMsg) implements ParseResult {
 class ResultTest {
     public static void main(String[] args) {
         ParseResult r = ParseResult.parseInt("Hello World");
-        System.out.println(r);
-        System.out.println(r.getOrDefault(-1));
+        IO.println(r);
+        IO.println(r.getOrDefault(-1));
 
         ParseResult r1 = ParseResult.parseInt("1234567890");
-        System.out.println(r1);
-        System.out.println(r1.getOrDefault(-1));
+        IO.println(r1);
+        IO.println(r1.getOrDefault(-1));
     }
 }

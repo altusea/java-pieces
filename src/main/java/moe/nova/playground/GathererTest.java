@@ -12,12 +12,12 @@ public class GathererTest {
         var b = a.stream()
                 .gather(Gatherers4j.dedupeConsecutive())
                 .toList();
-        System.out.println(b);
+        IO.println(b);
 
         var c = a.stream()
                 .gather(MoreGatherers.zipWithIndex())
                 .gather(MoreGatherers.distinctByKeepLast(Map.Entry::getKey))
                 .toList();
-        System.out.println(c);
+        IO.println(c);
     }
 }

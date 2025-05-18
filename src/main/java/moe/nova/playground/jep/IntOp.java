@@ -41,10 +41,10 @@ class IntOpTest {
     public static void main(String[] args) {
         int i = 10;
         var op1 = new Increment();
-        System.out.println(IntOp.opOn(i, op1));
+        IO.println(IntOp.opOn(i, op1));
         var op2 = new Redouble();
-        System.out.println(IntOp.opOn(i, op2));
+        IO.println(IntOp.opOn(i, op2));
         var op3 = new Halve();
-        System.out.println(IntOp.opOn(i, op3));
+        IO.println(IntOp.opOn(i, op3));
     }
 }

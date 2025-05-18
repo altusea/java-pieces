@@ -9,7 +9,7 @@ public class ForLoopTest {
         List<Runnable> toDoList = new ArrayList<>();
         for (int i = 1; i <= 3; i++) {
             int j = i;
-            toDoList.add(() -> System.out.println("Do item #" + j));
+            toDoList.add(() -> IO.println("Do item #" + j));
         }
         for (Runnable runnable : toDoList) {
             runnable.run();

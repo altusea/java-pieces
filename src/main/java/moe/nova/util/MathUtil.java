@@ -15,14 +15,14 @@ public class MathUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(Math.ceilDiv(10, 3));
-        System.out.println(Math.ceilDiv(10, 2));
-        System.out.println(Math.ceilDiv(1L, 3L));
+        IO.println(Math.ceilDiv(10, 3));
+        IO.println(Math.ceilDiv(10, 2));
+        IO.println(Math.ceilDiv(1L, 3L));
         double a = 1.2;
         double b = 0.03;
         double[] result = safeAdd(a, b);
         System.out.printf("(%.2f + %.2f) is in the range %.16f..%.16f%n", a, b, result[0], result[1]);
 
-        System.out.println(Math.ceilDiv(64, 5));
+        IO.println(Math.ceilDiv(64, 5));
     }
 }

@@ -57,12 +57,12 @@ public class JacksonUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(buildJavaTypeLinearly());
-        System.out.println(buildJavaTypeLinearly(String.class));
-        System.out.println(buildJavaTypeLinearly(List.class, Integer.class));
-        System.out.println(buildJavaTypeLinearly(List.class, List.class, String.class));
+        IO.println(buildJavaTypeLinearly());
+        IO.println(buildJavaTypeLinearly(String.class));
+        IO.println(buildJavaTypeLinearly(List.class, Integer.class));
+        IO.println(buildJavaTypeLinearly(List.class, List.class, String.class));
 
         TypeFactory typeFactory = getJsonMapper().getTypeFactory();
-        System.out.println(typeFactory.constructMapType(Map.class, String.class, Integer.class));
+        IO.println(typeFactory.constructMapType(Map.class, String.class, Integer.class));
     }
 }

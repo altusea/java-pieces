@@ -19,6 +19,6 @@ class MyClass {
         // 使用 VarHandle 来读取和修改字段值
         int currentValue = (int) fieldHandle.get(instance);
         fieldHandle.set(instance, currentValue + 1);
-        System.out.println(instance.myField);
+        IO.println(instance.myField);
     }
 }

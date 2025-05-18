@@ -14,7 +14,7 @@ public class JdkHttpClientTest {
                     .uri(URI.create("https://www.baidu.com"))
                     .build();
             var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
+            IO.println(response.body());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

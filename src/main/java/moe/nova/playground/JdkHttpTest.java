@@ -26,7 +26,7 @@ public class JdkHttpTest {
                                 if (throwable != null) {
                                     throwable.printStackTrace();
                                 } else {
-                                    System.out.println(response.body());
+                                    IO.println(response.body());
                                 }
                             });
                         } catch (Exception e) {

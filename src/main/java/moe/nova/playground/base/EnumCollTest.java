@@ -37,7 +37,7 @@ public class EnumCollTest {
 
     public static void main(String[] args) {
         Map<String, Color> map = EnumUtils.getEnumMap(Color.class, Color::getCode);
-        System.out.println(map.get(Color.RED.code));
+        IO.println(map.get(Color.RED.code));
 
         // with EnumSet
         printSeparateLine();
@@ -51,7 +51,7 @@ public class EnumCollTest {
             var _ = es.containsAll(x);
         }
         long endX = System.nanoTime();
-        System.out.println(x.getClass() + ": " + (endX - begX) / 1e9);
+        IO.println(x.getClass() + ": " + (endX - begX) / 1e9);
 
         // with Set
         printSeparateLine();
@@ -65,12 +65,12 @@ public class EnumCollTest {
             var _ = hs.containsAll(y);
         }
         long endY = System.nanoTime();
-        System.out.println(y.getClass() + ": " + (endY - begY) / 1e9);
+        IO.println(y.getClass() + ": " + (endY - begY) / 1e9);
 
         EnumMap<EmployeePosition, Long> map2 = new EnumMap<>(EmployeePosition.class);
         map2.put(EmployeePosition.SRE, 1L);
         map2.put(EmployeePosition.ARCHITECT, 2L);
         map2.put(EmployeePosition.DEVELOPER, 3L);
-        System.out.println(map2.containsKey(EmployeePosition.SRE));
+        IO.println(map2.containsKey(EmployeePosition.SRE));
     }
 }

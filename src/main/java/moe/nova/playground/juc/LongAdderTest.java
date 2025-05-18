@@ -15,7 +15,7 @@ public class LongAdderTest {
                 threadPoolExecutor.execute(longAdder::increment);
             }
             Thread.sleep(Duration.ofSeconds(1L));
-            System.out.println(longAdder.sum());
+            IO.println(longAdder.sum());
         } catch (InterruptedException e) {
             throw ExceptionUtils.asRuntimeException(e);
         }

@@ -14,7 +14,7 @@ public class ImageTest {
         int width = image.getWidth();
         int height = image.getHeight();
 
-        System.out.println("Image Width: " + width);
-        System.out.println("Image Height: " + height);
+        IO.println("Image Width: " + width);
+        IO.println("Image Height: " + height);
     }
 }

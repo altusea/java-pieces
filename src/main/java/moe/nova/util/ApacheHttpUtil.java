@@ -120,17 +120,17 @@ public class ApacheHttpUtil {
 
     public static void main(String[] args) throws IOException {
         String url = "https://www.baidu.com";
-        System.out.println(get(url));
+        IO.println(get(url));
 
         printSeparateLine();
         HttpHost proxy = new HttpHost("127.0.0.1", 1234);
-        System.out.println(getWithProxy(url, proxy));
+        IO.println(getWithProxy(url, proxy));
 
         printSeparateLine();
         var client2 = HttpClients.createDefault();
         var response2 = Request.get("https://www.baidu.com")
                 .viaProxy(proxy)
                 .execute(client2);
-        System.out.println(response2.handleResponse(DEFAULT_RESPONSE_HANDLER));
+        IO.println(response2.handleResponse(DEFAULT_RESPONSE_HANDLER));
     }
 }

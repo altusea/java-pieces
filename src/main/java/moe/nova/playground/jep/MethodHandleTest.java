@@ -13,7 +13,7 @@ public class MethodHandleTest {
     }
 
     public static void target() {
-        System.out.println("invoking target");
+        IO.println("invoking target");
     }
 
 }

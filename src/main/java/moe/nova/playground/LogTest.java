@@ -26,9 +26,9 @@ public class LogTest {
 
         var e1 = new RuntimeException();
         var e2 = new IORuntimeException(new IOException());
-        System.out.println(ExceptionUtil.getRootCause(e1).getClass());
-        System.out.println(ExceptionUtil.getRootCause(e1).getClass().getName());
-        System.out.println(ExceptionUtil.getRootCause(e2).getClass());
-        System.out.println(ExceptionUtil.getRootCause(e2).getClass().getName());
+        IO.println(ExceptionUtil.getRootCause(e1).getClass());
+        IO.println(ExceptionUtil.getRootCause(e1).getClass().getName());
+        IO.println(ExceptionUtil.getRootCause(e2).getClass());
+        IO.println(ExceptionUtil.getRootCause(e2).getClass().getName());
     }
 }

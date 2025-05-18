@@ -21,11 +21,11 @@ public class SquareCalculator {
         Future<Integer> future = new SquareCalculator().calculate(10);
 
         while (!future.isDone()) {
-            System.out.println("Calculating...");
+            IO.println("Calculating...");
             Thread.sleep(300);
         }
 
         Integer result = future.get();
-        System.out.println(result);
+        IO.println(result);
     }
 }

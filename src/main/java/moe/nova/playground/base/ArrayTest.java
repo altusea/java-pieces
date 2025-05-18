@@ -4,11 +4,11 @@ public class ArrayTest {
 
     public static void test(String... strList) {
         if (strList == null) {
-            System.out.println("input is null");
+            IO.println("input is null");
         } else if (strList.length == 0) {
-            System.out.println("input is empty");
+            IO.println("input is empty");
         } else {
-            System.out.println("input is not empty");
+            IO.println("input is not empty");
         }
     }
 

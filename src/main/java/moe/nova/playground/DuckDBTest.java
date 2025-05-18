@@ -14,7 +14,7 @@ public class DuckDBTest {
         // query
         var rs = stmt.executeQuery("SELECT * FROM test");
         while (rs.next()) {
-            System.out.println(rs.getInt(1) + " " + rs.getString(2));
+            IO.println(rs.getInt(1) + " " + rs.getString(2));
         }
 
     }

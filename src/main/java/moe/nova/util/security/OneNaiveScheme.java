@@ -54,6 +54,6 @@ public class OneNaiveScheme {
         demoObj.setFieldB("bbb");
 
         var struct = construct(demoObj, DemoClazz::getFieldA, sender.getPrivateKey(), receiver.getPublicKey());
-        System.out.println(check(struct, DemoClazz.class, DemoClazz::getFieldA, sender.getPublicKey(), receiver.getPrivateKey(), Duration.ofSeconds(30L)));
+        IO.println(check(struct, DemoClazz.class, DemoClazz::getFieldA, sender.getPublicKey(), receiver.getPrivateKey(), Duration.ofSeconds(30L)));
     }
 }

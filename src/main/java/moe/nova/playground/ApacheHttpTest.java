@@ -20,7 +20,7 @@ public class ApacheHttpTest {
                     .viaProxy("http://127.0.0.1:7890")
                     .execute(client)
                     .handleResponse(new BasicHttpClientResponseHandler());
-            System.out.println(bodyStr);
+            IO.println(bodyStr);
 
 
         } catch (Exception _) {
@@ -31,7 +31,7 @@ public class ApacheHttpTest {
         try (var client = HttpAsyncClients.createDefault()) {
             final SimpleHttpRequest request = SimpleRequestBuilder.get("https://www.baidu.com")
                     .build();
-            System.out.println("Executing request " + request);
+            IO.println("Executing request " + request);
             final Future<SimpleHttpResponse> future = client.execute(
                     SimpleRequestProducer.create(request),
                     SimpleResponseConsumer.create(),
@@ -39,18 +39,18 @@ public class ApacheHttpTest {
 
                         @Override
                         public void completed(final SimpleHttpResponse response) {
-                            System.out.println(request + "->" + new StatusLine(response));
-                            System.out.println(response.getBody());
+                            IO.println(request + "->" + new StatusLine(response));
+                            IO.println(response.getBody());
                         }
 
                         @Override
                         public void failed(final Exception ex) {
-                            System.out.println(request + "->" + ex);
+                            IO.println(request + "->" + ex);
                         }
 
                         @Override
                         public void cancelled() {
-                            System.out.println(request + " cancelled");
+                            IO.println(request + " cancelled");
                         }
 
                     });

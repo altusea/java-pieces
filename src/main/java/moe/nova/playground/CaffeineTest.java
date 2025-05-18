@@ -13,8 +13,8 @@ public class CaffeineTest {
                 .expireAfterWrite(Duration.ofMinutes(30L))
                 .build(String::length);
         cache.put("test", 4);
-        System.out.println(cache.get("test"));
-        System.out.println(cache.get("test1"));
+        IO.println(cache.get("test"));
+        IO.println(cache.get("test1"));
 
         AsyncLoadingCache<String, Integer> cache2 = Caffeine.newBuilder()
                 .expireAfterWrite(Duration.ofMinutes(30L))

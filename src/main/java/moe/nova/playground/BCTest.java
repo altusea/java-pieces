@@ -11,8 +11,8 @@ public class BCTest {
     public static void main(String[] args) {
         var a = "夸克会第一时间上传，其他网盘几小时后上传";
         var bytes = a.getBytes(StandardCharsets.UTF_8);
-        System.out.println(Hex.toHexString(bytes));
-        System.out.println(Base32.toBase32String(bytes));
-        System.out.println(Base64.toBase64String(bytes));
+        IO.println(Hex.toHexString(bytes));
+        IO.println(Base32.toBase32String(bytes));
+        IO.println(Base64.toBase64String(bytes));
     }
 }

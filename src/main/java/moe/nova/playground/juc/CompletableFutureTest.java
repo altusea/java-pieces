@@ -35,8 +35,8 @@ public class CompletableFutureTest {
             // 等待结果，并输出
             List<Integer> results = resultFuture.join();
             long end = System.currentTimeMillis();
-            System.out.println("Results: " + results);
-            System.out.println((end - start) + "ms");
+            IO.println("Results: " + results);
+            IO.println((end - start) + "ms");
         }
     }
 

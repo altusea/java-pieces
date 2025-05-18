@@ -28,7 +28,7 @@ public class MethanolTest {
                             .GET()
                             .uri(URI.create("https://api.github.com/users/moe-nova"))
                             .build(), String.class);
-            System.out.println(response.body());
+            IO.println(response.body());
         } catch (Exception _) {
         }
     }

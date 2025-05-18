@@ -29,6 +29,6 @@ public class PageParam extends BaseParam {
     public static void main(String[] args) {
         PageParam param = new PageParam();
         param.setTraceId(UUID.randomUUID().toString());
-        System.out.println(JacksonUtil.toJson(param));
+        IO.println(JacksonUtil.toJson(param));
     }
 }

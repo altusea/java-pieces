@@ -17,8 +17,8 @@ public class SwitchTest {
     }
 
     public static void main(String[] args) {
-        System.out.println(toStr(new Result.Ok<>("hello")));
-        System.out.println(toStr(new Result.Err<>(new RuntimeException("error"))));
+        IO.println(toStr(new Result.Ok<>("hello")));
+        IO.println(toStr(new Result.Err<>(new RuntimeException("error"))));
 
         printSeparateLine();
         var stringList = List.of("Foo", "Bar", "Baz");
@@ -29,9 +29,9 @@ public class SwitchTest {
             case "Bar":
                 yield 2;
             default:
-                System.out.println("Neither Foo nor Bar, hmmm...");
+                IO.println("Neither Foo nor Bar, hmmm...");
                 yield 0;
         };
-        System.out.println(result);
+        IO.println(result);
     }
 }

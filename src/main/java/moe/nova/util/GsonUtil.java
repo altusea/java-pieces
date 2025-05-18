@@ -42,16 +42,16 @@ public class GsonUtil {
         Optional<String> a = Optional.of("a");
         Optional<String> b = Optional.empty();
         Optional<List<String>> c = Optional.of(List.of("a", "b", "c"));
-        System.out.println(GsonUtil.toJson(a));
-        System.out.println(GsonUtil.toJson(b));
-        System.out.println(GsonUtil.toJson(c));
+        IO.println(GsonUtil.toJson(a));
+        IO.println(GsonUtil.toJson(b));
+        IO.println(GsonUtil.toJson(c));
 
         printSeparateLine();
-        System.out.println(GsonUtil.fromJson("[\"a\"]", new TypeToken<Optional<String>>() {
+        IO.println(GsonUtil.fromJson("[\"a\"]", new TypeToken<Optional<String>>() {
         }));
-        System.out.println(GsonUtil.fromJson("[]", new TypeToken<Optional<String>>() {
+        IO.println(GsonUtil.fromJson("[]", new TypeToken<Optional<String>>() {
         }));
-        System.out.println(GsonUtil.fromJson("[[\"a\",\"b\",\"c\"]]", new TypeToken<Optional<List<String>>>() {
+        IO.println(GsonUtil.fromJson("[[\"a\",\"b\",\"c\"]]", new TypeToken<Optional<List<String>>>() {
         }));
     }
 }

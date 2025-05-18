@@ -44,8 +44,8 @@ public class DateOrientedDemo {
         var rectangle = new Rectangle(new Point(2, 2), new Point(10, 10));
         var triangle = new Triangle(new Point(0, 0), new Point(5, 0), new Point(0, 12));
 
-        System.out.println(numOfEdges(circle));
-        System.out.println(getCenter(rectangle));
-        System.out.println(getCenter(triangle));
+        IO.println(numOfEdges(circle));
+        IO.println(getCenter(rectangle));
+        IO.println(getCenter(triangle));
     }
 }

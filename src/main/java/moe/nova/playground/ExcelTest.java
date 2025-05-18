@@ -20,12 +20,12 @@ public class ExcelTest {
     static class DemoDataListener implements ReadListener<DemoData> {
         @Override
         public void invoke(DemoData data, AnalysisContext context) {
-            System.out.println("解析到一条数据" + JSON.toJSONString(data));
+            IO.println("解析到一条数据" + JSON.toJSONString(data));
         }
 
         @Override
         public void doAfterAllAnalysed(AnalysisContext context) {
-            System.out.println("所有数据解析完成！");
+            IO.println("所有数据解析完成！");
         }
     }
 

@@ -39,7 +39,7 @@ public class TestVTPool {
         @Override
         public void await() throws InterruptedException {
             super.await(); // 等待所有任务完成
-            System.out.println(name + ": " + (System.nanoTime() - timeBegin) / 1_000_000 + " ms"); // 输出耗时(毫秒)
+            IO.println(name + ": " + (System.nanoTime() - timeBegin) / 1_000_000 + " ms"); // 输出耗时(毫秒)
         }
     }
 
@@ -81,7 +81,7 @@ public class TestVTPool {
             test3();
             System.gc();
             test4();
-            System.out.println("---");
+            IO.println("---");
         }
     }
 }

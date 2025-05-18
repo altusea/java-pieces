@@ -30,7 +30,7 @@ public class GameGatherers {
                 new Player("Adam")
         );
 
-        System.out.println("\nGames result:");
+        IO.println("Games result:");
         listOfPlayers.stream()
                 .gather(GameGatherers.performGamesGatherer())
                 .forEach(System.out::println);

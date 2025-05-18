@@ -34,6 +34,6 @@ public class Person implements Diffable<Person> {
         person2.age = 19;
         person2.smoker = false;
 
-        System.out.println(person.diff(person2).getDiffs());
+        IO.println(person.diff(person2).getDiffs());
     }
 }

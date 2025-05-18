@@ -13,7 +13,7 @@ public class FunctionTest {
         var stringList = new ArrayList<String>();
         stringList.addFirst("head");
         consumer.accept(stringList);
-        System.out.println(stringList);
+        IO.println(stringList);
 
         var c = List.of("head", "xx1", "xx2", "xx3", "xx4", "xx5", "tail");
         c.stream()
