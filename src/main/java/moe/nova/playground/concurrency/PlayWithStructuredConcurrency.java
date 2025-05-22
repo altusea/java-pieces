@@ -3,7 +3,6 @@ package moe.nova.playground.concurrency;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
@@ -16,7 +15,7 @@ public class PlayWithStructuredConcurrency {
 
     public static void main(String[] args) {
 
-        try (var scope = new StructuredTaskScope<Weather>()) {
+        try (var scope = StructuredTaskScope.open()) {
             var future1 = scope.fork(readWeatherA());
             var future2 = scope.fork(readWeatherB());
             var future3 = scope.fork(readWeatherC());
@@ -35,31 +34,7 @@ public class PlayWithStructuredConcurrency {
 
         printSeparateLine();
 
-        try (var scope = new StructuredTaskScope.ShutdownOnSuccess<Weather>()) {
-            scope.fork(readWeatherA());
-            scope.fork(readWeatherB());
-            scope.fork(readWeatherC());
-            scope.join();
-            IO.println(scope.result());
-        } catch (InterruptedException | ExecutionException e) {
-            throw new RuntimeException(e);
-        }
-
-        printSeparateLine();
-
-        try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-            scope.fork(readWeatherA());
-            scope.fork(readWeatherB());
-            scope.fork(readWeatherC());
-            scope.join();
-            IO.println(scope.exception());
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        printSeparateLine();
-
-        try (var scope = new StructuredTaskScope<>()) {
+        try (var scope = StructuredTaskScope.open(StructuredTaskScope.Joiner.allSuccessfulOrThrow())) {
             List<Callable<Weather>> callables = List.of(readWeatherA(), readWeatherB(), readWeatherC());
             var subtasks = callables.stream().map(scope::fork).toList();
             scope.join();

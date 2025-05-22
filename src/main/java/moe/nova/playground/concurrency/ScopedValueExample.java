@@ -12,7 +12,7 @@ public class ScopedValueExample {
     private static final ScopedValue<String> scopedValue = ScopedValue.newInstance();
 
     public static void main(String[] args) {
-        try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+        try (var scope = StructuredTaskScope.open()) {
             scope.fork(() -> {
                 ScopedValue.where(scopedValue, "Scoped Value").run(
                         () -> IO.println(Thread.currentThread().getName() + " - " + scopedValue.get()));
