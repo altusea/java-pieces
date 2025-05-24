@@ -3,6 +3,7 @@ package moe.nova.playground.http;
 import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.cookie.StandardCookieSpec;
+import org.apache.hc.client5.http.fluent.Request;
 import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
@@ -54,5 +55,9 @@ public class ApacheHttpClientTest {
         client.close();
         client.execute(ClassicRequestBuilder.get().setUri("https://www.baidu.com").build(), new BasicHttpClientResponseHandler());
         IO.println(connManager.isClosed());
+
+        var response = Request.get("https://www.baidu.com")
+                .execute();
+        IO.println(response.handleResponse(new BasicHttpClientResponseHandler()));
     }
 }

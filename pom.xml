@@ -6,7 +6,7 @@
 
     <groupId>moe.nova</groupId>
     <artifactId>java-pieces</artifactId>
-    <version>2025.5.0</version>
+    <version>2025.6.0</version>
 
     <properties>
         <maven.compiler.release>25</maven.compiler.release>
@@ -31,9 +31,9 @@
         <gson.version>2.13.1</gson.version>
         <guava.version>33.4.8-jre</guava.version>
         <helidon.version>4.2.2</helidon.version>
-        <httpclient5.version>5.5-alpha1</httpclient5.version>
+        <httpclient5.version>5.5</httpclient5.version>
         <hutool.version>6.0.0-M21</hutool.version>
-        <jackson.version>3.0.0-rc4</jackson.version>
+        <jackson.version>3.0.0-rc5</jackson.version>
         <jctools.version>4.0.5</jctools.version>
         <joda-money.version>2.0.2</joda-money.version>
         <jsoup.version>1.20.1</jsoup.version>
@@ -49,7 +49,7 @@
         <slf4j.version>2.0.17</slf4j.version>
         <netty.version>4.2.1.Final</netty.version>
         <!-- maven -->
-        <maven-clean-plugin.version>3.4.1</maven-clean-plugin.version>
+        <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
