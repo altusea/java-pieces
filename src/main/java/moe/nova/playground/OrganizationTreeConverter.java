@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public class OrganizationTreeConverter {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Collection<Organization> organizationList = Lists.newArrayList(
                 new Organization(0L, "A", null),
                 new Organization(1L, "B", 0L),

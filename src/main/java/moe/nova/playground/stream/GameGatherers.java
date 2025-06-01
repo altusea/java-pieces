@@ -19,7 +19,7 @@ public class GameGatherers {
         return pairPlayersGatherer.andThen(simulateGamesGatherer);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var listOfPlayers = List.of(
                 new Player("John"),
                 new Player("Marry"),
@@ -30,7 +30,7 @@ public class GameGatherers {
                 new Player("Adam")
         );
 
-        System.out.println("\nGames result:");
+        IO.println("Games result:");
         listOfPlayers.stream()
                 .gather(GameGatherers.performGamesGatherer())
                 .forEach(System.out::println);

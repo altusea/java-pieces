@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class CompletableFutureTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
 
         try (var threadPoolExecutor = Executors.newVirtualThreadPerTaskExecutor()) {
 
@@ -35,8 +35,8 @@ public class CompletableFutureTest {
             // 等待结果，并输出
             List<Integer> results = resultFuture.join();
             long end = System.currentTimeMillis();
-            System.out.println("Results: " + results);
-            System.out.println((end - start) + "ms");
+            IO.println("Results: " + results);
+            IO.println((end - start) + "ms");
         }
     }
 

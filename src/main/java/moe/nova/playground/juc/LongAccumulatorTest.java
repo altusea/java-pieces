@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.LongAccumulator;
 
 public class LongAccumulatorTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         LongAccumulator balance = new LongAccumulator(Long::sum, 10000L);
         Runnable w = () -> balance.accumulate(1000L);
         try (ExecutorService executor = Executors.newFixedThreadPool(50)) {
@@ -17,7 +17,7 @@ public class LongAccumulatorTest {
 
             executor.shutdown();
             if (executor.awaitTermination(1000L, TimeUnit.MILLISECONDS))
-                System.out.println("Balance: " + balance.get());
+                IO.println("Balance: " + balance.get());
             assert balance.get() == 60000L;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

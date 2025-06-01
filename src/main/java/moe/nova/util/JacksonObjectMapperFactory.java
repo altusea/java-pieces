@@ -1,22 +1,20 @@
 package moe.nova.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.deser.YearMonthDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.YearMonthSerializer;
-import moe.nova.playground.serde.TimeHolder;
+import moe.nova.bean.TimeHolder;
 import moe.nova.util.internal.jackson.CustomLocalDateTimeDeserializer;
-import org.dromara.hutool.core.date.DatePattern;
+import org.dromara.hutool.core.date.DateFormatPool;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.SerializationFeature;
+import tools.jackson.databind.ext.javatime.deser.LocalDateDeserializer;
+import tools.jackson.databind.ext.javatime.deser.LocalTimeDeserializer;
+import tools.jackson.databind.ext.javatime.deser.YearMonthDeserializer;
+import tools.jackson.databind.ext.javatime.ser.LocalDateSerializer;
+import tools.jackson.databind.ext.javatime.ser.LocalDateTimeSerializer;
+import tools.jackson.databind.ext.javatime.ser.LocalTimeSerializer;
+import tools.jackson.databind.ext.javatime.ser.YearMonthSerializer;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.module.SimpleModule;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -31,35 +29,38 @@ public final class JacksonObjectMapperFactory {
     public static JsonMapper createJsonMapper() {
         var javaTimeModule = new SimpleModule();
         // LocalDate
-        javaTimeModule.addSerializer(LocalDate.class, new LocalDateSerializer(DatePattern.NORM_DATE_FORMATTER));
-        javaTimeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(DatePattern.NORM_DATE_FORMATTER));
+        javaTimeModule.addSerializer(LocalDate.class, new LocalDateSerializer(DateFormatPool.NORM_DATE_FORMATTER));
+        javaTimeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(DateFormatPool.NORM_DATE_FORMATTER));
         // LocalDateTime
-        javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DatePattern.NORM_DATETIME_FORMATTER));
+        javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(DateFormatPool.NORM_DATETIME_FORMATTER));
         javaTimeModule.addDeserializer(LocalDateTime.class, new CustomLocalDateTimeDeserializer());
         // LocalTime
-        javaTimeModule.addSerializer(LocalTime.class, new LocalTimeSerializer(DatePattern.NORM_TIME_FORMATTER));
-        javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(DatePattern.NORM_TIME_FORMATTER));
+        javaTimeModule.addSerializer(LocalTime.class, new LocalTimeSerializer(DateFormatPool.NORM_TIME_FORMATTER));
+        javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(DateFormatPool.NORM_TIME_FORMATTER));
         // YearMonth
-        javaTimeModule.addSerializer(YearMonth.class, new YearMonthSerializer(DatePattern.NORM_MONTH_FORMATTER));
-        javaTimeModule.addDeserializer(YearMonth.class, new YearMonthDeserializer(DatePattern.NORM_MONTH_FORMATTER));
+        javaTimeModule.addSerializer(YearMonth.class, new YearMonthSerializer(DateFormatPool.NORM_MONTH_FORMATTER));
+        javaTimeModule.addDeserializer(YearMonth.class, new YearMonthDeserializer(DateFormatPool.NORM_MONTH_FORMATTER));
         return JsonMapper.builder()
                 .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
                 // empty string error
                 .configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true)
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                .serializationInclusion(JsonInclude.Include.NON_NULL)
+                .changeDefaultPropertyInclusion(old -> old.withValueInclusion(JsonInclude.Include.NON_NULL))
                 .addModule(javaTimeModule)
-                .addModule(new Jdk8Module())
                 .build();
     }
 
-    public static void main(String[] args) throws JsonProcessingException {
+    static void main(String[] args) {
         TimeHolder timeHolder = new TimeHolder();
         timeHolder.setYearMonth(YearMonth.now());
         timeHolder.setLocalDate(LocalDate.now());
         timeHolder.setLocalDateTime(LocalDateTime.now());
-        System.out.println(timeHolder);
-        System.out.println(JacksonObjectMapperFactory.createJsonMapper().writeValueAsString(timeHolder));
+        var mapper = createJsonMapper();
+        var s = mapper.writeValueAsString(timeHolder);
+        IO.println(s);
+        IO.println("The above json string contains null value: " + s.contains("null"));
+        var o = mapper.readValue(s, TimeHolder.class);
+        IO.println(o);
     }
 
 }

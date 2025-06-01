@@ -6,35 +6,54 @@
 
     <groupId>moe.nova</groupId>
     <artifactId>java-pieces</artifactId>
-    <version>2024.10.0</version>
+    <version>2025.6.0</version>
 
     <properties>
-        <maven.compiler.release>23</maven.compiler.release>
+        <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- libs -->
-        <bouncycastle.version>1.78.1</bouncycastle.version>
-        <commons-codec.version>1.17.1</commons-codec.version>
-        <commons-collections4.version>4.5.0-M2</commons-collections4.version>
+        <avaje.client.version>3.3</avaje.client.version>
+        <bouncycastle.version>1.80</bouncycastle.version>
+        <caffeine.version>3.2.0</caffeine.version>
+        <commons-codec.version>1.18.0</commons-codec.version>
+        <commons-collections4.version>4.5.0</commons-collections4.version>
         <commons-compress.version>1.27.1</commons-compress.version>
-        <commons-io.version>2.17.0</commons-io.version>
+        <commons-io.version>2.19.0</commons-io.version>
         <commons-lang3.version>3.17.0</commons-lang3.version>
-        <easyexcel.version>4.0.3</easyexcel.version>
+        <disruptor.version>4.0.0</disruptor.version>
+        <duckdb.version>1.3.0.0</duckdb.version>
         <failsafe.version>3.3.2</failsafe.version>
+        <fastexcel.version>1.2.0</fastexcel.version>
+        <fastjson.version>2.0.57</fastjson.version>
         <fastutil.version>8.5.15</fastutil.version>
-        <freemarker.version>2.3.33</freemarker.version>
-        <gson.version>2.11.0</gson.version>
-        <guava.version>33.3.1-jre</guava.version>
-        <http-components.version>5.4</http-components.version>
-        <hutool.version>6.0.0-M17</hutool.version>
-        <jackson.version>2.18.0</jackson.version>
+        <freemarker.version>2.3.34</freemarker.version>
+        <gatherers4j.version>0.10.0</gatherers4j.version>
+        <gson.version>2.13.1</gson.version>
+        <guava.version>33.4.8-jre</guava.version>
+        <helidon.version>4.2.2</helidon.version>
+        <httpclient5.version>5.5</httpclient5.version>
+        <hutool.version>6.0.0-M21</hutool.version>
+        <jackson.version>3.0.0-rc5</jackson.version>
         <jctools.version>4.0.5</jctools.version>
-        <joda-money.version>2.0.0</joda-money.version>
-        <jsoup.version>1.18.1</jsoup.version>
-        <junit.version>5.11.3</junit.version>
-        <kala.version>0.74.0</kala.version>
-        <logback.version>1.5.11</logback.version>
-        <slf4j.version>2.0.13</slf4j.version>
-        <vavr.version>0.10.5</vavr.version>
+        <joda-money.version>2.0.2</joda-money.version>
+        <jsoup.version>1.20.1</jsoup.version>
+        <jspecify.version>1.0.0</jspecify.version>
+        <junit.version>5.13.0-M3</junit.version>
+        <kala-common.version>0.82.0</kala-common.version>
+        <kala-compress.version>1.27.1-1</kala-compress.version>
+        <log4j.version>2.24.3</log4j.version>
+        <lombok.version>1.18.38</lombok.version>
+        <methanol.version>1.8.2</methanol.version>
+        <more-gatherers.version>0.0.2</more-gatherers.version>
+        <resilience4j.version>2.3.0</resilience4j.version>
+        <slf4j.version>2.0.17</slf4j.version>
+        <netty.version>4.2.1.Final</netty.version>
+        <!-- maven -->
+        <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
+        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+        <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -47,6 +66,13 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-bom</artifactId>
+                <version>${log4j.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
                 <version>${junit.version}</version>
@@ -54,7 +80,7 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.fasterxml.jackson</groupId>
+                <groupId>tools.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
                 <version>${jackson.version}</version>
                 <type>pom</type>
@@ -67,7 +93,7 @@
         <dependency>
             <groupId>org.jspecify</groupId>
             <artifactId>jspecify</artifactId>
-            <version>1.0.0</version>
+            <version>${jspecify.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -102,6 +128,10 @@
                     <artifactId>commons-io</artifactId>
                     <groupId>commons-io</groupId>
                 </exclusion>
+                <exclusion>
+                    <groupId>commons-codec</groupId>
+                    <artifactId>commons-codec</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
@@ -114,11 +144,15 @@
             <artifactId>hutool-crypto</artifactId>
             <version>${hutool.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on -->
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk18on</artifactId>
             <version>${bouncycastle.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+            <version>${caffeine.version}</version>
         </dependency>
         <dependency>
             <groupId>org.joda</groupId>
@@ -133,38 +167,27 @@
         <dependency>
             <groupId>org.glavo.kala</groupId>
             <artifactId>kala-common</artifactId>
-            <version>${kala.version}</version>
+            <version>${kala-common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glavo.kala</groupId>
+            <artifactId>kala-compress</artifactId>
+            <version>${kala-compress.version}</version>
         </dependency>
         <dependency>
             <groupId>it.unimi.dsi</groupId>
             <artifactId>fastutil-core</artifactId>
             <version>${fastutil.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.duckdb</groupId>
+            <artifactId>duckdb_jdbc</artifactId>
+            <version>${duckdb.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.jctools</groupId>
             <artifactId>jctools-core</artifactId>
             <version>${jctools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.uuid</groupId>
-            <artifactId>java-uuid-generator</artifactId>
-            <version>5.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.f4b6a3</groupId>
-            <artifactId>uuid-creator</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.f4b6a3</groupId>
-            <artifactId>tsid-creator</artifactId>
-            <version>5.2.6</version>
-        </dependency>
-        <dependency>
-            <groupId>com.machinezoo.noexception</groupId>
-            <artifactId>noexception</artifactId>
-            <version>1.9.1</version>
         </dependency>
         <dependency>
             <groupId>dev.failsafe</groupId>
@@ -172,14 +195,19 @@
             <version>${failsafe.version}</version>
         </dependency>
         <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-retry</artifactId>
+            <version>${resilience4j.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5</artifactId>
-            <version>${http-components.version}</version>
+            <version>${httpclient5.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5-fluent</artifactId>
-            <version>${http-components.version}</version>
+            <version>${httpclient5.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -194,55 +222,69 @@
         </dependency>
         <!-- jackson -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
+            <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
+            <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
+            <groupId>tools.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-guava</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jdk8</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <groupId>tools.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-csv</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.jr</groupId>
+            <groupId>tools.jackson.jr</groupId>
             <artifactId>jackson-jr-objects</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.vavr</groupId>
-            <artifactId>vavr</artifactId>
-            <version>${vavr.version}</version>
+            <groupId>tools.jackson.jr</groupId>
+            <artifactId>jackson-jr-annotation-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tools.jackson.jr</groupId>
+            <artifactId>jackson-jr-extension-javatime</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
             <version>${jsoup.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.helidon.common</groupId>
+            <artifactId>helidon-common</artifactId>
+            <version>${helidon.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty.version}</version>
+        </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>${freemarker.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>easyexcel</artifactId>
-            <version>${easyexcel.version}</version>
+            <groupId>cn.idev.excel</groupId>
+            <artifactId>fastexcel</artifactId>
+            <version>${fastexcel.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.commons</groupId>
@@ -260,14 +302,52 @@
                     <groupId>org.apache.commons</groupId>
                     <artifactId>commons-compress</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
-
-        <!-- logback -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.houbb/sensitive-word -->
+        <dependency>
+            <groupId>com.github.houbb</groupId>
+            <artifactId>sensitive-word</artifactId>
+            <version>0.26.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.mizosoft.methanol</groupId>
+            <artifactId>methanol</artifactId>
+            <version>${methanol.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ginsberg</groupId>
+            <artifactId>gatherers4j</artifactId>
+            <version>${gatherers4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.pivovarit</groupId>
+            <artifactId>more-gatherers</artifactId>
+            <version>${more-gatherers.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${disruptor.version}</version>
         </dependency>
 
         <dependency>
@@ -281,8 +361,13 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${maven-clean-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <showDeprecation>true</showDeprecation>
                     <enablePreview>true</enablePreview>
@@ -291,7 +376,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>${maven-source-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -304,7 +389,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>${maven-resources-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven-dependency-plugin.version}</version>
             </plugin>
         </plugins>
     </build>

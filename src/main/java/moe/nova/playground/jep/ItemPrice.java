@@ -26,19 +26,19 @@ record ContactMe() implements ItemPrice {
 
 class ItemPriceTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         ItemPrice sale1 = new Sale(100.0);
-        System.out.println(sale1);
+        IO.println(sale1);
         ItemPrice trade1 = new Trade(List.of("Phone", "Laptop"));
-        System.out.println(trade1);
+        IO.println(trade1);
         ItemPrice contactMe1 = new ContactMe();
-        System.out.println(contactMe1);
+        IO.println(contactMe1);
 
         printSeparateLine();
         switch (ItemPrice.itemPriceFromWeb()) {
-            case Sale sale -> System.out.println("Sale price: " + sale.price());
-            case Trade trade -> System.out.println("Trade options: " + trade.tradeOptions());
-            case ContactMe ignored -> System.out.println("Contact me for price");
+            case Sale sale -> IO.println("Sale price: " + sale.price());
+            case Trade trade -> IO.println("Trade options: " + trade.tradeOptions());
+            case ContactMe _ -> IO.println("Contact me for price");
         }
     }
 }

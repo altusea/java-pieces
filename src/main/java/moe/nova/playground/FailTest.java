@@ -10,11 +10,11 @@ import java.time.LocalDateTime;
 public class FailTest {
 
     public static void runWithException() {
-        System.out.println("exec time: " + LocalDateTime.now());
+        IO.println("exec time: " + LocalDateTime.now());
         throw new NotImplementedException("not implemented ...");
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         RetryPolicy<Object> retryPolicy = RetryPolicy.builder()
                 .handle(UnsupportedOperationException.class)
                 .withDelay(Duration.ofSeconds(1))
@@ -24,18 +24,18 @@ public class FailTest {
         try {
             Failsafe.with(retryPolicy).run(FailTest::runWithException);
         } catch (UnsupportedOperationException e) {
-            System.out.println(e.getMessage());
+            IO.println(e.getMessage());
         }
 
-        System.out.println("====================================================");
+        IO.println("====================================================");
 
         try {
             Failsafe.with(retryPolicy).run(context -> {
-                System.out.println("attempt count: " + context.getAttemptCount());
+                IO.println("attempt count: " + context.getAttemptCount());
                 runWithException();
             });
         } catch (UnsupportedOperationException e) {
-            System.out.println(e.getMessage());
+            IO.println(e.getMessage());
         }
     }
 }

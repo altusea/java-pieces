@@ -25,7 +25,7 @@ public final class FunctionalUtil {
         }
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Consumers.accept(Consumers.nop(), "hello");
         Suppliers.get(null);
         ifTrue(null, null, System.out::println);
@@ -52,7 +52,7 @@ public final class FunctionalUtil {
      * @return A {@link Consumer} that does nothing.
      */
     public static <T> Consumer<T> noOpConsumer() {
-        return ignored -> {
+        return _ -> {
         };
     }
 
@@ -133,7 +133,7 @@ public final class FunctionalUtil {
     }
 
     public static <I, O> Function<I, O> toFunction(Supplier<O> supplier) {
-        return ignore -> supplier.get();
+        return _ -> supplier.get();
     }
 
     public static <T> T invokeSafely(UnsafeSupplier<T> unsafeSupplier) {

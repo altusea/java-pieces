@@ -12,7 +12,7 @@ public class MoneyUtil {
         return Gatherers.scan(() -> balance, Money::add);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var CNY = Currency.getInstance("CNY");
 
         var transactions = List.of(
@@ -23,7 +23,7 @@ public class MoneyUtil {
 
         var balance = new Money(BigDecimal.valueOf(270), CNY);
 
-        System.out.println("Balance history:");
+        IO.println("Balance history:");
         transactions.stream()
                 .gather(MoneyUtil.computeBalanceHistory(balance))
                 .forEach(System.out::println);

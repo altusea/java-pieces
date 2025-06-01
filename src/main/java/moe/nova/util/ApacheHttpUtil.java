@@ -6,6 +6,7 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.cookie.StandardCookieSpec;
+import org.apache.hc.client5.http.fluent.Request;
 import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
@@ -26,44 +27,46 @@ import org.apache.hc.core5.util.Timeout;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.Map;
+import java.util.function.Supplier;
 
 import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class ApacheHttpUtil {
 
-    private static final PoolingHttpClientConnectionManager CONN_MANAGER;
+    private static final Supplier<HttpClient> HTTP_CLIENT = StableValue.supplier(
+            () -> {
+                PoolingHttpClientConnectionManager connManager = PoolingHttpClientConnectionManagerBuilder.create()
+                        .setTlsSocketStrategy(new DefaultClientTlsStrategy(
+                                SSLContexts.createDefault(),
+                                NoopHostnameVerifier.INSTANCE))
+                        .setDefaultSocketConfig(SocketConfig.custom()
+                                .setSoTimeout(Timeout.ofMinutes(1))
+                                .build())
+                        .setPoolConcurrencyPolicy(PoolConcurrencyPolicy.LAX)
+                        .setConnPoolPolicy(PoolReusePolicy.FIFO)
+                        .setDefaultConnectionConfig(ConnectionConfig.custom()
+                                .setSocketTimeout(Timeout.ofMinutes(1))
+                                .setConnectTimeout(Timeout.ofMinutes(1))
+                                .setTimeToLive(TimeValue.ofMinutes(10))
+                                .build())
+                        .build();
+                return HttpClients.custom()
+                        .setConnectionManager(connManager)
+                        .setDefaultRequestConfig(RequestConfig.custom()
+                                .setCookieSpec(StandardCookieSpec.IGNORE)
+                                .build())
+                        .build();
+            }
+    );
 
-    private static final HttpClient HTTP_CLIENT;
+    public static final HttpClientResponseHandler<String> DEFAULT_RESPONSE_HANDLER = new BasicHttpClientResponseHandler();
 
-    private static final HttpClientResponseHandler<String> DEFAULT_RESPONSE_HANDLER = new BasicHttpClientResponseHandler();
-
-    static {
-        CONN_MANAGER = PoolingHttpClientConnectionManagerBuilder.create()
-                .setTlsSocketStrategy(new DefaultClientTlsStrategy(
-                        SSLContexts.createSystemDefault(),
-                        NoopHostnameVerifier.INSTANCE))
-                .setDefaultSocketConfig(SocketConfig.custom()
-                        .setSoTimeout(Timeout.ofMinutes(1))
-                        .build())
-                .setPoolConcurrencyPolicy(PoolConcurrencyPolicy.STRICT)
-                .setConnPoolPolicy(PoolReusePolicy.LIFO)
-                .setDefaultConnectionConfig(ConnectionConfig.custom()
-                        .setSocketTimeout(Timeout.ofMinutes(1))
-                        .setConnectTimeout(Timeout.ofMinutes(1))
-                        .setTimeToLive(TimeValue.ofMinutes(10))
-                        .build())
-                .build();
-        HTTP_CLIENT = HttpClients.custom()
-                .setConnectionManager(CONN_MANAGER)
-                .setDefaultRequestConfig(RequestConfig.custom()
-                        .setCookieSpec(StandardCookieSpec.IGNORE)
-                        .build())
-                .build();
+    private ApacheHttpUtil() {
     }
 
     private static String executeRequest(ClassicHttpRequest request) {
         try {
-            return HTTP_CLIENT.execute(request, DEFAULT_RESPONSE_HANDLER);
+            return HTTP_CLIENT.get().execute(request, DEFAULT_RESPONSE_HANDLER);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
@@ -71,7 +74,7 @@ public class ApacheHttpUtil {
 
     private static String executeRequestWithProxy(ClassicHttpRequest request, HttpHost proxy) {
         try {
-            return HTTP_CLIENT.execute(proxy, request, DEFAULT_RESPONSE_HANDLER);
+            return HTTP_CLIENT.get().execute(proxy, request, DEFAULT_RESPONSE_HANDLER);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
@@ -115,12 +118,19 @@ public class ApacheHttpUtil {
         return executeRequestWithProxy(httpGet, proxy);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) throws IOException {
         String url = "https://www.baidu.com";
-        System.out.println(get(url));
+        IO.println(get(url));
 
         printSeparateLine();
         HttpHost proxy = new HttpHost("127.0.0.1", 1234);
-        System.out.println(getWithProxy(url, proxy));
+        IO.println(getWithProxy(url, proxy));
+
+        printSeparateLine();
+        var client2 = HttpClients.createDefault();
+        var response2 = Request.get("https://www.baidu.com")
+                .viaProxy(proxy)
+                .execute(client2);
+        IO.println(response2.handleResponse(DEFAULT_RESPONSE_HANDLER));
     }
 }

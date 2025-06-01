@@ -13,9 +13,9 @@ public record Money(BigDecimal amount, Currency currency) {
         return new Money(amount.multiply(multiplier), currency);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Currency currency = Currency.getInstance("CNY");
-        System.out.println(currency);
-        System.out.println(Currency.getAvailableCurrencies());
+        IO.println(currency);
+        IO.println(Currency.getAvailableCurrencies());
     }
 }

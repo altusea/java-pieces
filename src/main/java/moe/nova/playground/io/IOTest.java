@@ -10,13 +10,14 @@ import java.nio.charset.StandardCharsets;
 
 public class IOTest {
 
-    public static void main(String[] args) throws IOException {
+    static void main(String[] args) throws IOException {
         String a = "hello, world";
         byte[] bytes = a.getBytes(StandardCharsets.UTF_8);
 
-        InputStream inputStream = ByteSource.wrap(bytes).openStream();
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        IOUtils.copy(inputStream, outputStream);
-        System.out.println(outputStream.toString(StandardCharsets.UTF_8));
+        try (InputStream inputStream = ByteSource.wrap(bytes).openStream();
+             ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+            IOUtils.copy(inputStream, outputStream);
+            IO.println(outputStream.toString(StandardCharsets.UTF_8));
+        }
     }
 }

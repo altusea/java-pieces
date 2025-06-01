@@ -17,25 +17,29 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class CommonsLangTest {
 
-    public static void main(String[] args) throws InterruptedException {
+    static void main(String[] args) throws InterruptedException {
         MutableInt mutableInt = new MutableInt(100);
         mutableInt.increment();
-        System.out.println(mutableInt.getAndAdd(5)); // should be 101
-        System.out.println(mutableInt.getValue()); // should be 106
+        IO.println(mutableInt.getAndAdd(5)); // should be 101
+        IO.println(mutableInt.getValue()); // should be 106
 
         printSeparateLine();
         Consumer<String> consumer = Consumers.nop();
         consumer.accept("hello");
-        System.out.println("here something ha");
+        IO.println("here something ha");
         printSeparateLine();
         var l = new ArrayList<String>();
         IntRange.closedOpen(0, 10).forEach(_ -> l.add(RandomStringUtils.insecure().nextNumeric(6)));
-        System.out.println(StringUtils.join(l, ", "));
+        IO.println(StringUtils.join(l, ", "));
 
         var stopWatch = StopWatch.createStarted();
-        Thread.sleep(Duration.ofSeconds(5));
+        Thread.sleep(Duration.ofSeconds(3));
+        stopWatch.suspend();
+        Thread.sleep(Duration.ofSeconds(2));
+        stopWatch.resume();
+        Thread.sleep(Duration.ofSeconds(1));
         stopWatch.stop();
-        System.out.println(stopWatch.formatTime());
+        IO.println(stopWatch.formatTime()); // should be 4 seconds
 
         printSeparateLine();
         int[] a = new int[]{1, 2, 3};

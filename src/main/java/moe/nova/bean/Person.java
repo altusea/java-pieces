@@ -23,7 +23,7 @@ public class Person implements Diffable<Person> {
                 .build();
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Person person = new Person();
         person.name = "John";
         person.age = 18;
@@ -34,6 +34,6 @@ public class Person implements Diffable<Person> {
         person2.age = 19;
         person2.smoker = false;
 
-        System.out.println(person.diff(person2).getDiffs());
+        IO.println(person.diff(person2).getDiffs());
     }
 }

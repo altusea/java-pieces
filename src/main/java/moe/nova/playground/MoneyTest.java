@@ -5,11 +5,11 @@ import org.joda.money.Money;
 
 public class MoneyTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         CurrencyUnit currencyUnit = CurrencyUnit.of("CNY");
         Money money = Money.of(currencyUnit, 1000000000000.00);
-        System.out.println(money);
+        IO.println(money);
         var b = money.getAmount();
-        System.out.println(b.toPlainString());
+        IO.println(b.toPlainString());
     }
 }

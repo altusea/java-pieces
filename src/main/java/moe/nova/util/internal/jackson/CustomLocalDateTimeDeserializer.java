@@ -1,13 +1,12 @@
 package moe.nova.util.internal.jackson;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import org.apache.commons.lang3.StringUtils;
-import org.dromara.hutool.core.date.DatePattern;
+import org.dromara.hutool.core.date.DateFormatPool;
+import tools.jackson.core.JsonParser;
+import tools.jackson.core.JsonToken;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.ext.javatime.deser.LocalDateTimeDeserializer;
 
-import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,12 +14,12 @@ import java.time.ZoneId;
 
 public class CustomLocalDateTimeDeserializer extends LocalDateTimeDeserializer {
 
-    public CustomLocalDateTimeDeserializer() {
-        super(LocalDateTimeDeserializer.INSTANCE, null);
-    }
+//    public CustomLocalDateTimeDeserializer() {
+//        super(LocalDateTimeDeserializer.INSTANCE, null);
+//    }
 
     @Override
-    public LocalDateTime deserialize(JsonParser parser, DeserializationContext context) throws IOException {
+    public LocalDateTime deserialize(JsonParser parser, DeserializationContext context) {
         if (parser.hasToken(JsonToken.VALUE_NUMBER_INT)) {
             long timestamp = parser.getLongValue();
             // Handle timestamp conversion to LocalDateTime
@@ -32,20 +31,20 @@ public class CustomLocalDateTimeDeserializer extends LocalDateTimeDeserializer {
                 return LocalDateTime.ofInstant(Instant.ofEpochSecond(timestamp), ZoneId.systemDefault());
             }
         } else if (parser.hasToken(JsonToken.VALUE_STRING)) {
-            String text = parser.getText();
+            String text = parser.getString();
             if (StringUtils.isEmpty(text)) {
                 return null;
             }
             if (text.length() == 13) {
                 // 时间戳
                 return LocalDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(text)), ZoneId.systemDefault());
-            } else if (text.length() == DatePattern.NORM_DATE_PATTERN.length()) {
+            } else if (text.length() == DateFormatPool.NORM_DATE_PATTERN.length()) {
                 // "yyyy-MM-dd"
-                return LocalDate.parse(text, DatePattern.NORM_DATE_FORMATTER).atStartOfDay();
+                return LocalDate.parse(text, DateFormatPool.NORM_DATE_FORMATTER).atStartOfDay();
             } else if (text.indexOf('T') >= 0) {
                 return super.deserialize(parser, context);
-            } else if (text.length() == DatePattern.NORM_DATETIME_PATTERN.length()) {
-                return LocalDateTime.parse(text, DatePattern.NORM_DATETIME_FORMATTER);
+            } else if (text.length() == DateFormatPool.NORM_DATETIME_PATTERN.length()) {
+                return LocalDateTime.parse(text, DateFormatPool.NORM_DATETIME_FORMATTER);
             }
         }
         return super.deserialize(parser, context);

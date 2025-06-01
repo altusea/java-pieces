@@ -33,7 +33,7 @@ public class CustomCollectors {
         }
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var a1 = Triple.of(1, 2, 3);
         var b1 = Triple.of(4, 5, 6);
         var c1 = Triple.of(7, 8, 9);
@@ -44,8 +44,8 @@ public class CustomCollectors {
         var b3 = Triple.of(4, 5, 6);
         var c3 = Triple.of(7, 8, 9);
         var z = Stream.of(a1, b1, c1, a2, b2, c2, a3, b3, c3).collect(toListValuedMap(Triple::a));
-        System.out.println(z);
+        IO.println(z);
         var z1 = Stream.of(a1, b1, c1, a2, b2, c2, a3, b3, c3).collect(toListValuedMap(Triple::a, Triple::b));
-        System.out.println(z1);
+        IO.println(z1);
     }
 }

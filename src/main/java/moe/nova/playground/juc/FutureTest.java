@@ -19,7 +19,7 @@ public class FutureTest {
         return task * 2;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         try (var threadPoolExecutor = Executors.newCachedThreadPool()) {
             long start = System.currentTimeMillis();
 
@@ -34,7 +34,7 @@ public class FutureTest {
                 future.get();
             }
             long end = System.currentTimeMillis();
-            System.out.println((end - start) + " ms!");
+            IO.println((end - start) + " ms!");
         } catch (Exception e) {
             throw ExceptionUtils.asRuntimeException(e);
         }

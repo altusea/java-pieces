@@ -1,9 +1,9 @@
 package moe.nova.playground.serde;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.SequenceWriter;
-import com.fasterxml.jackson.dataformat.csv.CsvMapper;
-import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+import tools.jackson.databind.SequenceWriter;
+import tools.jackson.dataformat.csv.CsvMapper;
+import tools.jackson.dataformat.csv.CsvSchema;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -13,9 +13,9 @@ public class CsvTest {
     @JsonPropertyOrder({"name", "age", "validated"}) // important!
     public static class Person {
 
-        public String name;
-        public int age;
-        public boolean validated;
+        public final String name;
+        public final int age;
+        public final boolean validated;
 
         public Person(String n, int a, boolean v) {
             name = n;
@@ -24,7 +24,7 @@ public class CsvTest {
         }
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         final CsvMapper csvMapper = new CsvMapper();
 
         CsvSchema schema = csvMapper.schemaFor(Person.class)
@@ -36,7 +36,7 @@ public class CsvTest {
             seqW.write(new Person("Bob", 37, false));
             seqW.write(new Person("Jeff", 28, true));
 
-            System.out.println(strW);
+            IO.println(strW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

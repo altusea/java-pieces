@@ -17,7 +17,7 @@ public class ExceptionTest {
         throw new SocketTimeoutException();
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         new Thread(Runnables.doNothing()).start();
 
         LOGGER.info("test log ...");

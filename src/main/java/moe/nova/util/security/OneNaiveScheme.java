@@ -45,7 +45,7 @@ public class OneNaiveScheme {
         return new SM2(null, senderPubKey).verify(strToSign.getBytes(), HexUtil.decode(messageStruct.sign()));
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var sender = SmUtil.sm2();
         var receiver = SmUtil.sm2();
 
@@ -54,6 +54,6 @@ public class OneNaiveScheme {
         demoObj.setFieldB("bbb");
 
         var struct = construct(demoObj, DemoClazz::getFieldA, sender.getPrivateKey(), receiver.getPublicKey());
-        System.out.println(check(struct, DemoClazz.class, DemoClazz::getFieldA, sender.getPublicKey(), receiver.getPrivateKey(), Duration.ofSeconds(30L)));
+        IO.println(check(struct, DemoClazz.class, DemoClazz::getFieldA, sender.getPublicKey(), receiver.getPrivateKey(), Duration.ofSeconds(30L)));
     }
 }

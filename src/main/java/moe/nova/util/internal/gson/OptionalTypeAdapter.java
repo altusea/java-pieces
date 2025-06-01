@@ -32,6 +32,7 @@ public class OptionalTypeAdapter<T> extends TypeAdapter<Optional<T>> {
 
     private final TypeAdapter<T> valueAdapter;
 
+    @SuppressWarnings("unchecked")
     public OptionalTypeAdapter(Gson gson, TypeToken<Optional<T>> type) {
         if (!Optional.class.isAssignableFrom(type.getRawType()))
             throw new IllegalArgumentException();
@@ -58,10 +59,11 @@ public class OptionalTypeAdapter<T> extends TypeAdapter<Optional<T>> {
     public Optional<T> read(JsonReader in) throws IOException {
         Optional<T> res;
         in.beginArray();
-        if (in.peek() == JsonToken.END_ARRAY)
+        if (in.peek() == JsonToken.END_ARRAY) {
             res = Optional.empty();
-        else
+        } else {
             res = Optional.of(valueAdapter.read(in));
+        }
         in.endArray();
 
         return res;

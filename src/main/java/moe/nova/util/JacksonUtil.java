@@ -1,10 +1,10 @@
 package moe.nova.util;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.apache.commons.lang3.ArrayUtils;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.type.TypeFactory;
 
 import java.util.List;
 import java.util.Map;
@@ -13,33 +13,33 @@ import static moe.nova.util.FunctionalUtil.invokeSafely;
 
 public class JacksonUtil {
 
-    private static final JsonMapper JSON_MAPPER;
+    private static final StableValue<JsonMapper> JSON_MAPPER = StableValue.of();
 
-    static {
-        JSON_MAPPER = JacksonObjectMapperFactory.createJsonMapper();
+    static JsonMapper getJsonMapper() {
+        return JSON_MAPPER.orElseSet(JacksonObjectMapperFactory::createJsonMapper);
     }
 
     public static String toJson(Object value) {
-        return invokeSafely(() -> JSON_MAPPER.writeValueAsString(value));
+        return invokeSafely(() -> getJsonMapper().writeValueAsString(value));
     }
 
     public static <T> T fromJson(String content, Class<T> valueType) {
-        return invokeSafely(() -> JSON_MAPPER.readValue(content, valueType));
+        return invokeSafely(() -> getJsonMapper().readValue(content, valueType));
     }
 
     public static <T> T fromJson(String content, TypeReference<T> valueTypeRef) {
-        return invokeSafely(() -> JSON_MAPPER.readValue(content, valueTypeRef));
+        return invokeSafely(() -> getJsonMapper().readValue(content, valueTypeRef));
     }
 
     public static <T> T fromJson(String content, JavaType valueType) {
-        return invokeSafely(() -> JSON_MAPPER.readValue(content, valueType));
+        return invokeSafely(() -> getJsonMapper().readValue(content, valueType));
     }
 
     public static JavaType buildJavaTypeLinearly(Class<?>... classes) {
         if (ArrayUtils.isEmpty(classes)) {
             return null;
         }
-        TypeFactory typeFactory = JSON_MAPPER.getTypeFactory();
+        TypeFactory typeFactory = getJsonMapper().getTypeFactory();
         int n = classes.length;
         if (n == 1) {
             return typeFactory.constructType(classes[0]);
@@ -56,13 +56,13 @@ public class JacksonUtil {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(buildJavaTypeLinearly());
-        System.out.println(buildJavaTypeLinearly(String.class));
-        System.out.println(buildJavaTypeLinearly(List.class, Integer.class));
-        System.out.println(buildJavaTypeLinearly(List.class, List.class, String.class));
+    static void main(String[] args) {
+        IO.println(buildJavaTypeLinearly());
+        IO.println(buildJavaTypeLinearly(String.class));
+        IO.println(buildJavaTypeLinearly(List.class, Integer.class));
+        IO.println(buildJavaTypeLinearly(List.class, List.class, String.class));
 
-        TypeFactory typeFactory = JSON_MAPPER.getTypeFactory();
-        System.out.println(typeFactory.constructMapType(Map.class, String.class, Integer.class));
+        TypeFactory typeFactory = getJsonMapper().getTypeFactory();
+        IO.println(typeFactory.constructMapType(Map.class, String.class, Integer.class));
     }
 }
