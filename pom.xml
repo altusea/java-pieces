@@ -31,7 +31,7 @@
         <joda-money.version>2.0.0</joda-money.version>
         <jsoup.version>1.18.1</jsoup.version>
         <junit.version>5.11.3</junit.version>
-        <kala.version>0.74.0</kala.version>
+        <kala.version>0.82.0</kala.version>
         <logback.version>1.5.11</logback.version>
         <slf4j.version>2.0.13</slf4j.version>
         <vavr.version>0.10.5</vavr.version>
