@@ -35,7 +35,7 @@ public class EnumCollTest {
         DEVELOPER
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Map<String, Color> map = EnumUtils.getEnumMap(Color.class, Color::getCode);
         IO.println(map.get(Color.RED.code));
 

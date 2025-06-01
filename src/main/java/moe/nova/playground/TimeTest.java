@@ -10,7 +10,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class TimeTest {
 
-    public static void main(String[] args) throws InterruptedException {
+    static void main(String[] args) throws InterruptedException {
         Instant instant1 = Instant.now();
         Thread.sleep(Duration.ofSeconds(1));
         var instant2 = Instant.now();

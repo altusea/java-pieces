@@ -12,7 +12,7 @@ public class ArrayTest {
         }
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         test(); // will print "input is empty"
         test("a"); // will print "input is not empty"
     }

@@ -20,7 +20,7 @@ public class JacksonTest {
     record EnumHolder(TestEnum e) {
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         JsonMapper jsonMapper = JacksonObjectMapperFactory.createJsonMapper();
 
         var n = new EnumHolder(TestEnum.INIT);

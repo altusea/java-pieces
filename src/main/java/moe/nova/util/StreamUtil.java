@@ -99,7 +99,7 @@ public class StreamUtil {
         );
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         List<Character> characters = Lists.newArrayList('a', 'b', 'c');
         List<CharSequence> charSequences = mapAsList(characters, e -> StringUtils.repeat(e, 3));
         IO.println(charSequences);

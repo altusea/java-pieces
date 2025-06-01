@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class ImageTest {
 
-    public static void main(String[] args) throws IOException {
+    static void main(String[] args) throws IOException {
         File imageFile = new File("40b3a1.jpeg");
         BufferedImage image = ImageIO.read(imageFile);
 

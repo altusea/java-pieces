@@ -29,7 +29,7 @@ public class ExcelTest {
         }
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         String fileName = "demo.xlsx";
         // 读取 Excel 文件
         FastExcel.read(fileName, DemoData.class, new DemoDataListener()).sheet().doRead();

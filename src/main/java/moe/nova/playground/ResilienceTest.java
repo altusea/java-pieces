@@ -9,7 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 public class ResilienceTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         RetryConfig config = RetryConfig.custom()
                 .maxAttempts(2)
                 .waitDuration(Duration.ofMillis(100))

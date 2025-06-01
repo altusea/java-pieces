@@ -41,7 +41,7 @@ record Error(String errorMsg) implements ParseResult {
 }
 
 class ResultTest {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         ParseResult r = ParseResult.parseInt("Hello World");
         IO.println(r);
         IO.println(r.getOrDefault(-1));

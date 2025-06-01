@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 public class NumberTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         BigDecimal a = BigDecimal.valueOf(1.0);
         IO.println(a.toString());
         IO.println(a.toPlainString());

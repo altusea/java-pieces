@@ -13,7 +13,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class HutoolTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         IO.println(ConvertUtil.digitToChinese(12356));
         IO.println(ConvertUtil.digitToChinese(10045.14));
 

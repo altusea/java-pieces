@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 
 public class TimeTest3 {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var date1 = LocalDate.parse("20250312", DateFormatPool.PURE_DATE_FORMATTER);
         var date2 = LocalDate.parse("20250315", DateFormatPool.PURE_DATE_FORMATTER);
         IO.println(TimeUtil.betweenPeriod(date1, date2).getDays());

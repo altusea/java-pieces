@@ -6,7 +6,7 @@ import java.time.Duration;
 
 public class RateLimiterTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var limiter0 = RateLimiter.smoothBuilder(10, Duration.ofHours(1L)).build();
         IO.println("SmoothBuilder.tryAcquirePermit() returns " + limiter0.tryAcquirePermit());
         IO.println("SmoothBuilder.tryAcquirePermit() returns " + limiter0.tryAcquirePermit());

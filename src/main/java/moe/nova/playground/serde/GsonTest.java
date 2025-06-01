@@ -14,7 +14,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class GsonTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Gson gson = new Gson();
         IO.println(gson.toJson(List.of()));
         String jsonString = "{\"key1\":\"value1\",\"key2\":\"value2\"}";

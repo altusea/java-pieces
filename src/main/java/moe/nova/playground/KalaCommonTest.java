@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 public class KalaCommonTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         IO.println("Hello, Kala.");
 
         IO.println("\n=====> Seq");

@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DuckDBTest {
-    public static void main(String[] args) throws SQLException {
+    static void main(String[] args) throws SQLException {
         var conn = DriverManager.getConnection("jdbc:duckdb:");
         // insert
         var stmt = conn.createStatement();

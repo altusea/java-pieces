@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 public class PredicateTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
 
         List<String> a = List.of("Aah", "Adder", "Ccc", "Aa", "Dylan");
 

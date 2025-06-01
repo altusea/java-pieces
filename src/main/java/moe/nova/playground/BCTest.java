@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 public class BCTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var a = "夸克会第一时间上传，其他网盘几小时后上传";
         var bytes = a.getBytes(StandardCharsets.UTF_8);
         IO.println(Hex.toHexString(bytes));

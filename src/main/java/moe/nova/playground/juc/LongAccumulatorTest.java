@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.LongAccumulator;
 
 public class LongAccumulatorTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         LongAccumulator balance = new LongAccumulator(Long::sum, 10000L);
         Runnable w = () -> balance.accumulate(1000L);
         try (ExecutorService executor = Executors.newFixedThreadPool(50)) {

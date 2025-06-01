@@ -33,7 +33,7 @@ public class CustomCollectors {
         }
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var a1 = Triple.of(1, 2, 3);
         var b1 = Triple.of(4, 5, 6);
         var c1 = Triple.of(7, 8, 9);

@@ -25,7 +25,7 @@ public final class FunctionalUtil {
         }
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Consumers.accept(Consumers.nop(), "hello");
         Suppliers.get(null);
         ifTrue(null, null, System.out::println);

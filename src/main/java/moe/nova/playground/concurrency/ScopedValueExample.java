@@ -11,7 +11,7 @@ public class ScopedValueExample {
 
     private static final ScopedValue<String> scopedValue = ScopedValue.newInstance();
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         try (var scope = StructuredTaskScope.open()) {
             scope.fork(() -> {
                 ScopedValue.where(scopedValue, "Scoped Value").run(

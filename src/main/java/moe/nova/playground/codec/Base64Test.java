@@ -9,7 +9,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class Base64Test {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         String url = "https://www.baidu.com?query=时间";
         String a1 = Base64.encode(url);
         IO.println(a1);

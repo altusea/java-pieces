@@ -15,7 +15,7 @@ public class FileTest {
 
     private static final Logger log = LoggerFactory.getLogger(FileTest.class);
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         try {
             File tempFile = Files.createTempFile("content", null).toFile();
             IO.println(tempFile.getAbsolutePath());

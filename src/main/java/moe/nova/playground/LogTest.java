@@ -12,7 +12,7 @@ public class LogTest {
         throw new IllegalStateException();
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         final org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger(LogTest.class);
         var a = LocalDateTime.now();
         var b = "Alice";

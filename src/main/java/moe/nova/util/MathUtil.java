@@ -14,7 +14,7 @@ public class MathUtil {
         return new double[]{stepDown(a + b), stepUp(a + b)};
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         IO.println(Math.ceilDiv(10, 3));
         IO.println(Math.ceilDiv(10, 2));
         IO.println(Math.ceilDiv(1L, 3L));

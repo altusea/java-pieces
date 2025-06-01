@@ -7,7 +7,7 @@ import java.util.Base64;
 
 public class SymmetricTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         try {
             String plaintext = "Hello, World!"; // 要加密的明文
 

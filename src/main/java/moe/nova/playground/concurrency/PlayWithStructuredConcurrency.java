@@ -13,7 +13,7 @@ public class PlayWithStructuredConcurrency {
     record Weather(String weather) {
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
 
         try (var scope = StructuredTaskScope.open()) {
             var future1 = scope.fork(readWeatherA());

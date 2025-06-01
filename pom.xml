@@ -313,20 +313,16 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.houbb/sensitive-word -->
+        <dependency>
+            <groupId>com.github.houbb</groupId>
+            <artifactId>sensitive-word</artifactId>
+            <version>0.26.0</version>
+        </dependency>
         <dependency>
             <groupId>com.github.mizosoft.methanol</groupId>
             <artifactId>methanol</artifactId>
             <version>${methanol.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.avaje</groupId>
-            <artifactId>avaje-http-client</artifactId>
-            <version>${avaje.client.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.avaje</groupId>
-            <artifactId>avaje-jsonb</artifactId>
-            <version>${avaje.client.version}</version>
         </dependency>
         <dependency>
             <groupId>com.ginsberg</groupId>

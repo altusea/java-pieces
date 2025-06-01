@@ -17,7 +17,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class CommonsLangTest {
 
-    public static void main(String[] args) throws InterruptedException {
+    static void main(String[] args) throws InterruptedException {
         MutableInt mutableInt = new MutableInt(100);
         mutableInt.increment();
         IO.println(mutableInt.getAndAdd(5)); // should be 101

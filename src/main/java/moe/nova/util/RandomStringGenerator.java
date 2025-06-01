@@ -43,7 +43,7 @@ public class RandomStringGenerator {
         partitions.forEach(e -> IO.println(String.join(" ", e)));
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         List<String> res = IntStream.rangeClosed(1, 100)
                 .mapToObj(_ -> generateRandomString(9, ALPHABETS))
                 .toList();

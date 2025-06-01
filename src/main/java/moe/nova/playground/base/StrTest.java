@@ -9,7 +9,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class StrTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         printSeparateLine();
         String a = "hello about 中国 西方 二分 earth all.";
         IO.println("raw length: " + a.length());

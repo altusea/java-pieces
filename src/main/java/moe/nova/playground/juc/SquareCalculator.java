@@ -16,7 +16,7 @@ public class SquareCalculator {
         });
     }
 
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
+    static void main(String[] args) throws InterruptedException, ExecutionException {
 
         Future<Integer> future = new SquareCalculator().calculate(10);
 

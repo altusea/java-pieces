@@ -16,7 +16,7 @@ public class SwitchTest {
         };
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         IO.println(toStr(new Result.Ok<>("hello")));
         IO.println(toStr(new Result.Err<>(new RuntimeException("error"))));
 

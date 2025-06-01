@@ -23,7 +23,7 @@ public class AnimalStreamUtil {
         return tripleWindowGatherer.andThen(areAllTriplesValidGatherer);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var validSequence = List.of(SHEEP, SHEEP_DOG, WOLF, WOLF);
         IO.println("Valid animal sequence result:");
         validSequence.stream()

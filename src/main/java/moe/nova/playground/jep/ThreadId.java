@@ -15,7 +15,7 @@ public class ThreadId {
         return threadId.get();
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    static void main(String[] args) throws InterruptedException {
         // Run a task in a virtual thread
         Thread.startVirtualThread(() -> IO.println("Virtual Thread ID: " + get()));
 

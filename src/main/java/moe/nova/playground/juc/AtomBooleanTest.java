@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class AtomBooleanTest {
 
-    public static void main(String[] args) throws InterruptedException {
+    static void main(String[] args) throws InterruptedException {
         final AtomicBoolean atomBoolean = new AtomicBoolean(false);
 
         try (ExecutorService executor = Executors.newCachedThreadPool()) {

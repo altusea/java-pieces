@@ -8,7 +8,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class CollTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var a = Lists.newArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
         a.removeIf(e -> Integer.parseInt(e) % 2 == 0);
         IO.println(a);
@@ -30,7 +30,7 @@ public class CollTest {
         map.putLast("B", 2);
         map.putLast("C", 3);
         map.putLast("A", 1);
-        map.forEach((key, value) -> IO.println(key + " : " + value));
+        map.forEach((k, v) -> IO.println(k + " : " + v));
 
         printSeparateLine("test SequencedSet:");
         SequencedSet<String> set = new LinkedHashSet<>();

@@ -45,7 +45,7 @@ public class OneNaiveScheme {
         return new SM2(null, senderPubKey).verify(strToSign.getBytes(), HexUtil.decode(messageStruct.sign()));
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var sender = SmUtil.sm2();
         var receiver = SmUtil.sm2();
 

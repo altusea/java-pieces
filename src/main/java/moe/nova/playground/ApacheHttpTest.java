@@ -14,7 +14,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class ApacheHttpTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         try (var client = HttpClients.createDefault()) {
             var bodyStr = Request.get("https://www.baidu.com")
                     .viaProxy("http://127.0.0.1:7890")

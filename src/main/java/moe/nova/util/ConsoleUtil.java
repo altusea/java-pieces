@@ -22,7 +22,7 @@ public class ConsoleUtil {
         IO.println(SHORTER_SEPARATE_LINE + str + SHORTER_SEPARATE_LINE);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         IO.println(StringUtils.repeat("=", 80));
     }
 }

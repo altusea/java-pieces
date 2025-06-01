@@ -68,7 +68,7 @@ public class NettyClient {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    static void main(String[] args) throws Exception {
         String host = "localhost";
         int port = 8080;
         if (args.length > 0) {

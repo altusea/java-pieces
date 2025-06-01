@@ -13,7 +13,7 @@ public record Money(BigDecimal amount, Currency currency) {
         return new Money(amount.multiply(multiplier), currency);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Currency currency = Currency.getInstance("CNY");
         IO.println(currency);
         IO.println(Currency.getAvailableCurrencies());

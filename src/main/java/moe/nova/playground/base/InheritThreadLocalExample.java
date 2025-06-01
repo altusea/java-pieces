@@ -10,7 +10,7 @@ public class InheritThreadLocalExample {
     // 创建一个 InheritableThreadLocal 对象
     private static final InheritableThreadLocal<String> threadLocal = new InheritableThreadLocal<>();
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         // 在父线程中设置数据
         threadLocal.set("Hello, World!");
 

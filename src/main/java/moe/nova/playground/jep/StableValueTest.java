@@ -4,7 +4,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class StableValueTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         var supplier = StableValue.supplier(() -> "hello, world");
         IO.println(supplier.get());
 
