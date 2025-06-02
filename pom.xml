@@ -27,7 +27,7 @@
         <fastjson.version>2.0.57</fastjson.version>
         <fastutil.version>8.5.15</fastutil.version>
         <freemarker.version>2.3.34</freemarker.version>
-        <gatherers4j.version>0.10.0</gatherers4j.version>
+        <gatherers4j.version>0.11.0</gatherers4j.version>
         <gson.version>2.13.1</gson.version>
         <guava.version>33.4.8-jre</guava.version>
         <helidon.version>4.2.2</helidon.version>
