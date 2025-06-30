@@ -43,7 +43,7 @@
         <kala-compress.version>1.27.1-1</kala-compress.version>
         <log4j.version>2.25.0</log4j.version>
         <lombok.version>1.18.38</lombok.version>
-        <methanol.version>1.8.2</methanol.version>
+        <methanol.version>1.8.3</methanol.version>
         <more-gatherers.version>0.0.2</more-gatherers.version>
         <resilience4j.version>2.3.0</resilience4j.version>
         <sensitive-word.version>0.26.0</sensitive-word.version>
