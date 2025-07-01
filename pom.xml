@@ -6,7 +6,7 @@
 
     <groupId>moe.nova</groupId>
     <artifactId>java-pieces</artifactId>
-    <version>2025.6.0</version>
+    <version>2025.7.0</version>
 
     <properties>
         <maven.compiler.release>25</maven.compiler.release>
