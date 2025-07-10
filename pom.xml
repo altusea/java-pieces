@@ -46,7 +46,7 @@
         <lombok.version>1.18.38</lombok.version>
         <methanol.version>1.8.3</methanol.version>
         <more-gatherers.version>0.0.2</more-gatherers.version>
-        <resilience4j.version>2.3.0</resilience4j.version>
+        <okhttp.version>5.1.0</okhttp.version>
         <sensitive-word.version>0.26.2</sensitive-word.version>
         <slf4j.version>2.0.17</slf4j.version>
         <netty.version>4.2.2.Final</netty.version>
@@ -202,11 +202,6 @@
             <version>${failsafe.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.github.resilience4j</groupId>
-            <artifactId>resilience4j-retry</artifactId>
-            <version>${resilience4j.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5</artifactId>
             <version>${httpclient5.version}</version>
@@ -355,6 +350,11 @@
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
             <version>${disruptor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okhttp.version}</version>
         </dependency>
 
         <dependency>
