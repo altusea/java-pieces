@@ -21,7 +21,7 @@ public class CommonsLangTest {
         MutableInt mutableInt = new MutableInt(100);
         mutableInt.increment();
         IO.println(mutableInt.getAndAdd(5)); // should be 101
-        IO.println(mutableInt.getValue()); // should be 106
+        IO.println(mutableInt.get()); // should be 106
 
         printSeparateLine();
         Consumer<String> consumer = Consumers.nop();
