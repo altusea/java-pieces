@@ -1,6 +1,6 @@
 package moe.nova.playground;
 
-import org.dromara.hutool.core.net.url.UrlUtil;
+import cn.hutool.v7.core.net.url.UrlUtil;
 
 public class UrlTest {
 

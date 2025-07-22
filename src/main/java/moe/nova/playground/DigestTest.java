@@ -1,7 +1,7 @@
 package moe.nova.playground;
 
+import cn.hutool.v7.crypto.digest.DigestUtil;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.dromara.hutool.crypto.digest.DigestUtil;
 
 public class DigestTest {
 

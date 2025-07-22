@@ -1,10 +1,10 @@
 package moe.nova.playground;
 
-import org.dromara.hutool.core.convert.ConvertUtil;
-import org.dromara.hutool.core.data.IdcardUtil;
-import org.dromara.hutool.core.data.MaskingUtil;
-import org.dromara.hutool.core.date.DateUtil;
-import org.dromara.hutool.core.date.TimeUtil;
+import cn.hutool.v7.core.convert.ConvertUtil;
+import cn.hutool.v7.core.data.IdcardUtil;
+import cn.hutool.v7.core.data.masking.MaskingUtil;
+import cn.hutool.v7.core.date.DateUtil;
+import cn.hutool.v7.core.date.TimeUtil;
 
 import java.time.LocalDateTime;
 import java.util.Date;

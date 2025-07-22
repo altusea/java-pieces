@@ -1,6 +1,6 @@
 package moe.nova.playground;
 
-import org.dromara.hutool.core.math.NumberUtil;
+import cn.hutool.v7.core.math.NumberUtil;
 
 import java.math.BigDecimal;
 

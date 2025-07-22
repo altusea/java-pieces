@@ -1,7 +1,7 @@
 package moe.nova.playground;
 
-import org.dromara.hutool.core.date.DateFormatPool;
-import org.dromara.hutool.core.date.TimeUtil;
+import cn.hutool.v7.core.date.DateFormatPool;
+import cn.hutool.v7.core.date.TimeUtil;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

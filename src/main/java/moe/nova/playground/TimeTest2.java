@@ -1,6 +1,6 @@
 package moe.nova.playground;
 
-import org.dromara.hutool.core.date.DateUtil;
+import cn.hutool.v7.core.date.DateUtil;
 
 import java.time.Instant;
 import java.util.Date;

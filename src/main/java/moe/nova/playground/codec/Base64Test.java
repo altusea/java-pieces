@@ -1,7 +1,7 @@
 package moe.nova.playground.codec;
 
+import cn.hutool.v7.core.codec.binary.Base64;
 import com.google.common.io.BaseEncoding;
-import org.dromara.hutool.core.codec.binary.Base64;
 
 import java.nio.charset.StandardCharsets;
 

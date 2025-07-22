@@ -1,6 +1,6 @@
 package moe.nova.util.security;
 
-import org.dromara.hutool.crypto.asymmetric.SM2;
+import cn.hutool.v7.crypto.asymmetric.SM2;
 
 public class SM2Test {
 

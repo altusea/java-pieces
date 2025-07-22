@@ -1,7 +1,7 @@
 package moe.nova.util.internal.jackson;
 
+import cn.hutool.v7.core.date.DateFormatPool;
 import org.apache.commons.lang3.StringUtils;
-import org.dromara.hutool.core.date.DateFormatPool;
 import tools.jackson.core.JsonParser;
 import tools.jackson.core.JsonToken;
 import tools.jackson.databind.DeserializationContext;

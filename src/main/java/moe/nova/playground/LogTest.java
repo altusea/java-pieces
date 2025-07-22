@@ -1,7 +1,7 @@
 package moe.nova.playground;
 
-import org.dromara.hutool.core.exception.ExceptionUtil;
-import org.dromara.hutool.core.io.IORuntimeException;
+import cn.hutool.v7.core.exception.ExceptionUtil;
+import cn.hutool.v7.core.io.IORuntimeException;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

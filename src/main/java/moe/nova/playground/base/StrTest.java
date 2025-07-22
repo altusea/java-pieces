@@ -1,6 +1,6 @@
 package moe.nova.playground.base;
 
-import org.dromara.hutool.core.text.StrUtil;
+import cn.hutool.v7.core.text.StrUtil;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

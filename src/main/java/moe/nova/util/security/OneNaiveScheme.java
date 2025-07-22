@@ -1,11 +1,11 @@
 package moe.nova.util.security;
 
+import cn.hutool.v7.core.codec.binary.HexUtil;
+import cn.hutool.v7.crypto.asymmetric.KeyType;
+import cn.hutool.v7.crypto.asymmetric.SM2;
+import cn.hutool.v7.crypto.bc.SmUtil;
 import moe.nova.bean.DemoClazz;
 import moe.nova.util.JacksonUtil;
-import org.dromara.hutool.core.codec.binary.HexUtil;
-import org.dromara.hutool.crypto.asymmetric.KeyType;
-import org.dromara.hutool.crypto.asymmetric.SM2;
-import org.dromara.hutool.crypto.bc.SmUtil;
 
 import java.security.PrivateKey;
 import java.security.PublicKey;

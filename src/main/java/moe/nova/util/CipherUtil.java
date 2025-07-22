@@ -1,7 +1,7 @@
 package moe.nova.util;
 
+import cn.hutool.v7.crypto.symmetric.SM4;
 import org.apache.commons.codec.binary.Hex;
-import org.dromara.hutool.crypto.symmetric.SM4;
 
 import java.security.Security;
 
