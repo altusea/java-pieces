@@ -1,10 +1,12 @@
 package moe.nova.playground;
 
+import cn.hutool.v7.core.exception.ExceptionUtil;
 import com.google.common.util.concurrent.Runnables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.net.SocketTimeoutException;
 
 import static moe.nova.util.FunctionalUtil.invokeSafely;
@@ -22,5 +24,12 @@ public class ExceptionTest {
 
         LOGGER.info("test log ...");
         invokeSafely(ExceptionTest::throwCheckException);
+
+        var e1 = new RuntimeException();
+        var e2 = new UncheckedIOException(new IOException());
+        IO.println(ExceptionUtil.getRootCause(e1).getClass());
+        IO.println(ExceptionUtil.getRootCause(e1).getClass().getName());
+        IO.println(ExceptionUtil.getRootCause(e2).getClass());
+        IO.println(ExceptionUtil.getRootCause(e2).getClass().getName());
     }
 }
