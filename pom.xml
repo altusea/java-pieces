@@ -23,7 +23,6 @@
         <duckdb.version>1.3.2.0</duckdb.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <failsafe.version>3.3.2</failsafe.version>
-        <fastexcel.version>1.2.0</fastexcel.version>
         <fastjson.version>2.0.57</fastjson.version>
         <fastutil.version>8.5.16</fastutil.version>
         <freemarker.version>2.3.34</freemarker.version>
@@ -46,7 +45,6 @@
         <methanol.version>1.8.3</methanol.version>
         <more-gatherers.version>0.0.2</more-gatherers.version>
         <okhttp.version>5.1.0</okhttp.version>
-        <sensitive-word.version>0.27.0</sensitive-word.version>
         <slf4j.version>2.0.17</slf4j.version>
         <netty.version>4.2.3.Final</netty.version>
         <!-- maven -->
@@ -283,42 +281,9 @@
             <version>${freemarker.version}</version>
         </dependency>
         <dependency>
-            <groupId>cn.idev.excel</groupId>
-            <artifactId>fastexcel</artifactId>
-            <version>${fastexcel.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.commons</groupId>
-                    <artifactId>commons-collections4</artifactId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>commons-codec</artifactId>
-                    <groupId>commons-codec</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>commons-io</artifactId>
-                    <groupId>commons-io</groupId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.commons</groupId>
-                    <artifactId>commons-compress</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.projectlombok</groupId>
-                    <artifactId>lombok</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.houbb/sensitive-word -->
-        <dependency>
-            <groupId>com.github.houbb</groupId>
-            <artifactId>sensitive-word</artifactId>
-            <version>${sensitive-word.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.mizosoft.methanol</groupId>
