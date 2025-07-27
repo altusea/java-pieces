@@ -231,12 +231,6 @@
         <dependency>
             <groupId>tools.jackson.datatype</groupId>
             <artifactId>jackson-datatype-guava</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>tools.jackson.dataformat</groupId>
