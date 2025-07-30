@@ -1,6 +1,7 @@
 package moe.nova.playground.base;
 
 import cn.hutool.v7.core.text.StrUtil;
+import org.apache.commons.text.RandomStringGenerator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,5 +30,10 @@ public class StrTest {
 
         final String MSG = "{\"encrypt\":\"%1$s\",\"msg_signature\":\"%2$s\",\"timestamp\":\"%3$s\",\"nonce\":\"%4$s\"}";
         System.out.printf(MSG + "%n", 1, 2, "xx3", 4);
+
+        var randomStringGenerator = new RandomStringGenerator.Builder()
+                .withinRange('a', 'z')
+                .get();
+        System.out.println(randomStringGenerator.generate(10));
     }
 }
