@@ -9,7 +9,7 @@ public class QueryParam extends BaseParam {
         throw new IllegalArgumentException();
     }
 
-    static void main(String[] args) {
+    static void main() {
         var _ = new QueryParam();
     }
 }

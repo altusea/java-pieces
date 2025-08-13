@@ -12,7 +12,7 @@ public class MoneyUtil {
         return Gatherers.scan(() -> balance, Money::add);
     }
 
-    static void main(String[] args) {
+    static void main() {
         var CNY = Currency.getInstance("CNY");
 
         var transactions = List.of(

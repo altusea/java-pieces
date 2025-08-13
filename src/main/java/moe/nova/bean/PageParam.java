@@ -26,7 +26,7 @@ public class PageParam extends BaseParam {
         this.pageSize = pageSize;
     }
 
-    static void main(String[] args) {
+    static void main() {
         PageParam param = new PageParam();
         param.setTraceId(UUID.randomUUID().toString());
         IO.println(JacksonUtil.toJson(param));

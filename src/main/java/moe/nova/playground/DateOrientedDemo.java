@@ -39,7 +39,7 @@ public class DateOrientedDemo {
         };
     }
 
-    static void main(String[] args) {
+    static void main() {
         var circle = new Circle(new Point(0, 0), 5);
         var rectangle = new Rectangle(new Point(2, 2), new Point(10, 10));
         var triangle = new Triangle(new Point(0, 0), new Point(5, 0), new Point(0, 12));

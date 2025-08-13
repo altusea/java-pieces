@@ -19,7 +19,7 @@ public class FutureTest {
         return task * 2;
     }
 
-    static void main(String[] args) {
+    static void main() {
         try (var threadPoolExecutor = Executors.newCachedThreadPool()) {
             long start = System.currentTimeMillis();
 

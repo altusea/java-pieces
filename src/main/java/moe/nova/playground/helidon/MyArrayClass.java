@@ -11,7 +11,7 @@ import java.lang.invoke.VarHandle;
 class MyArrayClass {
     private int[] myArray;
 
-    static void main(String[] args) {
+    static void main() {
         MyArrayClass instance = new MyArrayClass();
         instance.myArray = new int[10];
 

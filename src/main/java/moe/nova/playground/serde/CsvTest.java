@@ -24,7 +24,7 @@ public class CsvTest {
         }
     }
 
-    static void main(String[] args) {
+    static void main() {
         final CsvMapper csvMapper = new CsvMapper();
 
         CsvSchema schema = csvMapper.schemaFor(Person.class)

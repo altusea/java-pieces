@@ -30,7 +30,7 @@ public class TreeTest {
         }
     }
 
-    static void main(String[] args) {
+    static void main() {
         Collection<Organization> organizationList = Lists.newArrayList(
                 new Organization(0L, "A", null),
                 new Organization(1L, "B", 0L),

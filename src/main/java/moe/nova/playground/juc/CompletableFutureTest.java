@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class CompletableFutureTest {
 
-    static void main(String[] args) {
+    static void main() {
 
         try (var threadPoolExecutor = Executors.newVirtualThreadPerTaskExecutor()) {
 

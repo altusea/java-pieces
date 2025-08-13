@@ -11,7 +11,7 @@ public class CipherUtil {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
     }
 
-    static void main(String[] args) {
+    static void main() {
         var sm4 = new SM4();
         IO.println(Hex.encodeHexString(sm4.getSecretKey().getEncoded()));
     }

@@ -8,7 +8,7 @@ import java.util.stream.Gatherers;
 
 public class FunctionTest {
 
-    static void main(String[] args) {
+    static void main() {
         Consumer<SequencedCollection<String>> consumer = e -> e.addLast("tail");
         var stringList = new ArrayList<String>();
         stringList.addFirst("head");

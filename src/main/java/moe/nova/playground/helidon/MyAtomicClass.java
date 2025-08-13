@@ -9,7 +9,7 @@ import java.lang.invoke.VarHandle;
 class MyAtomicClass {
     private int myAtomicField;
 
-    static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+    static void main() throws NoSuchFieldException, IllegalAccessException {
         MyAtomicClass instance = new MyAtomicClass();
 
         // 获取 VarHandle 来访问 myAtomicField

@@ -38,7 +38,7 @@ final class Halve implements IntOp {
 }
 
 class IntOpTest {
-    static void main(String[] args) {
+    static void main() {
         int i = 10;
         var op1 = new Increment();
         IO.println(IntOp.opOn(i, op1));

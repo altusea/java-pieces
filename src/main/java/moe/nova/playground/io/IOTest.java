@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 
 public class IOTest {
 
-    static void main(String[] args) throws IOException {
+    static void main() throws IOException {
         String a = "hello, world";
         byte[] bytes = a.getBytes(StandardCharsets.UTF_8);
 

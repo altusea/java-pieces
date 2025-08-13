@@ -38,7 +38,7 @@ public class RetryUtil {
         Failsafe.with(retryPolicy).run(procedure);
     }
 
-    static void main(String[] args) {
+    static void main() {
         withTry((CheckedRunnable) () -> {
             IO.println("exec time: " + LocalDateTime.now());
             throw new NotImplementedException("todo");

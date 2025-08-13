@@ -4,7 +4,7 @@ import cn.hutool.v7.core.net.url.UrlUtil;
 
 public class UrlTest {
 
-    static void main(String[] args) {
+    static void main() {
         var a = "https://www.baidu.com/open/killSerview?authCode=111111";
         IO.println(UrlUtil.getPath(a));
         var u = UrlUtil.url(a);

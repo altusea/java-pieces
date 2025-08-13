@@ -23,7 +23,7 @@ public class StringUtil {
         return res;
     }
 
-    static void main(String[] args) {
+    static void main() {
         String hybrid = "我能吞下glass而不伤害body";
         int[] codePoints = StringUtils.toCodePoints(hybrid);
         for (int codePoint : codePoints) {

@@ -23,7 +23,7 @@ public class Person implements Diffable<Person> {
                 .build();
     }
 
-    static void main(String[] args) {
+    static void main() {
         Person person = new Person();
         person.name = "John";
         person.age = 18;

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class VanillaJacksonTest {
 
-    static void main(String[] args) {
+    static void main() {
         final var defaultJsonMapper = JsonMapper.builder().build();
         final var now = LocalDateTime.now();
         final var s = defaultJsonMapper.writeValueAsString(now);

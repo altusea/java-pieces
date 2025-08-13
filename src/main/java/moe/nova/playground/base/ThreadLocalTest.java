@@ -2,7 +2,7 @@ package moe.nova.playground.base;
 
 public class ThreadLocalTest {
 
-    static void main(String[] args) {
+    static void main() {
         var threadLocal = ThreadLocal.withInitial(() -> "foo");
         threadLocal.set("bar");
         IO.println(threadLocal.get());

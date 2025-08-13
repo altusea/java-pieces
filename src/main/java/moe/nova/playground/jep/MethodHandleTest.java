@@ -6,7 +6,7 @@ import java.lang.invoke.MethodType;
 
 public class MethodHandleTest {
 
-    static void main(String[] args) throws Throwable {
+    static void main() throws Throwable {
         var lookup = MethodHandles.lookup();
         MethodHandle targetMh = lookup.findStatic(MethodHandleTest.class, "target", MethodType.methodType(void.class));
         targetMh.invoke(); // prints 'invoking target'

@@ -44,7 +44,7 @@ public class JacksonJrTest {
         }
     }
 
-    static void main(String[] args) throws IOException {
+    static void main() throws IOException {
         var a = new TestRecord(1, "A", 18);
         IO.println(JSON.std.asString(a));
         IO.println(JacksonUtil.toJson(a));

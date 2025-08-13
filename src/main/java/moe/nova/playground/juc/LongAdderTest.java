@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 public class LongAdderTest {
 
-    static void main(String[] args) {
+    static void main() {
         final LongAdder longAdder = new LongAdder();
         try (var threadPoolExecutor = Executors.newCachedThreadPool()) {
             for (int i = 0; i < 1000; i++) {

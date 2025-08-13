@@ -71,7 +71,7 @@ public class TestVTPool {
         task.await();
     }
 
-    static void main(String[] args) throws Exception {
+    static void main() throws Exception {
         for (int i = 0; i < 10; i++) { // 测试10轮,主要看后面几轮,确保预热和线程池复用效果
             System.gc(); // 每次测试前GC确保不受堆上已有太多垃圾导致触发GC影响性能
             test1();

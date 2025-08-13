@@ -8,7 +8,7 @@ import java.util.ServiceLoader;
 
 public class ServiceLoaderTest {
 
-    static void main(String[] args) {
+    static void main() {
         var logger = LoggerFactory.getLogger(ServiceLoaderTest.class);
         ServiceLoader<SLF4JServiceProvider> serviceLoader = ServiceLoader.load(
                 SLF4JServiceProvider.class, ClassLoader.getSystemClassLoader());

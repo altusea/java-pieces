@@ -118,7 +118,7 @@ public class ApacheHttpUtil {
         return executeRequestWithProxy(httpGet, proxy);
     }
 
-    static void main(String[] args) throws IOException {
+    static void main() throws IOException {
         String url = "https://www.baidu.com";
         IO.println(get(url));
 

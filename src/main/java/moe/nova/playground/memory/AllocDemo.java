@@ -5,7 +5,7 @@ import java.lang.foreign.MemorySegment;
 
 public class AllocDemo {
 
-    static void main(String[] args) {
+    static void main() {
         try (Arena arena = Arena.ofConfined()) {
             MemorySegment cString = arena.allocateFrom("Panama");
             String jString = cString.getString(0L);

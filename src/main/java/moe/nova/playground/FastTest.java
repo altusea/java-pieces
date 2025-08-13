@@ -7,7 +7,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class FastTest {
 
-    static void main(String[] args) {
+    static void main() {
         LongList a = new LongArrayList();
         a.add(1L);
         a.add(2L);

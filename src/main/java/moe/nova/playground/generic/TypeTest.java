@@ -13,7 +13,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class TypeTest {
 
-    static void main(String[] args) {
+    static void main() {
         IO.println(Exception.class.isAssignableFrom(RuntimeException.class));
         IO.println(RuntimeException.class.isAssignableFrom(Exception.class));
         IO.println(Exception.class.isInstance(new RuntimeException()));

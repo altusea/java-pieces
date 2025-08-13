@@ -26,7 +26,7 @@ record ContactMe() implements ItemPrice {
 
 class ItemPriceTest {
 
-    static void main(String[] args) {
+    static void main() {
         ItemPrice sale1 = new Sale(100.0);
         IO.println(sale1);
         ItemPrice trade1 = new Trade(List.of("Phone", "Laptop"));

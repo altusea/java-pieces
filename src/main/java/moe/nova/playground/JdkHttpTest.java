@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 
 public class JdkHttpTest {
 
-    static void main(String[] args) {
+    static void main() {
         try (var httpClient = HttpClient.newBuilder()
                 .executor(Executors.newVirtualThreadPerTaskExecutor())
                 .build()) {

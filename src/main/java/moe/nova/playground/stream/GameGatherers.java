@@ -19,7 +19,7 @@ public class GameGatherers {
         return pairPlayersGatherer.andThen(simulateGamesGatherer);
     }
 
-    static void main(String[] args) {
+    static void main() {
         var listOfPlayers = List.of(
                 new Player("John"),
                 new Player("Marry"),

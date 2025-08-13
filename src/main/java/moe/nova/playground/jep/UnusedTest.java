@@ -14,7 +14,7 @@ public class UnusedTest {
         return total;
     }
 
-    static void main(String[] args) {
+    static void main() {
         List<String> a = Lists.newArrayList("a", "b", "c");
         IO.println(count(a));
     }

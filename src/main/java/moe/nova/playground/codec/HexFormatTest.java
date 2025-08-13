@@ -5,7 +5,7 @@ import java.util.HexFormat;
 
 public class HexFormatTest {
 
-    static void main(String[] args) {
+    static void main() {
         HexFormat format = HexFormat.of().withUpperCase();
 
         byte[] input = new byte[]{127, 0, -50, 105};

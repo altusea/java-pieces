@@ -47,7 +47,7 @@ public class UrlTest {
         }
     }
 
-    static void main(String[] args) {
+    static void main() {
         String s = "https://www.c.cc/index.html?code=xxx&aa=bb";
         var urlHolder = new UrlHolder();
         urlHolder.setA("axx");

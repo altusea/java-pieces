@@ -56,7 +56,7 @@ public class JacksonUtil {
         }
     }
 
-    static void main(String[] args) {
+    static void main() {
         IO.println(buildJavaTypeLinearly());
         IO.println(buildJavaTypeLinearly(String.class));
         IO.println(buildJavaTypeLinearly(List.class, Integer.class));

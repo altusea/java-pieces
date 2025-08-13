@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class MethanolTest {
 
-    static void main(String[] args) {
+    static void main() {
         var builder = Methanol.newBuilder()
                 .userAgent("Will Smith") // Custom User-Agent
                 .baseUri("https://api.github.com") // Base URI to resolve requests' URI against

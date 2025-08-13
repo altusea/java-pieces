@@ -50,7 +50,7 @@ public final class JacksonObjectMapperFactory {
                 .build();
     }
 
-    static void main(String[] args) {
+    static void main() {
         TimeHolder timeHolder = new TimeHolder();
         timeHolder.setYearMonth(YearMonth.now());
         timeHolder.setLocalDate(LocalDate.now());

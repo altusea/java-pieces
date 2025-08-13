@@ -12,7 +12,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class PixelTest {
 
-    static void main(String[] args) throws IOException {
+    static void main() throws IOException {
         String homeDir = System.getProperty("user.home");
         Path homeDirPath = Paths.get(homeDir);
         Path picturesDirPath = homeDirPath.resolve("Downloads\\pic-test");

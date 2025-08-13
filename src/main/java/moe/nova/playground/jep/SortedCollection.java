@@ -5,7 +5,7 @@ import java.util.SequencedSet;
 
 public class SortedCollection {
 
-    static void main(String[] args) {
+    static void main() {
         SequencedSet<String> set = new LinkedHashSet<>();
         set.addLast("A");
         set.addLast("B");

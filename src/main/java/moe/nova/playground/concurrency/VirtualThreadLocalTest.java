@@ -8,7 +8,7 @@ public class VirtualThreadLocalTest {
             () -> Thread.currentThread().threadId()
     );
 
-    static void main(String[] args) {
+    static void main() {
         try (var e = Executors.newVirtualThreadPerTaskExecutor()) {
             for (int i = 0; i < 100; i++) {
                 e.execute(() -> IO.println(Thread.currentThread().threadId() + " get: " + localVar.get()));

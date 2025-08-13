@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ForLoopTest {
 
-    static void main(String[] args) {
+    static void main() {
         List<Runnable> toDoList = new ArrayList<>();
         for (int i = 1; i <= 3; i++) {
             int j = i;

@@ -14,7 +14,7 @@ public sealed class Animal permits Dog, Cat {
         this.age = age;
     }
 
-    static void main(String[] args) {
+    static void main() {
         var a = new Dog();
         a.setAge(10);
         a.setSpices("white");

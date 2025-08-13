@@ -69,7 +69,7 @@ public final class ByteUtil {
         return 0;
     }
 
-    static void main(String[] args) {
+    static void main() {
         IO.println(0x57);
         var a = new byte[]{14, 15, 16, 17, 18};
         IO.println(toHexadecimal(a));

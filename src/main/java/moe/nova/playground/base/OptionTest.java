@@ -25,7 +25,7 @@ public class OptionTest {
         return Option.some(seq.getFirst());
     }
 
-    static void main(String[] args) {
+    static void main() {
         var a = new ArrayList<String>();
         a.add(null);
         a.add("a");

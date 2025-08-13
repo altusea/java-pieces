@@ -49,7 +49,7 @@ public class GathererTest {
         return Gatherer.ofSequential(initializer, integrator, finisher);
     }
 
-    static void main(String[] args) {
+    static void main() {
         IO.println("groupAndFindMax example: ");
         var listA = List.of(
                 new DateRecord("B", LocalDate.of(2024, 6, 2)),

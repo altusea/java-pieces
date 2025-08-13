@@ -9,7 +9,7 @@ import java.lang.invoke.VarHandle;
 class MyClass {
     private int myField;
 
-    static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+    static void main() throws NoSuchFieldException, IllegalAccessException {
         MyClass instance = new MyClass();
 
         // 获取 VarHandle 来访问 myField

@@ -8,7 +8,7 @@ import com.google.common.collect.TreeRangeSet;
 
 public class GuavaTest {
 
-    static void main(String[] args) {
+    static void main() {
         Joiner joiner = Joiner.on("; ").skipNulls();
         IO.println(joiner.join("Harry", null, "Ron", "Hermione"));
 

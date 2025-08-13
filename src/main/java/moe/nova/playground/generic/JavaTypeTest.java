@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class JavaTypeTest {
 
-    static void main(String[] args) {
+    static void main() {
         TypeFactory typeFactory1 = TypeFactory.createDefaultInstance();
         TypeFactory typeFactory2 = JacksonObjectMapperFactory.createJsonMapper().getTypeFactory();
         IO.println("typeFactory1 == typeFactory2: " + (typeFactory1 == typeFactory2));

@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class TimeTest2 {
 
-    static void main(String[] args) {
+    static void main() {
         IO.println(System.currentTimeMillis());
         IO.println(Instant.now().toEpochMilli());
 

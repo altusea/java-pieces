@@ -8,7 +8,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class CollTest {
 
-    static void main(String[] args) {
+    static void main() {
         var a = Lists.newArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
         a.removeIf(e -> Integer.parseInt(e) % 2 == 0);
         IO.println(a);

@@ -22,7 +22,7 @@ import java.io.IOException;
 
 public class ApacheHttpClientTest {
 
-    static void main(String[] args) throws IOException {
+    static void main() throws IOException {
         try (var client = HttpClients.createDefault()) {
             String body = client.execute(ClassicRequestBuilder.get().setUri("https://www.baidu.com").build(), new BasicHttpClientResponseHandler());
             IO.println(body);

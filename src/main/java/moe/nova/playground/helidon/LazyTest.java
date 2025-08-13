@@ -4,7 +4,7 @@ import io.helidon.common.LazyValue;
 
 public class LazyTest {
 
-    static void main(String[] args) {
+    static void main() {
         LazyValue<String> lazyValue = LazyValue.create(() -> "Hello World");
         IO.println(lazyValue.isLoaded());
         lazyValue.get();

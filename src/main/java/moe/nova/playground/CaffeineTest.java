@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class CaffeineTest {
 
-    static void main(String[] args) {
+    static void main() {
         LoadingCache<@NotNull String, Integer> cache = Caffeine.newBuilder()
                 .expireAfterWrite(Duration.ofMinutes(30L))
                 .build(String::length);

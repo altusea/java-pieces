@@ -14,7 +14,7 @@ public class FailTest {
         throw new NotImplementedException("not implemented ...");
     }
 
-    static void main(String[] args) {
+    static void main() {
         RetryPolicy<Object> retryPolicy = RetryPolicy.builder()
                 .handle(UnsupportedOperationException.class)
                 .withDelay(Duration.ofSeconds(1))

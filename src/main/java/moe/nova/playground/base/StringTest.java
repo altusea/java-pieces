@@ -5,7 +5,7 @@ import moe.nova.util.StringUtil;
 
 public class StringTest {
 
-    static void main(String[] args) {
+    static void main() {
         String s = """
                 第一行
                 第二行

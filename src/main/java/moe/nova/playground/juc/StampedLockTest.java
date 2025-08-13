@@ -23,7 +23,7 @@ public class StampedLockTest {
         }
     }
 
-    static void main(String[] args) {
+    static void main() {
         StampedLock lock = new StampedLock();
         Balance b = new Balance(10000);
         Runnable w = () -> {

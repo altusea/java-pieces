@@ -73,7 +73,7 @@ public final class MoreGatherers {
         );
     }
 
-    static void main(String[] args) {
+    static void main() {
         var a = List.of("a", "b", "c");
         var ai = a.stream().gather(zipWithIndex()).toList();
         IO.println(ai);

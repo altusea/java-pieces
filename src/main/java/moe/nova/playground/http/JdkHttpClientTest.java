@@ -7,7 +7,7 @@ import java.net.http.HttpResponse;
 
 public class JdkHttpClientTest {
 
-    static void main(String[] args) {
+    static void main() {
         try (var client = HttpClient.newHttpClient()) {
             HttpRequest request = HttpRequest.newBuilder()
                     .GET()

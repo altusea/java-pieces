@@ -38,7 +38,7 @@ public class GsonUtil {
         return getGsonInstance().toJson(obj);
     }
 
-    static void main(String[] args) {
+    static void main() {
         Optional<String> a = Optional.of("a");
         Optional<String> b = Optional.empty();
         Optional<List<String>> c = Optional.of(List.of("a", "b", "c"));

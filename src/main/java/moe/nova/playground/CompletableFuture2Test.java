@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class CompletableFuture2Test {
 
-    static void main(String[] args) {
+    static void main() {
         try {
             CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 try {
