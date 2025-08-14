@@ -22,14 +22,15 @@ public class ExceptionTest {
     static void main() {
         new Thread(Runnables.doNothing()).start();
 
-        LOGGER.info("test log ...");
-        invokeSafely(ExceptionTest::throwCheckException);
-
         var e1 = new RuntimeException();
         var e2 = new UncheckedIOException(new IOException());
         IO.println(ExceptionUtil.getRootCause(e1).getClass());
         IO.println(ExceptionUtil.getRootCause(e1).getClass().getName());
         IO.println(ExceptionUtil.getRootCause(e2).getClass());
         IO.println(ExceptionUtil.getRootCause(e2).getClass().getName());
+
+        var e3 = new RuntimeException("something bad happened ...");
+        LOGGER.info("test log ...", e3);
+        invokeSafely(ExceptionTest::throwCheckException);
     }
 }
