@@ -46,7 +46,7 @@
         <more-gatherers.version>0.0.2</more-gatherers.version>
         <okhttp.version>5.1.0</okhttp.version>
         <slf4j.version>2.0.17</slf4j.version>
-        <netty.version>4.2.3.Final</netty.version>
+        <netty.version>4.2.4.Final</netty.version>
         <!-- maven -->
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
