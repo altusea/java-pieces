@@ -23,7 +23,7 @@ public class NettyServer {
     static class ServerHandler extends SimpleChannelInboundHandler<String> {
 
         @Override
-        public void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+        public void channelRead0(ChannelHandlerContext ctx, String msg) {
             IO.println("Received message from client: " + msg);
             ctx.writeAndFlush("Server received: " + msg);
         }
@@ -44,7 +44,7 @@ public class NettyServer {
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        public void initChannel(SocketChannel ch) throws Exception {
+                        public void initChannel(SocketChannel ch) {
                             ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(new StringEncoder());
                             ch.pipeline().addLast(new ServerHandler());

@@ -16,10 +16,10 @@ public class GsonTest {
 
     static void main() {
         Gson gson = new Gson();
-        IO.println(gson.toJson(List.of()));
+        IO.println("[line 19] " + gson.toJson(List.of()));
         String jsonString = "{\"key1\":\"value1\",\"key2\":\"value2\"}";
         JsonObject jsonObject = gson.fromJson(jsonString, JsonObject.class);
-        IO.println(jsonObject.asMap().size());
+        IO.println("[line 22] " + jsonObject.asMap().size());
 
         TimeHolder clazz = new TimeHolder();
         clazz.setYearMonth(YearMonth.now());
