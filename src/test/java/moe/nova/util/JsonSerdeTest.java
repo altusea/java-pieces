@@ -12,14 +12,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class JsonSerdeTest {
 
+    static final String NULL_STR = "null";
+
     static final String NON_JSON_STR = "abc";
 
     static final String JSON_STR = "{\"desc\":\"abc\"}";
 
     @Test
     void testFastjson() {
-        assertNull(JSON.parseObject("null", String.class));
-        assertNull(JSON.parseObject("null", DataHolder.class));
+        assertNull(JSON.parseObject(NULL_STR, String.class));
+        assertNull(JSON.parseObject(NULL_STR, DataHolder.class));
         assertNull(JSON.parseObject((String) null, DataHolder.class));
 
         assertDoesNotThrow(() -> JSON.parseObject(JSON_STR, DataHolder.class));
@@ -29,8 +31,8 @@ public class JsonSerdeTest {
     @Test
     void testGson() {
         Gson gson = new Gson();
-        assertNull(gson.fromJson("null", String.class));
-        assertNull(gson.fromJson("null", DataHolder.class));
+        assertNull(gson.fromJson(NULL_STR, String.class));
+        assertNull(gson.fromJson(NULL_STR, DataHolder.class));
         assertNull(gson.fromJson((String) null, DataHolder.class));
 
         assertDoesNotThrow(() -> gson.fromJson(JSON_STR, DataHolder.class));
@@ -40,8 +42,8 @@ public class JsonSerdeTest {
     @Test
     void testJackson() {
         JsonMapper jsonMapper = new JsonMapper();
-        assertNull(jsonMapper.readValue("null", String.class));
-        assertNull(jsonMapper.readValue("null", DataHolder.class));
+        assertNull(jsonMapper.readValue(NULL_STR, String.class));
+        assertNull(jsonMapper.readValue(NULL_STR, DataHolder.class));
         assertThrows(IllegalArgumentException.class, () -> jsonMapper.readValue((String) null, DataHolder.class));
 
         assertDoesNotThrow(() -> jsonMapper.readValue(JSON_STR, DataHolder.class));
