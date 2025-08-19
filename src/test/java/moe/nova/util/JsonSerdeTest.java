@@ -25,6 +25,7 @@ public class JsonSerdeTest {
         assertNull(JSON.parseObject((String) null, DataHolder.class));
 
         assertDoesNotThrow(() -> JSON.parseObject(JSON_STR, DataHolder.class));
+        assertThrows(JSONException.class, () -> JSON.parseObject(NON_JSON_STR, String.class));
         assertThrows(JSONException.class, () -> JSON.parseObject(NON_JSON_STR, DataHolder.class));
     }
 
@@ -36,6 +37,7 @@ public class JsonSerdeTest {
         assertNull(gson.fromJson((String) null, DataHolder.class));
 
         assertDoesNotThrow(() -> gson.fromJson(JSON_STR, DataHolder.class));
+        assertDoesNotThrow(() -> gson.fromJson(NON_JSON_STR, String.class));
         assertThrows(JsonSyntaxException.class, () -> gson.fromJson(NON_JSON_STR, DataHolder.class));
     }
 
@@ -47,6 +49,7 @@ public class JsonSerdeTest {
         assertThrows(IllegalArgumentException.class, () -> jsonMapper.readValue((String) null, DataHolder.class));
 
         assertDoesNotThrow(() -> jsonMapper.readValue(JSON_STR, DataHolder.class));
+        assertThrows(StreamReadException.class, () -> jsonMapper.readValue(NON_JSON_STR, String.class));
         assertThrows(StreamReadException.class, () -> jsonMapper.readValue(NON_JSON_STR, DataHolder.class));
     }
 }

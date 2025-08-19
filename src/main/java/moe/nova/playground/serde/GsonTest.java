@@ -47,8 +47,11 @@ public class GsonTest {
         IO.println("[line 47] " + fromJson3);
 
         printSeparateLine();
-        String jsonStr4 = "{\"field\":\"ccc\",\"innerClazz\":\"\"}";
-        DataHolder fromJson4 = GsonUtil.fromJson(jsonStr4, DataHolder.class);
-        IO.println(fromJson4);
+        var s = gson.fromJson("abc", String.class);
+        IO.println("[line 51] " + s.getClass());
+        IO.println("[line 52] " + s);
+        var s1 = GsonUtil.fromJson("abc", String.class);
+        IO.println("[line 54] " + s1.getClass());
+        IO.println("[line 55] " + s1);
     }
 }
