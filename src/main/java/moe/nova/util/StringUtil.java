@@ -23,6 +23,22 @@ public class StringUtil {
         return res;
     }
 
+    public static boolean isNullOrBlank(final String input) {
+        return input == null || input.isBlank();
+    }
+
+    public static boolean isNotBlank(final String input) {
+        return !isNullOrBlank(input);
+    }
+
+    public static boolean isNullOrEmpty(final String input) {
+        return input == null || input.isEmpty();
+    }
+
+    public static boolean isNotEmpty(final String input) {
+        return !isNullOrEmpty(input);
+    }
+
     static void main() {
         String hybrid = "我能吞下glass而不伤害body";
         int[] codePoints = StringUtils.toCodePoints(hybrid);

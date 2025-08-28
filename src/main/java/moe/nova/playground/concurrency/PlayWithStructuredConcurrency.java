@@ -17,16 +17,17 @@ public class PlayWithStructuredConcurrency {
 
         try (var scope = StructuredTaskScope.open()) {
             var future1 = scope.fork(readWeatherA());
-            var future2 = scope.fork(readWeatherB());
             var future3 = scope.fork(readWeatherC());
             scope.join();
 
             IO.println("future1: " + future1.state());
-            IO.println("future2: " + future2.state());
             IO.println("future3: " + future3.state());
 
             if (future1.state() == StructuredTaskScope.Subtask.State.SUCCESS) {
                 IO.println("future1.get(): " + future1.get());
+            }
+            if (future3.state() == StructuredTaskScope.Subtask.State.SUCCESS) {
+                IO.println("future3.get(): " + future3.get());
             }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

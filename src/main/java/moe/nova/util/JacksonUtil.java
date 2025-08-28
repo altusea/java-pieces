@@ -9,8 +9,6 @@ import tools.jackson.databind.type.TypeFactory;
 import java.util.List;
 import java.util.Map;
 
-import static moe.nova.util.FunctionalUtil.invokeSafely;
-
 public class JacksonUtil {
 
     private static final StableValue<JsonMapper> JSON_MAPPER = StableValue.of();
@@ -20,19 +18,19 @@ public class JacksonUtil {
     }
 
     public static String toJson(Object value) {
-        return invokeSafely(() -> getJsonMapper().writeValueAsString(value));
+        return getJsonMapper().writeValueAsString(value);
     }
 
     public static <T> T fromJson(String content, Class<T> valueType) {
-        return invokeSafely(() -> getJsonMapper().readValue(content, valueType));
+        return getJsonMapper().readValue(content, valueType);
     }
 
     public static <T> T fromJson(String content, TypeReference<T> valueTypeRef) {
-        return invokeSafely(() -> getJsonMapper().readValue(content, valueTypeRef));
+        return getJsonMapper().readValue(content, valueTypeRef);
     }
 
     public static <T> T fromJson(String content, JavaType valueType) {
-        return invokeSafely(() -> getJsonMapper().readValue(content, valueType));
+        return getJsonMapper().readValue(content, valueType);
     }
 
     public static JavaType buildJavaTypeLinearly(Class<?>... classes) {
