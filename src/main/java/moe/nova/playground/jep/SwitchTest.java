@@ -16,6 +16,15 @@ public class SwitchTest {
         };
     }
 
+    public static String toStr(Object o) {
+        return switch (o) {
+            case Integer i when i > 42 -> "Beyond the meaning of life";
+            case Integer i when i == 42 -> "The meaning of life";
+            case Integer i when i <= 42 -> "Keep searching";
+            default -> "unknown";
+        };
+    }
+
     static void main() {
         IO.println(toStr(new Result.Ok<>("hello")));
         IO.println(toStr(new Result.Err<>(new RuntimeException("error"))));
@@ -33,5 +42,7 @@ public class SwitchTest {
                 yield 0;
         };
         IO.println(result);
+        IO.println(toStr(42));
+        IO.println(toStr("hello"));
     }
 }
