@@ -6,13 +6,14 @@ import java.util.HexFormat;
 public class HexFormatTest {
 
     static void main() {
-        HexFormat format = HexFormat.of().withUpperCase();
+        HexFormat formatUppercase = HexFormat.of().withUpperCase();
+        HexFormat formatLowercase = HexFormat.of();
 
         byte[] input = new byte[]{127, 0, -50, 105};
-        String hex = format.formatHex(input);
-        IO.println(hex);
+        IO.println(formatUppercase.formatHex(input));
+        IO.println(formatLowercase.formatHex(input));
 
-        byte[] output = format.parseHex(hex);
-        assert Arrays.compare(input, output) == 0;
+        byte[] output = formatUppercase.parseHex("7F00CE69");
+        IO.println(Arrays.compare(input, output) == 0);
     }
 }

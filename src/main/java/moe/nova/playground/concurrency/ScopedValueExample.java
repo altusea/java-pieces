@@ -15,10 +15,17 @@ public class ScopedValueExample {
         try (var scope = StructuredTaskScope.open()) {
             scope.fork(() -> {
                 ScopedValue.where(scopedValue, "Scoped Value").run(
-                        () -> IO.println(Thread.currentThread().getName() + " - " + scopedValue.get()));
+                        () -> IO.println(Thread.currentThread().threadId() + " - " + scopedValue.get()));
+                return null;
+            });
+            scope.fork(() -> {
+                ScopedValue.where(scopedValue, "Scoped Value").run(
+                        () -> IO.println(Thread.currentThread().threadId() + " - " + scopedValue.get()));
                 return null;
             });
             scope.join();
+            new Thread(() -> IO.println(Thread.currentThread().threadId() + " - " + scopedValue.get())).start(); // throw NoSuchElementException
+            scopedValue.get(); // throw NoSuchElementException
         } catch (InterruptedException e) {
             log.error("Interrupted", e);
         }
