@@ -41,7 +41,7 @@
         <junit.version>6.0.0-RC3</junit.version>
         <kala-common.version>0.83.0</kala-common.version>
         <log4j.version>2.25.1</log4j.version>
-        <lombok.version>1.18.40</lombok.version>
+        <lombok.version>1.18.42</lombok.version>
         <methanol.version>1.8.3</methanol.version>
         <more-gatherers.version>0.0.2</more-gatherers.version>
         <okhttp.version>5.1.0</okhttp.version>
