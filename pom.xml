@@ -26,7 +26,7 @@
         <duckdb.version>1.4.0.0</duckdb.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <failsafe.version>3.3.2</failsafe.version>
-        <fastjson.version>2.0.58</fastjson.version>
+        <fastjson.version>2.0.59</fastjson.version>
         <fastutil.version>8.5.16</fastutil.version>
         <freemarker.version>2.3.34</freemarker.version>
         <gatherers4j.version>0.11.0</gatherers4j.version>
@@ -35,7 +35,7 @@
         <helidon.version>4.3.0-M3</helidon.version>
         <httpclient5.version>5.5</httpclient5.version>
         <hutool.version>7.0.0-M1</hutool.version>
-        <jackson.version>3.0.0-rc9</jackson.version>
+        <jackson.version>3.0.0-rc10</jackson.version>
         <jctools.version>4.0.5</jctools.version>
         <joda-money.version>2.0.2</joda-money.version>
         <jsoup.version>1.21.2</jsoup.version>
