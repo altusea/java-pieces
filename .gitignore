@@ -9,3 +9,6 @@
 doc/
 target/
 req/
+
+# test files
+**/*.pdf

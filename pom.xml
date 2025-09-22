@@ -45,6 +45,7 @@
         <methanol.version>1.8.3</methanol.version>
         <more-gatherers.version>0.0.2</more-gatherers.version>
         <okhttp.version>5.1.0</okhttp.version>
+        <pdfbox.version>3.0.5</pdfbox.version>
         <slf4j.version>2.0.17</slf4j.version>
         <netty.version>4.2.6.Final</netty.version>
         <!-- maven -->
@@ -330,6 +331,11 @@
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp-jvm</artifactId>
             <version>${okhttp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>${pdfbox.version}</version>
         </dependency>
 
         <dependency>
