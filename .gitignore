@@ -12,3 +12,4 @@ req/
 
 # test files
 **/*.pdf
+**/*.xlsx
