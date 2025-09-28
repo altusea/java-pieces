@@ -40,7 +40,7 @@ public class PdfWatermarkUtil {
                     contentStream.setNonStrokingColor(Color.GRAY); // 较深的灰色可能更适合中文水印
 
                     // 设置中文字体和大小
-                    float fontSize = 60;
+                    float fontSize = 16;
                     contentStream.setFont(chineseFont, fontSize);
 
                     // 获取页面尺寸
@@ -51,13 +51,15 @@ public class PdfWatermarkUtil {
                     float textWidth = chineseFont.getStringWidth(watermarkText) / 1000 * fontSize;
                     float textHeight = fontSize; // 近似字体高度
 
-                    float x = (pageWidth - textWidth) / 2;
-                    float y = (pageHeight - textHeight) / 2;
-
-                    // 旋转水印 (例如，-45度)
                     contentStream.beginText();
-                    contentStream.setTextMatrix(Matrix.getRotateInstance(Math.toRadians(-45), x, y));
-                    contentStream.showText(watermarkText);
+                    // 根据纸张大小添加水印，30度倾斜
+                    for (int h = 20; h < pageHeight; h += textHeight * 4) {
+                        for (int w = 20; w < pageWidth; w += textWidth) {
+                            contentStream.setTextMatrix(Matrix.getRotateInstance(0.3, w, h));
+                            contentStream.showText(watermarkText);
+                        }
+                    }
+
                     contentStream.endText();
                 }
             }
