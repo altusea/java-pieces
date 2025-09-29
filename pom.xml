@@ -41,7 +41,7 @@
         <jsoup.version>1.21.2</jsoup.version>
         <jspecify.version>1.0.0</jspecify.version>
         <junit.version>6.0.0-RC3</junit.version>
-        <kala-common.version>0.83.0</kala-common.version>
+        <kala-common.version>0.84.0</kala-common.version>
         <log4j.version>2.25.2</log4j.version>
         <lombok.version>1.18.42</lombok.version>
         <methanol.version>1.8.3</methanol.version>
