@@ -13,3 +13,6 @@ req/
 # test files
 **/*.pdf
 **/*.xlsx
+
+## MacOS files
+.DS_Store
