@@ -91,5 +91,7 @@ public class LLMStreamResponseOkHttpTest {
             System.err.println("Stream processing interrupted: " + e.getMessage());
             Thread.currentThread().interrupt();
         }
+
+        System.exit(0);
     }
 }
