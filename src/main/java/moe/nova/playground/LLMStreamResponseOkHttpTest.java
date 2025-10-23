@@ -1,5 +1,8 @@
 package moe.nova.playground;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import dev.langchain4j.model.openai.internal.chat.ChatCompletionResponse;
 import io.github.cdimascio.dotenv.Dotenv;
 import okhttp3.*;
 import okhttp3.sse.EventSource;
@@ -10,9 +13,19 @@ import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CountDownLatch;
 
+import static moe.nova.util.FunctionalUtil.invokeSafely;
+
 public class LLMStreamResponseOkHttpTest {
 
     static final MediaType JSON = MediaType.parse("application/json");
+
+    static final JsonMapper JSON_MAPPER = JsonMapper.builder()
+            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            .build();
+
+    static <T> T toObj(String json, Class<T> clazz) {
+        return invokeSafely(() -> JSON_MAPPER.readValue(json, clazz));
+    }
 
     static void main() throws Exception {
         Dotenv env = Dotenv.configure()
@@ -57,8 +70,14 @@ public class LLMStreamResponseOkHttpTest {
 
             @Override
             public void onEvent(@NonNull EventSource eventSource, String id, String type, @NonNull String data) {
-                System.out.println("SSE Event - ID: " + id + ", Type: " + type);
                 System.out.println(data);
+                if (!data.equals("[DONE]")) {
+                    ChatCompletionResponse completionResponse = toObj(data, ChatCompletionResponse.class);
+                    System.out.println(completionResponse.choices().getFirst().delta().content());
+                } else {
+                    System.out.println(data);
+                }
+                System.out.println();
             }
 
             @Override
