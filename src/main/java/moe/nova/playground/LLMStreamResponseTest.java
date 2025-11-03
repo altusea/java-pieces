@@ -34,17 +34,18 @@ public class LLMStreamResponseTest {
                             {"role": "user", "content": "Hello! 帮我写一首诗."}
                         ],
                         "stream": true
-                    }
-                    """;
+                    }""";
             post.setEntity(new StringEntity(bodyStr));
 
-            var response = client.execute(post);
-            HttpEntity entity = response.getEntity();
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    System.out.println(line);
+            try (var response = client.executeOpen(null, post, null)) {
+                HttpEntity entity = response.getEntity();
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        System.out.println(line);
+                    }
                 }
+                System.out.println(entity.isStreaming());
             }
         }
     }

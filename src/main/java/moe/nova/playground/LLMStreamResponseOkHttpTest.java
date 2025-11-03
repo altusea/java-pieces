@@ -42,8 +42,7 @@ public class LLMStreamResponseOkHttpTest {
                         {"role": "user", "content": "Hello! 帮我写一首诗."}
                     ],
                     "stream": true
-                }
-                """;
+                }""";
         RequestBody requestBody = RequestBody.create(bodyStr, JSON);
 
         Request request = new Request.Builder()
