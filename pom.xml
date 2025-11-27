@@ -43,7 +43,7 @@
         <jspecify.version>1.0.0</jspecify.version>
         <junit.version>6.0.1</junit.version>
         <kala-common.version>0.85.0</kala-common.version>
-        <langchain4j.version>1.8.0</langchain4j.version>
+        <langchain4j.version>1.9.0</langchain4j.version>
         <log4j.version>2.25.2</log4j.version>
         <lombok.version>1.18.42</lombok.version>
         <methanol.version>1.8.4</methanol.version>
