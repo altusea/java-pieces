@@ -14,7 +14,7 @@
         <!-- libs -->
         <apache-pdfbox.version>3.0.6</apache-pdfbox.version>
         <apache-poi.version>5.5.0</apache-poi.version>
-        <bouncycastle.version>1.82</bouncycastle.version>
+        <bouncycastle.version>1.83</bouncycastle.version>
         <caffeine.version>3.2.3</caffeine.version>
         <commons-codec.version>1.20.0</commons-codec.version>
         <commons-collections4.version>4.5.0</commons-collections4.version>
