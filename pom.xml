@@ -24,7 +24,7 @@
         <commons-text.version>1.15.0</commons-text.version>
         <disruptor.version>4.0.0</disruptor.version>
         <dotenv-java.version>3.2.0</dotenv-java.version>
-        <duckdb.version>1.4.2.0</duckdb.version>
+        <duckdb.version>1.4.3.0</duckdb.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <failsafe.version>3.3.2</failsafe.version>
         <fastjson.version>2.0.60</fastjson.version>
