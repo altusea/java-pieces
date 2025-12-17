@@ -44,7 +44,7 @@
         <junit.version>6.0.1</junit.version>
         <kala-common.version>0.85.0</kala-common.version>
         <langchain4j.version>1.9.1</langchain4j.version>
-        <log4j.version>2.25.2</log4j.version>
+        <log4j.version>2.25.3</log4j.version>
         <lombok.version>1.18.42</lombok.version>
         <methanol.version>1.8.4</methanol.version>
         <more-gatherers.version>0.1.0</more-gatherers.version>
