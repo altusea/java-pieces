@@ -30,7 +30,7 @@
         <fastjson.version>2.0.60</fastjson.version>
         <fastutil.version>8.5.18</fastutil.version>
         <freemarker.version>2.3.34</freemarker.version>
-        <gatherers4j.version>0.12.0</gatherers4j.version>
+        <gatherers4j.version>0.13.0</gatherers4j.version>
         <gson.version>2.13.2</gson.version>
         <guava.version>33.5.0-jre</guava.version>
         <helidon.version>4.3.3</helidon.version>
