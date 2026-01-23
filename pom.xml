@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.1.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 http://maven.apache.org/xsd/maven-4.1.0.xsd">
-    <modelVersion>4.1.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <groupId>moe.nova</groupId>
     <artifactId>java-pieces</artifactId>
@@ -41,7 +41,7 @@
         <joda-money.version>2.0.3</joda-money.version>
         <jsoup.version>1.22.1</jsoup.version>
         <jspecify.version>1.0.0</jspecify.version>
-        <junit.version>6.1.0-M1</junit.version>
+        <junit.version>6.0.2</junit.version>
         <kala-common.version>0.85.0</kala-common.version>
         <langchain4j.version>1.10.0</langchain4j.version>
         <log4j.version>2.25.3</log4j.version>
@@ -52,11 +52,11 @@
         <slf4j.version>2.0.17</slf4j.version>
         <netty.version>4.2.9.Final</netty.version>
         <!-- maven -->
-        <maven-clean-plugin.version>4.0.0-beta-2</maven-clean-plugin.version>
-        <maven-compiler-plugin.version>4.0.0-beta-3</maven-compiler-plugin.version>
+        <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
+        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.9.0</maven-dependency-plugin.version>
-        <maven-resources-plugin.version>4.0.0-beta-1</maven-resources-plugin.version>
-        <maven-source-plugin.version>4.0.0-beta-1</maven-source-plugin.version>
+        <maven-resources-plugin.version>3.4.0</maven-resources-plugin.version>
+        <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
         <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
     </properties>
 
@@ -246,12 +246,6 @@
         <dependency>
             <groupId>tools.jackson.datatype</groupId>
             <artifactId>jackson-datatype-guava</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>tools.jackson.dataformat</groupId>
