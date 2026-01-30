@@ -50,6 +50,18 @@ public class GathererTest {
     }
 
     static void main() {
+        IO.println("takeWhile example: ");
+        List<Integer> list0 = Stream.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
+                .takeWhile(i -> i < 5)
+                .toList();
+        System.out.println(list0);
+
+        IO.println("dropWhile example: ");
+        List<Integer> list1 = Stream.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
+                .dropWhile(i -> i < 5)
+                .toList();
+        System.out.println(list1);
+
         IO.println("groupAndFindMax example: ");
         var listA = List.of(
                 new DateRecord("B", LocalDate.of(2024, 6, 2)),
