@@ -2,7 +2,9 @@ package moe.nova.playground;
 
 import cn.hutool.v7.core.date.DateUtil;
 
+import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class TimeTest2 {
@@ -21,5 +23,11 @@ public class TimeTest2 {
         var date1 = DateUtil.parse("Fri Feb 29 18:03:09 CST 1732");
         IO.println(DateUtil.toInstant(date1).toEpochMilli());
         IO.println(Long.MAX_VALUE);
+
+        var threeDaysLater = LocalDateTime.now().plusDays(3L);
+        IO.println(threeDaysLater);
+        Duration duration = Duration.ofHours(6L);
+        var sixHoursLater = LocalDateTime.now().plus(duration);
+        IO.println(sixHoursLater);
     }
 }
