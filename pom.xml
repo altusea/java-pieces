@@ -36,7 +36,7 @@
         <helidon.version>4.3.4</helidon.version>
         <httpclient5.version>5.6</httpclient5.version>
         <hutool.version>7.0.0-M4</hutool.version>
-        <jackson.version>3.0.4</jackson.version>
+        <jackson.version>3.1.0</jackson.version>
         <jctools.version>4.0.5</jctools.version>
         <joda-money.version>2.0.3</joda-money.version>
         <jsoup.version>1.22.1</jsoup.version>
