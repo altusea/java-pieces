@@ -39,5 +39,9 @@ public class HutoolTest {
         LocalDateTime localDateTime = LocalDateTime.now();
         IO.println(TimeUtil.toEpochMilli(TimeUtil.endOfDay(localDateTime, false)));
         IO.println(TimeUtil.toEpochMilli(TimeUtil.endOfDay(localDateTime, true)));
+
+        printSeparateLine();
+        System.out.println(DateUtil.ageOfNow("2016-03-10 12:00:00"));
+        System.out.println(DateUtil.ageOfNow("2016-03-01 12:00:00"));
     }
 }
