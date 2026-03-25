@@ -33,7 +33,7 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class ApacheHttpUtil {
 
-    private static final Supplier<HttpClient> HTTP_CLIENT = StableValue.supplier(
+    private static final Supplier<HttpClient> HTTP_CLIENT = LazyConstant.of(
             () -> {
                 PoolingHttpClientConnectionManager connManager = PoolingHttpClientConnectionManagerBuilder.create()
                         .setTlsSocketStrategy(new DefaultClientTlsStrategy(

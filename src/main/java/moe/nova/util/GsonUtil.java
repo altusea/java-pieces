@@ -12,18 +12,18 @@ import static moe.nova.util.ConsoleUtil.printSeparateLine;
 
 public class GsonUtil {
 
-    private static final StableValue<Gson> GSON = StableValue.of();
+    private static final LazyConstant<Gson> GSON = LazyConstant.of(() -> {
+        GsonBuilder builder = new GsonBuilder()
+                .registerTypeAdapterFactory(DateTypeAdapter.FACTORY)
+                .registerTypeAdapterFactory(LocalDateTypeAdapter.FACTORY)
+                .registerTypeAdapterFactory(LocalDateTimeTypeAdapter.FACTORY)
+                .registerTypeAdapterFactory(YearMonthTypeAdapter.FACTORY)
+                .registerTypeAdapterFactory(OptionalTypeAdapter.factory());
+        return builder.create();
+    });
 
     static Gson getGsonInstance() {
-        return GSON.orElseSet(() -> {
-            GsonBuilder builder = new GsonBuilder()
-                    .registerTypeAdapterFactory(DateTypeAdapter.FACTORY)
-                    .registerTypeAdapterFactory(LocalDateTypeAdapter.FACTORY)
-                    .registerTypeAdapterFactory(LocalDateTimeTypeAdapter.FACTORY)
-                    .registerTypeAdapterFactory(YearMonthTypeAdapter.FACTORY)
-                    .registerTypeAdapterFactory(OptionalTypeAdapter.factory());
-            return builder.create();
-        });
+        return GSON.get();
     }
 
     public static <T> T fromJson(String jsonStr, Class<T> classOfT) {

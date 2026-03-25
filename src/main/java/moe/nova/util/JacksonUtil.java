@@ -11,10 +11,10 @@ import java.util.Map;
 
 public class JacksonUtil {
 
-    private static final StableValue<JsonMapper> JSON_MAPPER = StableValue.of();
+    private static final LazyConstant<JsonMapper> JSON_MAPPER = LazyConstant.of(JacksonObjectMapperFactory::createJsonMapper);
 
     static JsonMapper getJsonMapper() {
-        return JSON_MAPPER.orElseSet(JacksonObjectMapperFactory::createJsonMapper);
+        return JSON_MAPPER.get();
     }
 
     public static String toJson(Object value) {
