@@ -6,15 +6,14 @@
                        https://logging.apache.org/xml/ns/log4j-config-2.xsd">
 
     <Appenders>
-        <Console name="CONSOLE">
-<!--            <JsonTemplateLayout/>-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} %-5level - %msg%n"/>
         </Console>
     </Appenders>
 
     <Loggers>
-        <Logger name="moe.nova" level="ALL"/>
-        <Root level="ALL">
-            <AppenderRef ref="CONSOLE"/>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
 

@@ -3,12 +3,11 @@ package moe.nova.playground;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import dev.langchain4j.model.openai.internal.chat.ChatCompletionResponse;
-import io.github.cdimascio.dotenv.Dotenv;
+import moe.nova.util.DotEnvReader;
 import okhttp3.*;
 import okhttp3.sse.EventSource;
 import okhttp3.sse.EventSourceListener;
 import okhttp3.sse.internal.RealEventSource;
-import org.apache.commons.io.FileUtils;
 import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CountDownLatch;
@@ -28,10 +27,7 @@ public class LLMStreamResponseOkHttpTest {
     }
 
     static void main() throws Exception {
-        Dotenv env = Dotenv.configure()
-                .directory(FileUtils.getUserDirectory().getPath())
-                .load();
-        String deepseekApiKey = env.get("DEEPSEEK_API_KEY");
+        String deepseekApiKey = DotEnvReader.readVal("DEEPSEEK_API_KEY");
         System.out.println("deepseekApiKey: " + deepseekApiKey);
 
         String bodyStr = """
