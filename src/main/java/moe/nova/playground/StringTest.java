@@ -14,8 +14,8 @@ public class StringTest {
         ConsoleUtil.printSeparateLine();
 
         String s2 = """
-                第一行\
-                第二行\
+                第一行 \
+                第二行 \
                 第三行""";
         IO.println(s2);
     }
