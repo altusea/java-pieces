@@ -44,7 +44,7 @@
         <jtoon.version>1.0.9</jtoon.version>
         <junit.version>6.0.3</junit.version>
         <kala-common.version>0.85.0</kala-common.version>
-        <koog.version>0.7.3</koog.version>
+        <koog.version>0.8.0</koog.version>
         <langchain4j.version>1.13.0</langchain4j.version>
         <log4j.version>2.25.4</log4j.version>
         <lombok.version>1.18.44</lombok.version>
