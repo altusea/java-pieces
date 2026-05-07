@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import moe.nova.bean.TimeHolder;
 import moe.nova.util.GsonUtil;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.YearMonth;
@@ -53,5 +54,9 @@ public class GsonTest {
         var s1 = GsonUtil.fromJson("abc", String.class);
         IO.println("[line 54] " + s1.getClass());
         IO.println("[line 55] " + s1);
+
+        printSeparateLine();
+        var t1 = Instant.now();
+        IO.println("[line 60] " + gson.toJson(t1));
     }
 }
