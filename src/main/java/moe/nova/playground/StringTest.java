@@ -20,11 +20,13 @@ public class StringTest {
                 第三行""";
         IO.println(s2);
 
-        System.out.println(StringUtils.isNoneBlank(null));
+        ConsoleUtil.printSeparateLine();
+
+        System.out.println(StringUtils.isNoneBlank((String[]) null));
         System.out.println(StringUtils.isNoneBlank(null, null));
         System.out.println(StringUtils.isNoneBlank((String) null));
 
-        String a= getString();
+        String a = getString();
         System.out.println(StringUtils.isNoneBlank(a));
 
         var person = new Person(null, 0);
