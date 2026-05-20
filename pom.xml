@@ -42,7 +42,7 @@
         <jsoup.version>1.22.2</jsoup.version>
         <jspecify.version>1.0.0</jspecify.version>
         <jtoon.version>1.0.9</jtoon.version>
-        <junit.version>6.0.3</junit.version>
+        <junit.version>6.1.0</junit.version>
         <kala-common.version>0.85.0</kala-common.version>
         <koog.version>0.8.0</koog.version>
         <langchain4j.version>1.15.0</langchain4j.version>
