@@ -35,7 +35,7 @@
         <guava.version>33.6.0-jre</guava.version>
         <helidon.version>4.4.1</helidon.version>
         <httpclient5.version>5.6.1</httpclient5.version>
-        <hutool.version>7.0.0-M5</hutool.version>
+        <hutool.version>7.0.0-M6</hutool.version>
         <jackson.version>3.1.3</jackson.version>
         <jctools.version>4.0.6</jctools.version>
         <joda-money.version>2.0.3</joda-money.version>
