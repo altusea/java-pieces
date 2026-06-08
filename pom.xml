@@ -367,11 +367,6 @@
             <artifactId>jtoon</artifactId>
             <version>${jtoon.version}</version>
         </dependency>
-        <dependency>
-            <groupId>ai.koog</groupId>
-            <artifactId>koog-agents-jvm</artifactId>
-            <version>${koog.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
