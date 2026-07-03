@@ -1,6 +1,6 @@
 package moe.nova.playground.helidon;
 
-import io.helidon.common.LazyValue;
+import moe.nova.util.LazyValue;
 
 public class LazyTest {
 
