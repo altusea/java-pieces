@@ -34,7 +34,7 @@
         <gson.version>2.14.0</gson.version>
         <guava.version>33.6.0-jre</guava.version>
         <httpclient5.version>5.6.2</httpclient5.version>
-        <hutool.version>7.0.0-M6</hutool.version>
+        <hutool.version>7.0.0-M7</hutool.version>
         <jackson.version>3.2.0</jackson.version>
         <jctools.version>4.0.6</jctools.version>
         <joda-money.version>2.0.3</joda-money.version>
