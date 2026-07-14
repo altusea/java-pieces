@@ -11,7 +11,7 @@ import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
-import org.apache.hc.client5.http.ssl.DefaultClientTlsStrategy;
+import org.apache.hc.client5.http.ssl.ClientTlsStrategyBuilder;
 import org.apache.hc.client5.http.ssl.NoopHostnameVerifier;
 import org.apache.hc.core5.http.*;
 import org.apache.hc.core5.http.io.HttpClientResponseHandler;
@@ -20,7 +20,6 @@ import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
 import org.apache.hc.core5.pool.PoolConcurrencyPolicy;
 import org.apache.hc.core5.pool.PoolReusePolicy;
-import org.apache.hc.core5.ssl.SSLContexts;
 import org.apache.hc.core5.util.TimeValue;
 import org.apache.hc.core5.util.Timeout;
 
@@ -36,9 +35,9 @@ public class ApacheHttpUtil {
     private static final Supplier<HttpClient> HTTP_CLIENT = LazyConstant.of(
             () -> {
                 PoolingHttpClientConnectionManager connManager = PoolingHttpClientConnectionManagerBuilder.create()
-                        .setTlsSocketStrategy(new DefaultClientTlsStrategy(
-                                SSLContexts.createDefault(),
-                                NoopHostnameVerifier.INSTANCE))
+                        .setTlsSocketStrategy(ClientTlsStrategyBuilder.create()
+                                .setHostnameVerifier(NoopHostnameVerifier.INSTANCE)
+                                .buildClassic())
                         .setDefaultSocketConfig(SocketConfig.custom()
                                 .setSoTimeout(Timeout.ofMinutes(1))
                                 .build())
