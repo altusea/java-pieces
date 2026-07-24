@@ -34,6 +34,11 @@ public class StringTest {
 
         var person2 = new Person2();
         System.out.println(StringUtils.isNoneBlank(person2.getName()));
+
+        ConsoleUtil.printSeparateLine();
+        var ds = "2026-01-01";
+        var sa = ds.split("\\|");
+        System.out.println(sa.length);
     }
 
     static String getString() {
