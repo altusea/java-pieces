@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 public class TimeTest4 {
 
     static void main() {
-        LocalDate d1 = LocalDate.of(2022, 8,1);
+        LocalDate d1 = LocalDate.of(2022, 8, 1);
         LocalDate d2 = LocalDate.now();
         var period = Period.between(d1, d2);
         System.out.println(period.getDays());

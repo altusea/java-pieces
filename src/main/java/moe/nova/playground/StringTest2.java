@@ -25,5 +25,10 @@ public class StringTest2 {
         ConsoleUtil.printSeparateLine();
         var b = new StringBuilder();
         System.out.println(b.toString().length());
+
+        ConsoleUtil.printSeparateLine();
+        StringJoiner str = new StringJoiner(",", "(", ")");
+        str.add("a").add("b").add("c");
+        System.out.println(str);
     }
 }
