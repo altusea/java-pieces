@@ -2,6 +2,8 @@ package moe.nova.playground.serde;
 
 import org.apache.fory.json.ForyJson;
 
+import java.util.Optional;
+
 public class ForyJsonTest {
 
     private static final ForyJson JSON = ForyJson.builder().build();
@@ -19,7 +21,7 @@ public class ForyJsonTest {
         }
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         User input = new User(7, "Alice");
 
         String text = JSON.toJson(input);
@@ -31,5 +33,10 @@ public class ForyJsonTest {
         System.out.println(text);          // {"id":7,"name":"Alice"}
         System.out.println(fromText.name); // Alice
         System.out.println(fromUtf8.name); // Alice
+
+        Optional<User> a = Optional.of(input);
+        Optional<User> b = Optional.empty();
+        System.out.println(JSON.toJson(a));
+        System.out.println(JSON.toJson(b));
     }
 }

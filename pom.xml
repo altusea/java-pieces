@@ -22,6 +22,7 @@
         <commons-io.version>2.22.0</commons-io.version>
         <commons-lang3.version>3.20.0</commons-lang3.version>
         <commons-text.version>1.15.0</commons-text.version>
+        <fory-json.version>1.6.0</fory-json.version>
         <disruptor.version>4.0.0</disruptor.version>
         <dotenv-java.version>3.2.0</dotenv-java.version>
         <duckdb.version>1.5.5.1</duckdb.version>
@@ -99,6 +100,11 @@
             <groupId>org.jspecify</groupId>
             <artifactId>jspecify</artifactId>
             <version>${jspecify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.fory</groupId>
+            <artifactId>fory-json</artifactId>
+            <version>${fory-json.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

@@ -13,11 +13,11 @@ public class StringTest2 {
         System.out.println(Arrays.toString(StringUtils.split(s1, ':')));
         System.out.println(Arrays.toString(StringUtils.split(s1, ":")));
         var s2 = "a::b::c::d::e";
-        System.out.println(Arrays.toString(StringUtils.split(s2, ':')));
         System.out.println(Arrays.toString(StringUtils.split(s2, ":")));
         System.out.println(Arrays.toString(StringUtils.split(s2, "::")));
         var s3 = "a:::b:::c:::d:::e";
         System.out.println(Arrays.toString(StringUtils.split(s3, "::")));
+        System.out.println(Arrays.toString(StringUtils.split(s3, ":::")));
 
         ConsoleUtil.printSeparateLine();
         StringJoiner sj = new StringJoiner("|");
