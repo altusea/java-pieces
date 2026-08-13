@@ -16,15 +16,13 @@ public class StringTest2 {
         System.out.println(Arrays.toString(StringUtils.split(s2, ':')));
         System.out.println(Arrays.toString(StringUtils.split(s2, ":")));
         System.out.println(Arrays.toString(StringUtils.split(s2, "::")));
+        var s3 = "a:::b:::c:::d:::e";
+        System.out.println(Arrays.toString(StringUtils.split(s3, "::")));
 
         ConsoleUtil.printSeparateLine();
         StringJoiner sj = new StringJoiner("|");
         sj.add("a").add("b").add("c").add("d").add("e");
         System.out.println(sj);
-
-        ConsoleUtil.printSeparateLine();
-        var b = new StringBuilder();
-        System.out.println(b.toString().length());
 
         ConsoleUtil.printSeparateLine();
         StringJoiner str = new StringJoiner(",", "(", ")");
