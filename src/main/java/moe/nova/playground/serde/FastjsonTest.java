@@ -1,8 +1,10 @@
 package moe.nova.playground.serde;
 
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.alibaba.fastjson2.JSONWriter;
 import com.google.common.collect.ImmutableMap;
+import moe.nova.util.ConsoleUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,5 +25,11 @@ public class FastjsonTest {
         );
         var a = JSON.toJSONString(map, JSONWriter.Feature.WriteClassName);
         System.out.println(a);
+
+        ConsoleUtil.printSeparateLine();
+        var b = new DataHolder();
+        b.setField("hello");
+        JSONObject jsonObj = (JSONObject) JSON.toJSON(b);
+        System.out.println(jsonObj.get("field"));
     }
 }

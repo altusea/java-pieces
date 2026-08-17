@@ -1,6 +1,6 @@
 package moe.nova.playground.serde;
 
-public class DataHolder {
+class DataHolder {
 
     private String field;
 
