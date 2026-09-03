@@ -6,7 +6,7 @@
 
     <groupId>moe.nova</groupId>
     <artifactId>java-pieces</artifactId>
-    <version>2026.8.0</version>
+    <version>2026.9.0</version>
 
     <properties>
         <maven.compiler.release>26</maven.compiler.release>
@@ -28,7 +28,7 @@
         <duckdb.version>1.5.5.1</duckdb.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <failsafe.version>3.3.2</failsafe.version>
-        <fastjson.version>2.0.64</fastjson.version>
+        <fastjson.version>2.0.65</fastjson.version>
         <fastutil.version>8.5.19</fastutil.version>
         <freemarker.version>2.3.35</freemarker.version>
         <gatherers4j.version>0.14.0</gatherers4j.version>
@@ -47,7 +47,7 @@
         <koog.version>1.0.0</koog.version>
         <langchain4j.version>1.19.0</langchain4j.version>
         <log4j.version>2.26.1</log4j.version>
-        <lombok.version>1.18.46</lombok.version>
+        <lombok.version>1.18.48</lombok.version>
         <methanol.version>1.9.0</methanol.version>
         <more-gatherers.version>0.2.1</more-gatherers.version>
         <okhttp.version>5.5.0</okhttp.version>
