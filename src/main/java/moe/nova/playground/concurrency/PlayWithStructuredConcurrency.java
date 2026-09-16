@@ -3,6 +3,7 @@ package moe.nova.playground.concurrency;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.StructuredTaskScope;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,7 @@ public class PlayWithStructuredConcurrency {
             if (future3.state() == StructuredTaskScope.Subtask.State.SUCCESS) {
                 IO.println("future3.get(): " + future3.get());
             }
-        } catch (InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             throw new RuntimeException(e);
         }
 
@@ -42,7 +43,7 @@ public class PlayWithStructuredConcurrency {
             Map<StructuredTaskScope.Subtask.State, List<StructuredTaskScope.Subtask<Weather>>> map = subtasks.stream()
                     .collect(Collectors.groupingBy(StructuredTaskScope.Subtask::state, Collectors.toList()));
             map.forEach((key, val) -> System.out.print(key.name() + ": " + val.stream().map(PlayWithStructuredConcurrency::toString).collect(Collectors.joining(", ")) + "\n"));
-        } catch (InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

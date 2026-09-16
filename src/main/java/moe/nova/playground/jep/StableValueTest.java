@@ -13,9 +13,7 @@ public class StableValueTest {
         printSeparateLine();
 
         LazyConstant<String> stableValue2 = LazyConstant.of(() -> "zhu");
-        IO.println(stableValue2.orElse("backup"));
-        stableValue2.get();
-        IO.println(stableValue2.orElse("backup"));
+        IO.println(stableValue2.get());
 
         var e = Lazy.of(() -> "string");
         System.out.println(e.getClass());

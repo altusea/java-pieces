@@ -3,6 +3,7 @@ package moe.nova.playground.concurrency;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.StructuredTaskScope;
 
 public class ScopedValueExample {
@@ -26,7 +27,7 @@ public class ScopedValueExample {
             scope.join();
             new Thread(() -> IO.println(Thread.currentThread().threadId() + " - " + scopedValue.get())).start(); // throw NoSuchElementException
             scopedValue.get(); // throw NoSuchElementException
-        } catch (InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             log.error("Interrupted", e);
         }
     }
