@@ -1,7 +1,5 @@
 package moe.nova.playground;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import dev.langchain4j.model.openai.internal.chat.ChatCompletionResponse;
 import moe.nova.util.DotEnvReader;
 import okhttp3.*;
@@ -9,6 +7,8 @@ import okhttp3.sse.EventSource;
 import okhttp3.sse.EventSourceListener;
 import okhttp3.sse.internal.RealEventSource;
 import org.jspecify.annotations.NonNull;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.json.JsonMapper;
 
 import java.util.concurrent.CountDownLatch;
 
