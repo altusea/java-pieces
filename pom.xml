@@ -22,7 +22,6 @@
         <commons-io.version>2.22.0</commons-io.version>
         <commons-lang3.version>3.21.0</commons-lang3.version>
         <commons-text.version>1.15.0</commons-text.version>
-        <fory-json.version>1.7.5</fory-json.version>
         <disruptor.version>4.0.0</disruptor.version>
         <dotenv-java.version>3.2.0</dotenv-java.version>
         <duckdb.version>1.5.6.0</duckdb.version>
@@ -30,8 +29,8 @@
         <failsafe.version>3.3.2</failsafe.version>
         <fastjson.version>2.0.65</fastjson.version>
         <fastutil.version>8.5.19</fastutil.version>
+        <fory-json.version>1.7.6</fory-json.version>
         <freemarker.version>2.3.35</freemarker.version>
-        <gatherers4j.version>0.14.0</gatherers4j.version>
         <gson.version>2.14.0</gson.version>
         <guava.version>33.7.2-jre</guava.version>
         <httpclient5.version>5.6.4</httpclient5.version>
@@ -47,7 +46,6 @@
         <log4j.version>2.26.1</log4j.version>
         <lombok.version>1.18.48</lombok.version>
         <methanol.version>1.9.0</methanol.version>
-        <more-gatherers.version>0.2.1</more-gatherers.version>
         <okhttp.version>5.5.0</okhttp.version>
         <slf4j.version>2.0.20</slf4j.version>
         <netty.version>4.2.18.Final</netty.version>
@@ -284,16 +282,6 @@
             <groupId>com.github.mizosoft.methanol</groupId>
             <artifactId>methanol</artifactId>
             <version>${methanol.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ginsberg</groupId>
-            <artifactId>gatherers4j</artifactId>
-            <version>${gatherers4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.pivovarit</groupId>
-            <artifactId>more-gatherers</artifactId>
-            <version>${more-gatherers.version}</version>
         </dependency>
 
         <dependency>
