@@ -24,7 +24,7 @@
         <commons-text.version>1.15.0</commons-text.version>
         <disruptor.version>4.0.0</disruptor.version>
         <dotenv-java.version>3.2.0</dotenv-java.version>
-        <duckdb.version>1.5.6.0</duckdb.version>
+        <duckdb.version>2.0.0.0</duckdb.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <failsafe.version>3.3.2</failsafe.version>
         <fastjson.version>2.0.66</fastjson.version>
@@ -45,9 +45,9 @@
         <log4j.version>2.26.1</log4j.version>
         <lombok.version>1.18.48</lombok.version>
         <methanol.version>1.9.0</methanol.version>
-        <okhttp.version>5.5.0</okhttp.version>
-        <slf4j.version>2.0.20</slf4j.version>
         <netty.version>4.2.19.Final</netty.version>
+        <okhttp.version>5.5.1</okhttp.version>
+        <slf4j.version>2.0.20</slf4j.version>
         <zjsonpatch.version>0.6.4</zjsonpatch.version>
         <!-- maven -->
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
